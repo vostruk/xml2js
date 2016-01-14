@@ -1,0 +1,14 @@
+<ol class="xoxo"> 
+  <li>Subject 1 
+    <ol> 
+        <li>subpoint a</li>     
+		<li>subpoint b</li> 
+    </ol> 
+  </li> 
+  <li><span>Subject 2</span> 
+    <ol compact="compact"> 
+        <li>subpoint c</li> 
+        <li>subpoint d</li> 
+    </ol> 
+  </li> 
+</ol>

@@ -1,0 +1,33 @@
+{"examples":{
+"section":{
+"@xmlns":"http://www.example.com/books-r-us",
+"title":"Book-Signing Event",
+"signing":{
+"author":{
+"@title":"Mr.",
+"@name":"Vikram Seth"
+},
+"book":{
+"@title":"A Suitable Boy",
+"@price":"$2295"
+}
+}
+},
+"reservation":{
+"@xmlns:html":"http://www.w3.org/TR/REC-html40",
+"name":{
+"@html:class":"largeSansSerif",
+"#text":"Seth, Vikram"
+},
+"seat":{
+"@class":"Y",
+"@html:class":"largeMonotype",
+"#text":"33B"
+},
+"html:a":{
+"@href":"/servlets/ResStatus",
+"#text":"Check Status"
+},
+"departure":"1997-05-24T19:22:00+5"
+}
+}}
