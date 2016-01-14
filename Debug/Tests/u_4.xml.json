@@ -1,0 +1,4 @@
+{"el":{
+"@arg":"quote \" is allowed in xml, but not in JSON",
+"p":["putting \"  \"   \" signs in text need special formating before converting to JSON!","What about predefine \" sign? One more \""]
+}}

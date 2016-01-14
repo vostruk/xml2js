@@ -1,0 +1,20 @@
+<sitemapindex>
+    <sitemap>
+        <loc>http://www.bbc.co.uk/uzbek/sitemap.xml</loc>
+    </sitemap>
+	<p>blablala </p>
+	<g>blabla</g>
+    <sitemap>
+        <loc>http://www.bbc.co.uk/vietnamese/sitemap.xml</loc>
+    </sitemap>
+    <p>blablala </p>
+	<g>blabla</g>
+	<sitemap>
+        <loc>http://www.bbc.co.uk/zhongwen/simp/sitemap.xml</loc>
+    </sitemap>
+	<p>blablala </p>
+	<g>blabla</g>
+    <sitemap>
+        <loc>http://www.bbc.co.uk/zhongwen/trad/sitemap.xml</loc>
+    </sitemap>
+</sitemapindex>

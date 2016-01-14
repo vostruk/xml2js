@@ -1,0 +1,5037 @@
+{"spec":{
+"header":{
+"title":"Extensible Markup Language (XML) 1.0",
+"version":null,
+"w3c-designation":"REC-xml-19980210",
+"w3c-doctype":"W3C Recommendation",
+"pubdate":{
+"day":"10",
+"month":"February",
+"year":"1998"
+},
+"publoc":{
+"loc":[{
+"@href":"http://www.w3.org/TR/1998/REC-xml-19980210",
+"#text":"http://www.w3.org/TR/1998/REC-xml-19980210"
+},{
+"@href":"http://www.w3.org/TR/1998/REC-xml-19980210.xml",
+"#text":"http://www.w3.org/TR/1998/REC-xml-19980210.xml"
+},{
+"@href":"http://www.w3.org/TR/1998/REC-xml-19980210.html",
+"#text":"http://www.w3.org/TR/1998/REC-xml-19980210.html"
+},{
+"@href":"http://www.w3.org/TR/1998/REC-xml-19980210.pdf",
+"#text":"http://www.w3.org/TR/1998/REC-xml-19980210.pdf"
+},{
+"@href":"http://www.w3.org/TR/1998/REC-xml-19980210.ps",
+"#text":"http://www.w3.org/TR/1998/REC-xml-19980210.ps"
+}]
+},
+"latestloc":{
+"loc":{
+"@href":"http://www.w3.org/TR/REC-xml",
+"#text":"http://www.w3.org/TR/REC-xml"
+}
+},
+"prevlocs":{
+"loc":{
+"@href":"http://www.w3.org/TR/PR-xml-971208",
+"#text":"http://www.w3.org/TR/PR-xml-971208"
+}
+},
+"authlist":{
+"author":[{
+"name":"Tim Bray",
+"affiliation":"Textuality and Netscape",
+"email":{
+"@href":"mailto:tbray@textuality.com",
+"#text":"tbray@textuality.com"
+}
+},{
+"name":"Jean Paoli",
+"affiliation":"Microsoft",
+"email":{
+"@href":"mailto:jeanpa@microsoft.com",
+"#text":"jeanpa@microsoft.com"
+}
+},{
+"name":"C. M. Sperberg-McQueen",
+"affiliation":"University of Illinois at Chicago",
+"email":{
+"@href":"mailto:cmsmcq@uic.edu",
+"#text":"cmsmcq@uic.edu"
+}
+}]
+},
+"abstract":{
+"p":"The Extensible Markup Language (XML) is a subset ofSGML that is completely described in this document. Its goal is toenable generic SGML to be served, received, and processed on the Webin the way that is now possible with HTML. XML has been designed forease of implementation and for interoperability with both SGML andHTML."
+},
+"status":{
+"p":["This document has been reviewed by W3C Members andother interested parties and has been endorsed by theDirector as a W3C Recommendation. It is a stabledocument and may be used as reference material or citedas a normative reference from another document. W3C'srole in making the Recommendation is to draw attentionto the specification and to promote its widespreaddeployment. This enhances the functionality andinteroperability of the Web.",{
+"#text":["This document specifies a syntax created by subsetting an existing,widely used international text processing standard (StandardGeneralized Markup Language, ISO 8879:1986(E) as amended andcorrected) for use on the World Wide Web.  It is a product of the W3CXML Activity, details of which can be found at",".  A list ofcurrent W3C Recommendations and other technical documents can be foundat","."],
+"loc":[{
+"@href":"http://www.w3.org/XML",
+"#text":"http://www.w3.org/XML"
+},{
+"@href":"http://www.w3.org/TR",
+"#text":"http://www.w3.org/TR"
+}]
+},{
+"#text":["This specification uses the term URI, which is defined by",", a work in progress expected to update","and","."],
+"bibref":[{
+"@ref":"Berners-Lee"
+},{
+"@ref":"RFC1738"
+},{
+"@ref":"RFC1808"
+}]
+},{
+"#text":["The list of known errors in this specification is available at","."],
+"loc":{
+"@href":"http://www.w3.org/XML/xml-19980210-errata",
+"#text":"http://www.w3.org/XML/xml-19980210-errata"
+}
+},{
+"#text":["Please report errors in this document to","."],
+"loc":{
+"@href":"mailto:xml-editor@w3.org",
+"#text":"xml-editor@w3.org"
+}
+}]
+},
+"pubstmt":{
+"p":"Chicago, Vancouver, Mountain View, et al.:World-Wide Web Consortium, XML Working Group, 1996, 1997."
+},
+"sourcedesc":{
+"p":"Created in electronic form."
+},
+"langusage":{
+"language":[{
+"@id":"EN",
+"#text":"English"
+},{
+"@id":"ebnf",
+"#text":"Extended Backus-Naur Form (formal grammar)"
+}]
+},
+"revisiondesc":{
+"slist":{
+"sitem":["1997-12-03 : CMSMcQ : yet further changes","1997-12-02 : TB : further changes (see TB to XML WG,2 December 1997)","1997-12-02 : CMSMcQ : deal with as many corrections andcomments from the proofreaders as possible:entify hard-coded document date in pubdate element,change expansion of entity WebSGML,update status description as per Dan Connolly (am not sureabout refernece to Berners-Lee et al.),add 'The' to abstract as per WG decision,move Relationship to Existing Standards to back matter andcombine with References,re-order back matter so normative appendices come first,re-tag back matter so informative appendices are tagged informdiv1,remove XXX XXX from list of 'normative' specs in prose,move some references from Other References to Normative References,add RFC 1738, 1808, and 2141 to Other References (they are notnormative since we do not require the processor to enforce any rules based on them),add reference to 'Fielding draft' (Berners-Lee et al.),move notation section to end of body,drop URIchar non-terminal and use SkipLit instead,lose stray reference to defunct nonterminal 'markupdecls',move reference to Aho et al. into appendix (Tim's right),add prose note saying that hash marks and fragment identifiers areNOT part of the URI formally speaking, and are NOT legal in system identifiers (processor 'may' signal an error).Work through:Tim Bray reacting to James Clark,Tim Bray on his own,Eve Maler,NOT DONE YET:change binary / text to unparsed / parsed.handle James's suggestion about < in attriubte valuesuppercase hex characters,namechar list,","1997-12-01 : JB : add some column-width parameters","1997-12-01 : CMSMcQ : begin round of changes to incorporaterecent WG decisions and other corrections:binding sources of character encoding info (27 Aug / 3 Sept),correct wording of Faust quotation (restore dropped line),drop SDD from EncodingDecl,change text at version number 1.0,drop misleading (wrong!) sentence about ignorables and extenders,modify definition of PCData to make bar on msc grammatical,change grammar's handling of internal subset (drop non-terminal markupdecls),change definition of includeSect to allow conditional sections,add integral-declaration constraint on internal subset,drop misleading / dangerous sentence about relationship ofentities with system storage objects,change table body tag to htbody as per EM change to DTD,add rule about space normalization in public identifiers,add description of how to generate our name-space rules from Unicode character database (needs further work!).","1997-10-08 : TB : Removed %-constructs again, new rulesfor PE appearance.","1997-10-01 : TB : Case-sensitive markup; cleaned upelement-type defs, lotsa little edits for style","1997-09-25 : TB : Change to elm's new DTD, withsubstantial detail cleanup as a side-effect","1997-07-24 : CMSMcQ : correct error (lost *) in definition of ignoreSectContents (thanks to Makoto Murata)","Allow all empty elements to have end-tags, consistent withSGML TC (as per JJC).","1997-07-23 : CMSMcQ : pre-emptive strike on pending corrections:introduce the term 'empty-element tag', note that all empty elementsmay use it, and elements declared EMPTY must use it.Add WFC requiring encoding decl to come first in an entity.Redefine notations to point to PIs as well as binary entities.Change autodetection table by removing bytes 3 and 4 from examples with Byte Order Mark.Add content model as a term and clarify that it applies to bothmixed and element content.","1997-06-30 : CMSMcQ : change date, some cosmetic changes,changes to productions for choice, seq, Mixed, NotationType,Enumeration.  Follow James Clark's suggestion and prohibit conditional sections in internal subset.  TO DO:  simplifyproduction for ignored sections as a result, since we don't need to worry about parsers which don't expand PErefs findinga conditional section.","1997-06-29 : TB : various edits","1997-06-29 : CMSMcQ : further changes:Suppress old FINAL EDIT comments and some dead material.Revise occurrences of % in grammar to exploit Henry Thompson's pun,especially markupdecl and attdef.Remove RMD requirement relating to element content (?).","1997-06-28 : CMSMcQ : Various changes for 1 July draft:Add text for draconian error handling (introducethe term Fatal Error).RE deleta est (changing wording from original announcement to restrict the requirement to validatingparsers).Tag definition of validating processor and link to it.Add colon as name character.Change def of %operator.Change standard definitions of lt, gt, amp.Strip leading zeros from #x00nn forms.","1997-04-02 : CMSMcQ : final corrections of editorial errorsfound in last night's proofreading.  Reverse course once more onwell-formed:   Webster's Second hyphenates it, and that's enoughfor me.","1997-04-01 : CMSMcQ : corrections from JJC, EM, HT, and self","1997-03-31 : Tim Bray : many changes","1997-03-29 : CMSMcQ : some Henry Thompson (on entity handling),some Charles Goldfarb, some ERB decisions (PE handling in miscellaneousdeclarations.  Changed Ident element to accept def attribute.Allow normalization of Unicode characters.  move def of systemliteralinto section on literals.",{
+"#text":["1997-03-28 : CMSMcQ : make as many corrections as possible, fromTerry Allen, Norbert Mikula, James Clark, Jon Bosak, Henry Thompson,Paul Grosso, and self.  Among other things:  give in on \"well formed\"(Terry is right), tentatively rename QuotedCData as AttValueand Literal as EntityValue to be more informative, since attributevalues are the","place QuotedCData was used, andvice versa for entity text and Literal. (I'd call it Entity Text, but 8879 uses that name for both internal and external entities.)"],
+"emph":"only"
+},"1997-03-26 : CMSMcQ : resynch the two forks of this draft, reapplymy changes dated 03-20 and 03-21.  Normalize old 'may not' to 'must not'except in the one case where it meant 'may or may not'.","1997-03-21 : TB : massive changes on plane flight from Chicagoto Vancouver","1997-03-21 : CMSMcQ : correct as many reported errors as possible.","1997-03-20 : CMSMcQ : correct typos listed in CMSMcQ hand copy of spec.","1997-03-20 : CMSMcQ : cosmetic changes preparatory to revision forWWW conference April 1997:  restore some of the internal entity references (e.g. to docdate, etc.), change character xA0 to &nbsp;and define nbsp as &#160;, and refill a lot of paragraphs forlegibility.","1996-11-12 : CMSMcQ : revise using Tim's edits:Add list type of NUMBERED and change most lists either toBULLETS or to NUMBERED.Suppress QuotedNames, Names (not used).Correct trivial-grammar doc type decl.Rename 'marked section' as 'CDATA section' passim.Also edits from James Clark:Define the set of characters from which [^abc] subtracts.Charref should use just [0-9] not Digit.Location info needs cleaner treatment:  remove?  (ERBquestion).One example of a PI has wrong pic.Clarify discussion of encoding names.Encoding failure should lead to unspecified results; don'tprescribe error recovery.Don't require exposure of entity boundaries.Ignore white space in element content.Reserve entity names of the form u-NNNN.Clarify relative URLs.And some of my own:Correct productions for content model:  model cannotconsist of a name, so \"elements ::= cp\" is no good.","1996-11-11 : CMSMcQ : revise for style.Add new rhs to entity declaration, for parameter entities.","1996-11-10 : CMSMcQ : revise for style.Fix / complete section on names, characters.Add sections on parameter entities, conditional sections.Still to do:  Add compatibility note on deterministic content models.Finish stylistic revision.","1996-10-31 : TB : Add Entity Handling section","1996-10-30 : TB : Clean up term & termdef.  Slip inERB decision re EMPTY.","1996-10-28 : TB : Change DTD.  Implement some of Michael'ssuggestions.  Change comments back to //.  Introduce language forXML namespace reservation.  Add section on white-space handling.Lots more cleanup.",{
+"#text":["1996-10-24 : CMSMcQ : quick tweaks, implement some ERBdecisions.  Characters are not integers.  Comments are /* */ not //.Add bibliographic refs to 10646, HyTime, Unicode.Rename old Cdata as MsData since it's","seenin marked sections.  Call them attribute-value pairs notname-value pairs, except once.  Internal subset is optional, needs'?'.  Implied attributes should be signaled to the app, nothave values supplied by processor."],
+"emph":"only"
+},"1996-10-16 : TB : track down & excise all DSD references;introduce some EBNF for entity declarations.","1996-10-?? : TB : consistency check, fix up scraps sothey all parse, get formatter working, correct a few productions.","1996-10-10/11 : CMSMcQ : various maintenance, stylistic, andorganizational changes:Replace a few literals with xmlpio andpic entities, to make them consistent and ensure we can change picreliably when the ERB votes.Drop paragraph on recognizers from notation section.Add match, exact match to terminology.Move old 2.2 XML Processors and Apps into intro.Mention comments, PIs, and marked sections in discussion ofdelimiter escaping.Streamline discussion of doctype decl syntax.Drop old section of 'PI syntax' for doctype decl, and addsection on partial-DTD summary PIs to end of Logical Structuressection.Revise DSD syntax section to use Tim's subset-in-a-PImechanism.","1996-10-10 : TB : eliminate name recognizers (and more?)","1996-10-09 : CMSMcQ : revise for style, consistency through 2.3(Characters)","1996-10-09 : CMSMcQ : re-unite everything for convenience,at least temporarily, and revise quickly","1996-10-08 : TB : first major homogenization pass","1996-10-08 : TB : turn \"current\" attribute on div type into CDATA","1996-10-02 : TB : remould into skeleton + entities","1996-09-30 : CMSMcQ : add a few more sections prior to exchange                            with Tim.","1996-09-20 : CMSMcQ : finish transcribing notes.","1996-09-19 : CMSMcQ : begin transcribing notes for draft.","1996-09-13 : CMSMcQ : made outline from notes of 09-06,do some housekeeping"]
+}
+}
+},
+"body":{
+"div1":[{
+"@id":"sec-intro",
+"head":"Introduction",
+"p":[{
+"#text":["Extensible Markup Language, abbreviated XML, describes a class ofdata objects called","andpartially describes the behavior of computer programs which process them. XML is an application profile orrestricted form of SGML, the Standard Generalized Markup Language",".By construction, XML documents are conforming SGML documents."],
+"termref":{
+"@def":"dt-xml-doc",
+"#text":"XML documents"
+},
+"bibref":{
+"@ref":"ISO8879"
+}
+},{
+"#text":["XML documents are made up of storage units called",", which contain either parsedor unparsed data.Parsed data is made up of",",some of which form",", and some of which form",".Markup encodes a description of the document's storage layout andlogical structure. XML provides a mechanism to impose constraints onthe storage layout and logical structure."],
+"termref":[{
+"@def":"dt-entity",
+"#text":"entities"
+},{
+"@def":"dt-character",
+"#text":"characters"
+},{
+"@def":"dt-chardata",
+"#text":"character data"
+},{
+"@def":"dt-markup",
+"#text":"markup"
+}]
+},{
+"termdef":[{
+"@id":"dt-xml-proc",
+"@term":"XML Processor",
+"#text":["A software modulecalled an","is used to read XML documentsand provide access to their content and structure."],
+"term":"XML processor"
+},{
+"@id":"dt-app",
+"@term":"Application",
+"#text":["It is assumed that an XML processor isdoing its work on behalf of another module, called the","."],
+"term":"application"
+}],
+"#text":"This specification describes therequired behavior of an XML processor in terms of how it must read XMLdata and the information it must provide to the application."
+}],
+"div2":[{
+"@id":"sec-origin-goals",
+"head":"Origin and Goals",
+"p":["XML was developed by an XML Working Group (originally known as theSGML Editorial Review Board) formed under the auspices of the WorldWide Web Consortium (W3C) in 1996.It was chaired by Jon Bosak of SunMicrosystems with the active participation of an XML SpecialInterest Group (previously known as the SGML Working Group) alsoorganized by the W3C. The membership of the XML Working Group is givenin an appendix. Dan Connolly served as the WG's contact with the W3C.",{
+"#text":"The design goals for XML are:",
+"olist":{
+"item":[{
+"p":"XML shall be straightforwardly usable over theInternet."
+},{
+"p":"XML shall support a wide variety of applications."
+},{
+"p":"XML shall be compatible with SGML."
+},{
+"p":"It shall be easy to write programs which process XMLdocuments."
+},{
+"p":"The number of optional features in XML is to be kept to theabsolute minimum, ideally zero."
+},{
+"p":"XML documents should be human-legible and reasonablyclear."
+},{
+"p":"The XML design should be prepared quickly."
+},{
+"p":"The design of XML shall be formal and concise."
+},{
+"p":"XML documents shall be easy to create."
+},{
+"p":"Terseness in XML markup is of minimal importance."
+}]
+}
+},"This specification, together with associated standards(Unicode and ISO/IEC 10646 for characters,Internet RFC 1766 for language identification tags, ISO 639 for language name codes, and ISO 3166 for country name codes),provides all the information necessary to understand XML Version 1.0and construct computer programs to process it.","This version of the XML specification"]
+},{
+"@id":"sec-terminology",
+"head":"Terminology",
+"p":{
+"#text":"The terminology used to describe XML documents is defined in the body ofthis specification.The terms defined in the following list are used in building thosedefinitions and in describing the actions of an XML processor:",
+"glist":{
+"gitem":[{
+"label":"may",
+"def":{
+"p":{
+"termdef":{
+"@id":"dt-may",
+"@term":"May",
+"#text":"Conforming documents and XMLprocessors are permitted to but need not behave asdescribed."
+}
+}
+}
+},{
+"label":"must",
+"def":{
+"p":"Conforming documents and XML processors are required to behave as described; otherwise they are in error."
+}
+},{
+"label":"error",
+"def":{
+"p":{
+"termdef":{
+"@id":"dt-error",
+"@term":"Error",
+"#text":"A violation of the rules of thisspecification; results areundefined.  Conforming software may detect and report an error and mayrecover from it."
+}
+}
+}
+},{
+"label":"fatal error",
+"def":{
+"p":{
+"termdef":{
+"@id":"dt-fatal",
+"@term":"Fatal Error",
+"#text":["An errorwhich a conforming","must detect and report to the application.After encountering a fatal error, theprocessor may continueprocessing the data to search for further errors and may report sucherrors to the application.  In order to support correction of errors,the processor may make unprocessed data from the document (withintermingled character data and markup) available to the application.Once a fatal error is detected, however, the processor must notcontinue normal processing (i.e., it must notcontinue to pass character data and information about the document'slogical structure to the application in the normal way)."],
+"termref":{
+"@def":"dt-xml-proc",
+"#text":"XML processor"
+}
+}
+}
+}
+},{
+"label":"at user option",
+"def":{
+"p":"Conforming software may or must (depending on the modal verb in thesentence) behave as described; if it does, it mustprovide users a means to enable or disable the behaviordescribed."
+}
+},{
+"label":"validity constraint",
+"def":{
+"p":{
+"#text":["A rule which applies to all","XML documents.Violations of validity constraints are errors; they must, at user option, be reported by","."],
+"termref":[{
+"@def":"dt-valid",
+"#text":"valid"
+},{
+"@def":"dt-validating",
+"#text":"validating XML processors"
+}]
+}
+}
+},{
+"label":"well-formedness constraint",
+"def":{
+"p":{
+"#text":["A rule which applies to all","XML documents.Violations of well-formedness constraints are","."],
+"termref":[{
+"@def":"dt-wellformed",
+"#text":"well-formed"
+},{
+"@def":"dt-fatal",
+"#text":"fatal errors"
+}]
+}
+}
+},{
+"label":"match",
+"def":{
+"p":{
+"termdef":{
+"@id":"dt-match",
+"@term":"match",
+"#text":["(Of strings or names:) Two strings or names being compared must be identical.Characters with multiple possible representations in ISO/IEC 10646 (e.g.characters with both precomposed and base+diacritic forms) match only if they have thesame representation in both strings.At user option, processors may normalize such characters tosome canonical form.No case folding is performed. (Of strings and rules in the grammar:)  A string matches a grammatical production if it belongs to thelanguage generated by that production.(Of content and content models:)An element matches its declaration when it conformsin the fashion described in the constraint","."],
+"specref":{
+"@ref":"elementvalid"
+}
+}
+}
+}
+},{
+"label":"for compatibility",
+"def":{
+"p":{
+"termdef":{
+"@id":"dt-compat",
+"@term":"For Compatibility",
+"#text":"A feature ofXML included solely to ensure that XML remains compatible with SGML."
+}
+}
+}
+},{
+"label":"for interoperability",
+"def":{
+"p":{
+"termdef":{
+"@id":"dt-interop",
+"@term":"For interoperability",
+"#text":"Anon-binding recommendation included to increase the chances that XMLdocuments can be processed by the existing installed base of SGMLprocessors which predate theWebSGML Adaptations Annex to ISO 8879."
+}
+}
+}
+}]
+}
+}
+}]
+},{
+"@id":"sec-documents",
+"head":"Documents",
+"p":[{
+"termdef":{
+"@id":"dt-xml-doc",
+"@term":"XML Document",
+"#text":["A data object is an","if it is",", asdefined in this specification.A well-formed XML document may in addition be","if it meets certain further constraints."],
+"term":"XML document",
+"termref":[{
+"@def":"dt-wellformed",
+"#text":"well-formed"
+},{
+"@def":"dt-valid",
+"#text":"valid"
+}]
+}
+},{
+"#text":["Each XML document has both a logical and a physical structure.Physically, the document is composed of units called",".  An entity may","to other entities to cause theirinclusion in the document. A document begins in a \"root\"  or",".Logically, the document is composed of declarations, elements, comments,character references, andprocessinginstructions, all of which are indicated in the document by explicitmarkup.The logical and physical structures must nest properly, as described  in","."],
+"termref":[{
+"@def":"dt-entity",
+"#text":"entities"
+},{
+"@def":"dt-entref",
+"#text":"refer"
+},{
+"@def":"dt-docent",
+"#text":"document entity"
+}],
+"specref":{
+"@ref":"wf-entities"
+}
+}],
+"div2":[{
+"@id":"sec-well-formed",
+"head":"Well-Formed XML Documents",
+"p":[{
+"termdef":{
+"@id":"dt-wellformed",
+"@term":"Well-Formed",
+"#text":"A textual object is a well-formed XML document if:"
+},
+"olist":{
+"item":[{
+"p":{
+"#text":["Taken as a whole, itmatches the production labeled","."],
+"nt":{
+"@def":"NT-document",
+"#text":"document"
+}
+}
+},{
+"p":"Itmeets all the well-formedness constraints given in this specification."
+},{
+"p":{
+"#text":["Each of the","which is referenced directly or indirectly within the document is","."],
+"termref":{
+"@def":"dt-parsedent",
+"#text":"parsed entities"
+},
+"titleref":{
+"@href":"wf-entities",
+"#text":"well-formed"
+}
+}
+}]
+}
+},{
+"scrap":{
+"@lang":"ebnf",
+"@id":"document",
+"head":"Document",
+"prod":{
+"@id":"NT-document",
+"lhs":"document",
+"rhs":{
+"nt":[{
+"@def":"NT-prolog",
+"#text":"prolog"
+},{
+"@def":"NT-element",
+"#text":"element"
+},{
+"@def":"NT-Misc",
+"#text":"Misc"
+}],
+"#text":"*"
+}
+}
+}
+},{
+"#text":["Matching the","production implies that:"],
+"nt":{
+"@def":"NT-document",
+"#text":"document"
+},
+"olist":{
+"item":[{
+"p":{
+"#text":["It contains one or more","."],
+"termref":{
+"@def":"dt-element",
+"#text":"elements"
+}
+}
+},{
+"p":{
+"termdef":{
+"@id":"dt-root",
+"@term":"Root Element",
+"#text":["There is  exactlyone element, called the",", or document element,  nopart of which appears in the","of any other element."],
+"term":"root",
+"termref":{
+"@def":"dt-content",
+"#text":"content"
+}
+},
+"#text":"For all other elements, if the start-tag is in the content of anotherelement, the end-tag is in the content of the same element.  Moresimply stated, the elements, delimited by start- and end-tags, nestproperly within each other."
+}
+}]
+}
+},{
+"termdef":{
+"@id":"dt-parentchild",
+"@term":"Parent/Child",
+"#text":["As a consequence of this,for each non-root element","in the document, there is one other element","in the document such that","is in the content of",", but is not inthe content of any other element that is in the content of",".","is referred to as the","of",", and","as a","of","."],
+"code":["C","P","C","P","P","P","C","C","P"],
+"term":["parent","child"]
+}
+}]
+},{
+"@id":"charsets",
+"head":"Characters",
+"p":[{
+"termdef":[{
+"@id":"dt-text",
+"@term":"Text",
+"#text":["A parsed entity contains",", a sequence of",", which may represent markup or character data."],
+"term":"text",
+"termref":{
+"@def":"dt-character",
+"#text":"characters"
+}
+},{
+"@id":"dt-character",
+"@term":"Character",
+"#text":["A","is an atomic unit of text as specified byISO/IEC 10646",".Legal characters are tab, carriage return, line feed, and the legalgraphic characters of Unicode and ISO/IEC 10646.The use of \"compatibility characters\", as defined in section 6.8of",", is discouraged."],
+"term":"character",
+"bibref":[{
+"@ref":"ISO10646"
+},{
+"@ref":"Unicode"
+}]
+}],
+"scrap":{
+"@lang":"ebnf",
+"@id":"char32",
+"head":"Character Range",
+"prodgroup":{
+"@pcw2":"4",
+"@pcw4":"17.5",
+"@pcw5":"11",
+"prod":{
+"@id":"NT-Char",
+"lhs":"Char",
+"rhs":"#x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]",
+"com":"any Unicode character, excluding thesurrogate blocks, FFFE, and FFFF."
+}
+}
+}
+},{
+"#text":["The mechanism for encoding character code points into bit patterns mayvary from entity to entity. All XML processors must accept the UTF-8and UTF-16 encodings of 10646; the mechanisms for signaling which ofthe two is in use, or for bringing other encodings into play, arediscussed later, in","."],
+"specref":{
+"@ref":"charencoding"
+}
+}]
+},{
+"@id":"sec-common-syn",
+"head":"Common Syntactic Constructs",
+"p":["This section defines some symbols used widely in the grammar.",{
+"nt":{
+"@def":"NT-S",
+"#text":"S"
+},
+"#text":"(white space) consists of one or more space (#x20)characters, carriage returns, line feeds, or tabs.",
+"scrap":{
+"@lang":"ebnf",
+"@id":"white",
+"head":"White Space",
+"prodgroup":{
+"@pcw2":"4",
+"@pcw4":"17.5",
+"@pcw5":"11",
+"prod":{
+"@id":"NT-S",
+"lhs":"S",
+"rhs":"(#x20 | #x9 | #xD | #xA)+"
+}
+}
+}
+},{
+"#text":["Characters are classified for convenience as letters, digits, or othercharacters.  Letters consist of an alphabetic or syllabic base character possiblyfollowed by one or more combining characters, or of an ideographiccharacter.  Full definitions of the specific characters in each classare given in","."],
+"specref":{
+"@ref":"CharClasses"
+}
+},{
+"termdef":{
+"@id":"dt-name",
+"@term":"Name",
+"#text":["A","is a tokenbeginning with a letter or one of a few punctuation characters, and continuingwith letters, digits, hyphens, underscores, colons, or full stops, togetherknown as name characters."],
+"term":"Name"
+},
+"#text":["Names beginning with the string \"","\", or any stringwhich would match",", arereserved for standardization in this or future versions of thisspecification."],
+"code":["xml","(('X'|'x') ('M'|'m') ('L'|'l'))"]
+},{
+"#text":["An","(name token) is any mixture ofname characters."],
+"nt":{
+"@def":"NT-Nmtoken",
+"#text":"Nmtoken"
+},
+"scrap":{
+"@lang":"ebnf",
+"head":"Names and Tokens",
+"prod":[{
+"@id":"NT-NameChar",
+"lhs":"NameChar",
+"rhs":{
+"nt":[{
+"@def":"NT-Letter",
+"#text":"Letter"
+},{
+"@def":"NT-Digit",
+"#text":"Digit"
+},{
+"@def":"NT-CombiningChar",
+"#text":"CombiningChar"
+},{
+"@def":"NT-Extender",
+"#text":"Extender"
+}],
+"#text":["|","| '.' | '-' | '_' | ':'|","|"]
+}
+},{
+"@id":"NT-Name",
+"lhs":"Name",
+"rhs":{
+"#text":["(","| '_' | ':')(",")*"],
+"nt":[{
+"@def":"NT-Letter",
+"#text":"Letter"
+},{
+"@def":"NT-NameChar",
+"#text":"NameChar"
+}]
+}
+},{
+"@id":"NT-Names",
+"lhs":"Names",
+"rhs":{
+"nt":[{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+}],
+"#text":["(",")*"]
+}
+},{
+"@id":"NT-Nmtoken",
+"lhs":"Nmtoken",
+"rhs":{
+"#text":["(",")+"],
+"nt":{
+"@def":"NT-NameChar",
+"#text":"NameChar"
+}
+}
+},{
+"@id":"NT-Nmtokens",
+"lhs":"Nmtokens",
+"rhs":{
+"nt":[{
+"@def":"NT-Nmtoken",
+"#text":"Nmtoken"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Nmtoken",
+"#text":"Nmtoken"
+}],
+"#text":["(",")*"]
+}
+}]
+}
+},{
+"#text":["Literal data is any quoted string not containingthe quotation mark used as a delimiter for that string.Literals are usedfor specifying the content of internal entities(","),the values of attributes (","), and external identifiers (",").  Note that a","can be parsed without scanning for markup."],
+"nt":[{
+"@def":"NT-EntityValue",
+"#text":"EntityValue"
+},{
+"@def":"NT-AttValue",
+"#text":"AttValue"
+},{
+"@def":"NT-SystemLiteral",
+"#text":"SystemLiteral"
+},{
+"@def":"NT-SystemLiteral",
+"#text":"SystemLiteral"
+}],
+"scrap":{
+"@lang":"ebnf",
+"head":"Literals",
+"prod":[{
+"@id":"NT-EntityValue",
+"lhs":"EntityValue",
+"rhs":[{
+"#text":["'\"' ([^%&\"] |","|",")*'\"'"],
+"nt":[{
+"@def":"NT-PEReference",
+"#text":"PEReference"
+},{
+"@def":"NT-Reference",
+"#text":"Reference"
+}]
+},{
+"#text":["|  \"'\" ([^%&'] |","|",")* \"'\""],
+"nt":[{
+"@def":"NT-PEReference",
+"#text":"PEReference"
+},{
+"@def":"NT-Reference",
+"#text":"Reference"
+}]
+}]
+},{
+"@id":"NT-AttValue",
+"lhs":"AttValue",
+"rhs":[{
+"#text":["'\"' ([^<&\"] |",")* '\"'"],
+"nt":{
+"@def":"NT-Reference",
+"#text":"Reference"
+}
+},{
+"#text":["|  \"'\" ([^<&'] |",")* \"'\""],
+"nt":{
+"@def":"NT-Reference",
+"#text":"Reference"
+}
+}]
+},{
+"@id":"NT-SystemLiteral",
+"lhs":"SystemLiteral",
+"rhs":"('\"' [^\"]* '\"') | (\"'\" [^']* \"'\")"
+},{
+"@id":"NT-PubidLiteral",
+"lhs":"PubidLiteral",
+"rhs":{
+"#text":["'\"'","* '\"' | \"'\" (","- \"'\")* \"'\""],
+"nt":[{
+"@def":"NT-PubidChar",
+"#text":"PubidChar"
+},{
+"@def":"NT-PubidChar",
+"#text":"PubidChar"
+}]
+}
+},{
+"@id":"NT-PubidChar",
+"lhs":"PubidChar",
+"rhs":"#x20 | #xD | #xA | [a-zA-Z0-9]| [-'()+,./:=?;!*#@$_%]"
+}]
+}
+}],
+"note":{
+"p":"The colon character within XML names is reserved for experimentation withname spaces.  Its meaning is expected to bestandardized at some future point, at which point those documents using the colon for experimental purposes may need to be updated.(There is no guarantee that any name-space mechanismadopted for XML will in fact use the colon as a name-space delimiter.)In practice, this means that authors should not use the colon in XMLnames except as part of name-space experiments, but that XML processorsshould accept the colon as a name character."
+}
+},{
+"@id":"syntax",
+"head":"Character Data and Markup",
+"p":[{
+"termref":[{
+"@def":"dt-text",
+"#text":"Text"
+},{
+"@def":"dt-chardata",
+"#text":"characterdata"
+}],
+"#text":["consists of intermingled","and markup."],
+"termdef":{
+"@id":"dt-markup",
+"@term":"Markup",
+"term":"Markup",
+"#text":["takes the form of",",",",",",",",",",",",","delimiters,",", and","."],
+"termref":[{
+"@def":"dt-stag",
+"#text":"start-tags"
+},{
+"@def":"dt-etag",
+"#text":"end-tags"
+},{
+"@def":"dt-empty",
+"#text":"empty-element tags"
+},{
+"@def":"dt-entref",
+"#text":"entity references"
+},{
+"@def":"dt-charref",
+"#text":"character references"
+},{
+"@def":"dt-comment",
+"#text":"comments"
+},{
+"@def":"dt-cdsection",
+"#text":"CDATA section"
+},{
+"@def":"dt-doctype",
+"#text":"document type declarations"
+},{
+"@def":"dt-pi",
+"#text":"processing instructions"
+}]
+}
+},{
+"termdef":{
+"@id":"dt-chardata",
+"@term":"Character Data",
+"#text":["All text that is not markupconstitutes the","ofthe document."],
+"term":"character data"
+}
+},{
+"#text":["The ampersand character (&) and the left angle bracket (<)may appear in their literal form","when used as markupdelimiters, or within a",", a",", or a",".  They are also legal within the","of an internal entity declaration; see",".","using either","or the strings\"","\" and \"","\" respectively. The right anglebracket (>) may be represented using the string\"","\", and must,",", be escaped using\"","\" or a character reference when it appears in the string\"","\"in content, when that string is not marking the end of a","."],
+"emph":"only",
+"termref":[{
+"@def":"dt-comment",
+"#text":"comment"
+},{
+"@def":"dt-pi",
+"#text":"processing instruction"
+},{
+"@def":"dt-cdsection",
+"#text":"CDATA section"
+},{
+"@def":"dt-litentval",
+"#text":"literal entityvalue"
+},{
+"@def":"dt-escape",
+"#text":"escaped"
+},{
+"@def":"dt-charref",
+"#text":"numeric character references"
+},{
+"@def":"dt-compat",
+"#text":"forcompatibility"
+},{
+"@def":"dt-cdsection",
+"#text":"CDATA section"
+}],
+"specref":{
+"@ref":"wf-entities"
+},
+"code":["&amp;","&lt;","&gt;","&gt;","]]>"]
+},{
+"#text":["In the content of elements, character data is any string of characters which doesnot contain the start-delimiter of any markup.  In a CDATA section, character datais any string of characters not including the CDATA-section-closedelimiter, \"","\"."],
+"code":"]]>"
+},{
+"#text":["To allow attribute values to contain both single and double quotes, theapostrophe or single-quote character (') may be represented as\"","\", and the double-quote character (\") as\"","\"."],
+"code":["&apos;","&quot;"],
+"scrap":{
+"@lang":"ebnf",
+"head":"Character Data",
+"prod":{
+"@id":"NT-CharData",
+"lhs":"CharData",
+"rhs":"[^<&]* - ([^<&]* ']]>' [^<&]*)"
+}
+}
+}]
+},{
+"@id":"sec-comments",
+"head":"Comments",
+"p":[{
+"termdef":{
+"@id":"dt-comment",
+"@term":"Comment",
+"term":"Comments",
+"#text":["may appear anywhere in a document outside other","; in addition,they may appear within the document type declarationat places allowed by the grammar.They are not part of the document's","; an XMLprocessor may, but need not, make it possible for an application toretrieve the text of comments.",", the string\"","\" (double-hyphen) must not occur withincomments."],
+"termref":[{
+"@def":"dt-markup",
+"#text":"markup"
+},{
+"@def":"dt-chardata",
+"#text":"characterdata"
+},{
+"@def":"dt-compat",
+"#text":"For compatibility"
+}],
+"code":"--",
+"scrap":{
+"@lang":"ebnf",
+"head":"Comments",
+"prod":{
+"@id":"NT-Comment",
+"lhs":"Comment",
+"rhs":{
+"#text":["'<!--'((","- '-') | ('-' (","- '-')))* '-->'"],
+"nt":[{
+"@def":"NT-Char",
+"#text":"Char"
+},{
+"@def":"NT-Char",
+"#text":"Char"
+}]
+}
+}
+}
+}
+},{
+"#text":"An example of a comment:",
+"eg":"<!-- declarations for <head> & <body> -->"
+}]
+},{
+"@id":"sec-pi",
+"head":"Processing Instructions",
+"p":{
+"termdef":{
+"@id":"dt-pi",
+"@term":"Processing instruction",
+"term":"Processinginstructions",
+"#text":"(PIs) allow documents to contain instructionsfor applications.",
+"scrap":{
+"@lang":"ebnf",
+"head":"Processing Instructions",
+"prod":[{
+"@id":"NT-PI",
+"lhs":"PI",
+"rhs":{
+"#text":["'<?'","(","(","* - (","* '?>'","*)))?'?>'"],
+"nt":[{
+"@def":"NT-PITarget",
+"#text":"PITarget"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Char",
+"#text":"Char"
+},{
+"@def":"NT-Char",
+"#text":"Char"
+},{
+"@def":"NT-Char",
+"#text":"Char"
+}]
+}
+},{
+"@id":"NT-PITarget",
+"lhs":"PITarget",
+"rhs":{
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+},
+"#text":"- (('X' | 'x') ('M' | 'm') ('L' | 'l'))"
+}
+}]
+}
+},
+"#text":["PIs are not part of the document's",", but must be passed through to the application. ThePI begins with a target (",") usedto identify the application to which the instruction is directed.  The target names \"","\", \"","\", and so on arereserved for standardization in this or future versions of thisspecification.The XML","mechanismmay be used forformal declaration of PI targets."],
+"termref":[{
+"@def":"dt-chardata",
+"#text":"characterdata"
+},{
+"@def":"dt-notation",
+"#text":"Notation"
+}],
+"nt":{
+"@def":"NT-PITarget",
+"#text":"PITarget"
+},
+"code":["XML","xml"]
+}
+},{
+"@id":"sec-cdata-sect",
+"head":"CDATA Sections",
+"p":[{
+"termdef":{
+"@id":"dt-cdsection",
+"@term":"CDATA Section",
+"term":"CDATA sections",
+"#text":["may occur anywhere character data may occur; they areused to escape blocks of text containing characters which wouldotherwise be recognized as markup.  CDATA sections begin with thestring \"","\" and end with the string\"","\":","Within a CDATA section, only the","string isrecognized as markup, so that left angle brackets and ampersands may occur intheir literal form; they need not (and cannot) be escaped using\"","\" and \"","\".  CDATA sectionscannot nest."],
+"code":["<![CDATA[","]]>","&lt;","&amp;"],
+"scrap":{
+"@lang":"ebnf",
+"head":"CDATA Sections",
+"prod":[{
+"@id":"NT-CDSect",
+"lhs":"CDSect",
+"rhs":{
+"nt":[{
+"@def":"NT-CDStart",
+"#text":"CDStart"
+},{
+"@def":"NT-CData",
+"#text":"CData"
+},{
+"@def":"NT-CDEnd",
+"#text":"CDEnd"
+}]
+}
+},{
+"@id":"NT-CDStart",
+"lhs":"CDStart",
+"rhs":"'<![CDATA['"
+},{
+"@id":"NT-CData",
+"lhs":"CData",
+"rhs":{
+"#text":["(","* - (","* ']]>'","*))"],
+"nt":[{
+"@def":"NT-Char",
+"#text":"Char"
+},{
+"@def":"NT-Char",
+"#text":"Char"
+},{
+"@def":"NT-Char",
+"#text":"Char"
+}]
+}
+},{
+"@id":"NT-CDEnd",
+"lhs":"CDEnd",
+"rhs":"']]>'"
+}]
+},
+"nt":{
+"@def":"NT-CDEnd",
+"#text":"CDEnd"
+}
+}
+},{
+"#text":["An example of a CDATA section, in which \"","\" and \"","\"are recognized as",", not",":"],
+"code":["<greeting>","</greeting>"],
+"termref":[{
+"@def":"dt-chardata",
+"#text":"character data"
+},{
+"@def":"dt-markup",
+"#text":"markup"
+}],
+"eg":"<![CDATA[<greeting>Hello, world!</greeting>]]>"
+}]
+},{
+"@id":"sec-prolog-dtd",
+"head":"Prolog and Document Type Declaration",
+"p":[{
+"termdef":{
+"@id":"dt-xmldecl",
+"@term":"XML Declaration",
+"#text":["XML documents may, and should, begin with an","which specifiesthe version ofXML being used."],
+"term":"XML declaration"
+},
+"#text":["For example, the following is a complete XML document,","but not",":","and so is this:"],
+"termref":[{
+"@def":"dt-wellformed",
+"#text":"well-formed"
+},{
+"@def":"dt-valid",
+"#text":"valid"
+}],
+"eg":["<?xml version=\"1.0\"?><greeting>Hello, world!</greeting>","<greeting>Hello, world!</greeting>"]
+},{
+"#text":["The version number \"","\" should be used to indicateconformance to this version of this specification; it is an errorfor a document to use the value \"","\" if it does not conform to this version of this specification.It is the intentof the XML working group to give later versions of this specificationnumbers other than \"","\", but this intent does notindicate acommitment to produce any future versions of XML, nor if any are produced, touse any particular numbering scheme.Since future versions are not ruled out, this construct is provided as a means to allow the possibility of automatic version recognition, shouldit become necessary.Processors may signal an error if they receive documents labeled with versions they do not support."],
+"code":["1.0","1.0","1.0"]
+},{
+"#text":["The function of the markup in an XML document is to describe itsstorage and logical structure and to associate attribute-value pairswith its logical structures.  XML provides a mechanism, the",", to defineconstraints on the logical structure and to support the use ofpredefined storage units."],
+"termref":{
+"@def":"dt-doctype",
+"#text":"document type declaration"
+},
+"termdef":{
+"@id":"dt-valid",
+"@term":"Validity",
+"#text":["An XML document is","if it has an associated document typedeclaration and if the documentcomplies with the constraints expressed in it."],
+"term":"valid"
+}
+},{
+"#text":["The document type declaration must appear beforethe first","in the document."],
+"termref":{
+"@def":"dt-element",
+"#text":"element"
+},
+"scrap":{
+"@lang":"ebnf",
+"@id":"xmldoc",
+"head":"Prolog",
+"prodgroup":{
+"@pcw2":"6",
+"@pcw4":"17.5",
+"@pcw5":"9",
+"prod":[{
+"@id":"NT-prolog",
+"lhs":"prolog",
+"rhs":{
+"nt":[{
+"@def":"NT-XMLDecl",
+"#text":"XMLDecl"
+},{
+"@def":"NT-Misc",
+"#text":"Misc"
+},{
+"@def":"NT-doctypedecl",
+"#text":"doctypedecl"
+},{
+"@def":"NT-Misc",
+"#text":"Misc"
+}],
+"#text":["?","* (","*)?"]
+}
+},{
+"@id":"NT-XMLDecl",
+"lhs":"XMLDecl",
+"rhs":{
+"#text":["'<?xml'","?","?","? '?>'"],
+"nt":[{
+"@def":"NT-VersionInfo",
+"#text":"VersionInfo"
+},{
+"@def":"NT-EncodingDecl",
+"#text":"EncodingDecl"
+},{
+"@def":"NT-SDDecl",
+"#text":"SDDecl"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+}
+},{
+"@id":"NT-VersionInfo",
+"lhs":"VersionInfo",
+"rhs":{
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Eq",
+"#text":"Eq"
+},{
+"@def":"NT-VersionNum",
+"#text":"VersionNum"
+},{
+"@def":"NT-VersionNum",
+"#text":"VersionNum"
+}],
+"#text":["'version'","('","' | \"","\")"]
+}
+},{
+"@id":"NT-Eq",
+"lhs":"Eq",
+"rhs":{
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+}],
+"#text":["? '='","?"]
+}
+},{
+"@id":"NT-VersionNum",
+"lhs":"VersionNum",
+"rhs":"([a-zA-Z0-9_.:] | '-')+"
+},{
+"@id":"NT-Misc",
+"lhs":"Misc",
+"rhs":{
+"nt":[{
+"@def":"NT-Comment",
+"#text":"Comment"
+},{
+"@def":"NT-PI",
+"#text":"PI"
+},{
+"@def":"NT-S",
+"#text":"S"
+}],
+"#text":["|","|"]
+}
+}]
+}
+}
+},{
+"termdef":{
+"@id":"dt-doctype",
+"@term":"Document Type Declaration",
+"#text":["The XML","contains or points to","that provide a grammar for aclass of documents.  This grammar is known as a document type definition,or",".  The document type declaration can point to an external subset (aspecial kind of",") containing markupdeclarations, or can contain the markup declarations directly in an internal subset, or can doboth.   The DTD for a document consists of both subsets takentogether."],
+"term":["document type declaration","DTD"],
+"termref":[{
+"@def":"dt-markupdecl",
+"#text":"markup declarations"
+},{
+"@def":"dt-extent",
+"#text":"external entity"
+}]
+}
+},{
+"termdef":{
+"@id":"dt-markupdecl",
+"@term":"markup declaration",
+"#text":["A","is an",", an",", an",", ora","."],
+"term":"markup declaration",
+"termref":[{
+"@def":"dt-eldecl",
+"#text":"element type declaration"
+},{
+"@def":"dt-attdecl",
+"#text":"attribute-list declaration"
+},{
+"@def":"dt-entdecl",
+"#text":"entity declaration"
+},{
+"@def":"dt-notdecl",
+"#text":"notation declaration"
+}]
+},
+"#text":["These declarations may be contained in whole or in partwithin",",as described in the well-formedness and validity constraints below.For fuller information, see","."],
+"termref":{
+"@def":"dt-PE",
+"#text":"parameter entities"
+},
+"specref":{
+"@ref":"sec-physical-struct"
+}
+},{
+"#text":["The markup declarations may be made up in whole or in part ofthe","of",".The productions later in this specification forindividual nonterminals (",",",", and so on) describe the declarations","all the parameter entities have been","."],
+"termref":[{
+"@def":"dt-repltext",
+"#text":"replacement text"
+},{
+"@def":"dt-PE",
+"#text":"parameter entities"
+},{
+"@def":"dt-include",
+"#text":"included"
+}],
+"nt":[{
+"@def":"NT-elementdecl",
+"#text":"elementdecl"
+},{
+"@def":"NT-AttlistDecl",
+"#text":"AttlistDecl"
+}],
+"emph":"after"
+},{
+"#text":["Like the internal subset, the external subset and any external parameter entities referred to in the DTD must consist of a series of complete markup declarations of the types allowed by the non-terminal symbol",", interspersed with white spaceor",".However, portions of the contentsof the external subset or of external parameter entities may conditionally be ignoredby using the","construct; this is not allowed in the internal subset."],
+"nt":{
+"@def":"NT-markupdecl",
+"#text":"markupdecl"
+},
+"termref":[{
+"@def":"dt-PERef",
+"#text":"parameter-entity references"
+},{
+"@def":"dt-cond-section",
+"#text":"conditional section"
+}],
+"scrap":{
+"@id":"ext-Subset",
+"head":"External Subset",
+"prodgroup":{
+"@pcw2":"6",
+"@pcw4":"17.5",
+"@pcw5":"9",
+"prod":[{
+"@id":"NT-extSubset",
+"lhs":"extSubset",
+"rhs":{
+"nt":[{
+"@def":"NT-TextDecl",
+"#text":"TextDecl"
+},{
+"@def":"NT-extSubsetDecl",
+"#text":"extSubsetDecl"
+}],
+"#text":"?"
+}
+},{
+"@id":"NT-extSubsetDecl",
+"lhs":"extSubsetDecl",
+"rhs":{
+"#text":["(","|","|","|",")*"],
+"nt":[{
+"@def":"NT-markupdecl",
+"#text":"markupdecl"
+},{
+"@def":"NT-conditionalSect",
+"#text":"conditionalSect"
+},{
+"@def":"NT-PEReference",
+"#text":"PEReference"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+}
+}]
+}
+}
+},{
+"#text":["The external subset and external parameter entities also differ from the internal subset in that in them,","are permitted","markup declarations,not only","markup declarations."],
+"termref":{
+"@def":"dt-PERef",
+"#text":"parameter-entity references"
+},
+"emph":["within","between"]
+},{
+"#text":["An example of an XML document with a document type declaration:","The","\"","\" gives the URI of a DTD for the document."],
+"eg":"<?xml version=\"1.0\"?><!DOCTYPE greeting SYSTEM \"hello.dtd\"><greeting>Hello, world!</greeting>",
+"termref":{
+"@def":"dt-sysid",
+"#text":"system identifier"
+},
+"code":"hello.dtd"
+},{
+"#text":["The declarations can also be given locally, as in this example:","If both the external and internal subsets are used, the internal subset is considered to occur before the external subset."],
+"eg":"<?xml version=\"1.0\" encoding=\"UTF-8\" ?><!DOCTYPE greeting [  <!ELEMENT greeting (#PCDATA)>]><greeting>Hello, world!</greeting>"
+}],
+"scrap":{
+"@lang":"ebnf",
+"@id":"dtd",
+"head":"Document Type Definition",
+"prodgroup":{
+"@pcw2":"6",
+"@pcw4":"17.5",
+"@pcw5":"9",
+"prod":[{
+"@id":"NT-doctypedecl",
+"lhs":"doctypedecl",
+"rhs":{
+"#text":["'<!DOCTYPE'","(",")?","? ('[' (","|","|",")*']'","?)? '>'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-ExternalID",
+"#text":"ExternalID"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-markupdecl",
+"#text":"markupdecl"
+},{
+"@def":"NT-PEReference",
+"#text":"PEReference"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+},
+"vc":{
+"@def":"vc-roottype"
+}
+},{
+"@id":"NT-markupdecl",
+"lhs":"markupdecl",
+"rhs":{
+"nt":[{
+"@def":"NT-elementdecl",
+"#text":"elementdecl"
+},{
+"@def":"NT-AttlistDecl",
+"#text":"AttlistDecl"
+},{
+"@def":"NT-EntityDecl",
+"#text":"EntityDecl"
+},{
+"@def":"NT-NotationDecl",
+"#text":"NotationDecl"
+},{
+"@def":"NT-PI",
+"#text":"PI"
+},{
+"@def":"NT-Comment",
+"#text":"Comment"
+}],
+"#text":["|","|","|","|","|"]
+},
+"vc":{
+"@def":"vc-PEinMarkupDecl"
+},
+"wfc":{
+"@def":"wfc-PEinInternalSubset"
+}
+}]
+}
+},
+"vcnote":[{
+"@id":"vc-roottype",
+"head":"Root Element Type",
+"p":{
+"#text":["The","in the document type declaration mustmatch the element type of the","."],
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+},
+"termref":{
+"@def":"dt-root",
+"#text":"root element"
+}
+}
+},{
+"@id":"vc-PEinMarkupDecl",
+"head":"Proper Declaration/PE Nesting",
+"p":{
+"#text":["Parameter-entity","must be properly nestedwith markup declarations. That is to say, if either the first characteror the last character of a markupdeclaration (","above)is contained in the replacement text for a",",both must be contained in the same replacement text."],
+"termref":[{
+"@def":"dt-repltext",
+"#text":"replacement text"
+},{
+"@def":"dt-PERef",
+"#text":"parameter-entity reference"
+}],
+"nt":{
+"@def":"NT-markupdecl",
+"#text":"markupdecl"
+}
+}
+}],
+"wfcnote":{
+"@id":"wfc-PEinInternalSubset",
+"head":"PEs in Internal Subset",
+"p":{
+"#text":["In the internal DTD subset,","can occur only where markup declarations can occur, notwithin markup declarations.  (This does not apply toreferences that occur inexternal parameter entities or to the external subset.)"],
+"termref":{
+"@def":"dt-PERef",
+"#text":"parameter-entity references"
+}
+}
+}
+},{
+"@id":"sec-rmd",
+"head":"Standalone Document Declaration",
+"p":[{
+"#text":["Markup declarations can affect the content of the document,as passed from an","to an application; examples are attribute defaults and entitydeclarations.The standalone document declaration,which may appear as a component of the XML declaration, signalswhether or not there are such declarations which appear external to the","."],
+"termref":[{
+"@def":"dt-xml-proc",
+"#text":"XML processor"
+},{
+"@def":"dt-docent",
+"#text":"document entity"
+}],
+"scrap":{
+"@lang":"ebnf",
+"@id":"fulldtd",
+"head":"Standalone Document Declaration",
+"prodgroup":{
+"@pcw2":"4",
+"@pcw4":"19.5",
+"@pcw5":"9",
+"prod":{
+"@id":"NT-SDDecl",
+"lhs":"SDDecl",
+"rhs":{
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Eq",
+"#text":"Eq"
+}],
+"#text":["'standalone'","((\"'\" ('yes' | 'no') \"'\") | ('\"' ('yes' | 'no') '\"'))"]
+},
+"vc":{
+"@def":"vc-check-rmd"
+}
+}
+}
+}
+},{
+"#text":["In a standalone document declaration, the value \"","\" indicatesthat there are no markup declarations external to the","(either in the DTD external subset, or in anexternal parameter entity referenced from the internal subset)which affect the information passed from the XML processor tothe application.  The value \"","\" indicates that there are or may be suchexternal markup declarations.Note that the standalone document declaration only denotes the presence of external","; the presence, in adocument, of references to external",", when those entities areinternally declared, does not change its standalone status."],
+"code":["yes","no"],
+"termref":{
+"@def":"dt-docent",
+"#text":"documententity"
+},
+"emph":["declarations","entities"]
+},{
+"#text":["If there are no external markup declarations, the standalone documentdeclaration has no meaning. If there are external markup declarations but there is no standalonedocument declaration, the value \"","\" is assumed."],
+"code":"no"
+},{
+"#text":["Any XML document for which","holds can be converted algorithmically to a standalone document, which may be desirable for some network delivery applications."],
+"code":"standalone=\"no\""
+},{
+"#text":"An example XML declaration with a standalone document declaration:",
+"eg":"<?xml version=\"1.0\" standalone='yes'?>"
+}],
+"vcnote":{
+"@id":"vc-check-rmd",
+"head":"Standalone Document Declaration",
+"p":{
+"#text":["The standalone document declaration must havethe value \"","\" if any external markup declarationscontain declarations of:"],
+"code":"no"
+},
+"ulist":{
+"item":[{
+"p":{
+"#text":["attributes with","values, ifelements to whichthese attributes apply appear in the document withoutspecifications of values for these attributes, or"],
+"termref":{
+"@def":"dt-default",
+"#text":"default"
+}
+}
+},{
+"p":{
+"#text":["entities (other than",",",",",",",",","), if","to thoseentities appear in the document, or"],
+"code":["amp","lt","gt","apos","quot"],
+"termref":{
+"@def":"dt-entref",
+"#text":"references"
+}
+}
+},{
+"p":{
+"#text":["attributes with values subject to",", where theattribute appears in the document with a value which willchange as a result of normalization, or"],
+"titleref":{
+"@href":"AVNormalize",
+"#text":"normalization"
+}
+}
+},{
+"p":{
+"#text":["element types with",", if white space occursdirectly within any instance of those types."],
+"termref":{
+"@def":"dt-elemcontent",
+"#text":"element content"
+}
+}
+}]
+}
+}
+},{
+"@id":"sec-white-space",
+"head":"White Space Handling",
+"p":[{
+"#text":["In editing XML documents, it is often convenient to use \"white space\"(spaces, tabs, and blank lines, denoted by the nonterminal","in this specification) toset apart the markup for greater readability.  Such white space is typicallynot intended for inclusion in the delivered version of the document.On the other hand, \"significant\" white space that should be preserved in thedelivered version is common, for example in poetry andsource code."],
+"nt":{
+"@def":"NT-S",
+"#text":"S"
+}
+},{
+"#text":["An","must always pass all characters in a document that are notmarkup through to the application.   A","must also inform the applicationwhich  of these characters constitute white space appearingin","."],
+"termref":[{
+"@def":"dt-xml-proc",
+"#text":"XML processor"
+},{
+"@def":"dt-validating",
+"#text":"validating XML processor"
+},{
+"@def":"dt-elemcontent",
+"#text":"element content"
+}]
+},{
+"#text":["A special","named","may be attached to an elementto signal an intention that in that element,white space should be preserved by applications.In valid documents, this attribute, like any other, must be","if it is used.When declared, it must be given as an","whose onlypossible values are \"","\" and \"","\".For example:"],
+"termref":[{
+"@def":"dt-attr",
+"#text":"attribute"
+},{
+"@def":"dt-attdecl",
+"#text":"declared"
+},{
+"@def":"dt-enumerated",
+"#text":"enumerated type"
+}],
+"kw":"xml:space",
+"code":["default","preserve"],
+"eg":"<!ATTLIST poem   xml:space (default|preserve) 'preserve'>"
+},{
+"#text":["The value \"","\" signals that applications'default white-space processing modes are acceptable for this element; thevalue \"","\" indicates the intent that applications preserveall the white space.This declared intent is considered to apply to all elements within the contentof the element where it is specified, unless overriden with another instanceof the","attribute."],
+"code":["default","preserve"],
+"kw":"xml:space"
+},{
+"#text":["The","of any documentis considered to have signaled no intentions as regards application spacehandling, unless it provides a value for this attribute or the attribute is declared with a default value."],
+"termref":{
+"@def":"dt-root",
+"#text":"root element"
+}
+}]
+},{
+"@id":"sec-line-ends",
+"head":"End-of-Line Handling",
+"p":[{
+"#text":["XML","are often stored incomputer files which, for editing convenience, are organized into lines.These lines are typically separated by some combination of the characterscarriage-return (#xD) and line-feed (#xA)."],
+"termref":{
+"@def":"dt-parsedent",
+"#text":"parsed entities"
+}
+},{
+"#text":["To simplify the tasks of",",wherever an external parsed entity or the literal entity valueof an internal parsed entity contains either the literal two-character sequence \"#xD#xA\" or a standalone literal#xD, an","must pass to the application the single character #xA.(This behavior can conveniently be produced by normalizing all line breaks to #xA on input, before parsing.)"],
+"termref":[{
+"@def":"dt-app",
+"#text":"applications"
+},{
+"@def":"dt-xml-proc",
+"#text":"XML processor"
+}]
+}]
+},{
+"@id":"sec-lang-tag",
+"head":"Language Identification",
+"p":[{
+"#text":["In document processing, it is often useful toidentify the natural or formal language in which the content is written.A special","named","may be inserted indocuments to specify the language used in the contents and attribute values of any element in an XML document.In valid documents, this attribute, like any other, must be","if it is used.The values of the attribute are language identifiers as definedby",", \"Tags for the Identification of Languages\":","The","may be any of the following:"],
+"termref":[{
+"@def":"dt-attr",
+"#text":"attribute"
+},{
+"@def":"dt-attdecl",
+"#text":"declared"
+}],
+"kw":"xml:lang",
+"bibref":{
+"@ref":"RFC1766"
+},
+"scrap":{
+"@lang":"ebnf",
+"head":"Language Identification",
+"prod":[{
+"@id":"NT-LanguageID",
+"lhs":"LanguageID",
+"rhs":{
+"nt":[{
+"@def":"NT-Langcode",
+"#text":"Langcode"
+},{
+"@def":"NT-Subcode",
+"#text":"Subcode"
+}],
+"#text":["('-'",")*"]
+}
+},{
+"@id":"NT-Langcode",
+"lhs":"Langcode",
+"rhs":{
+"nt":[{
+"@def":"NT-ISO639Code",
+"#text":"ISO639Code"
+},{
+"@def":"NT-IanaCode",
+"#text":"IanaCode"
+},{
+"@def":"NT-UserCode",
+"#text":"UserCode"
+}],
+"#text":["|","|"]
+}
+},{
+"@id":"NT-ISO639Code",
+"lhs":"ISO639Code",
+"rhs":"([a-z] | [A-Z]) ([a-z] | [A-Z])"
+},{
+"@id":"NT-IanaCode",
+"lhs":"IanaCode",
+"rhs":"('i' | 'I') '-' ([a-z] | [A-Z])+"
+},{
+"@id":"NT-UserCode",
+"lhs":"UserCode",
+"rhs":"('x' | 'X') '-' ([a-z] | [A-Z])+"
+},{
+"@id":"NT-Subcode",
+"lhs":"Subcode",
+"rhs":"([a-z] | [A-Z])+"
+}]
+},
+"nt":{
+"@def":"NT-Langcode",
+"#text":"Langcode"
+},
+"ulist":{
+"item":[{
+"p":{
+"#text":["a two-letter language code as defined by",", \"Codesfor the representation of names of languages\""],
+"bibref":{
+"@ref":"ISO639"
+}
+}
+},{
+"p":{
+"#text":["a language identifier registered with the InternetAssigned Numbers Authority","; these begin with the prefix \"","\" (or \"","\")"],
+"bibref":{
+"@ref":"IANA"
+},
+"code":["i-","I-"]
+}
+},{
+"p":{
+"#text":["a language identifier assigned by the user, or agreed onbetween parties in private use; these must begin with theprefix \"","\" or \"","\" in order to ensure that they do not conflict with names later standardized or registered with IANA"],
+"code":["x-","X-"]
+}
+}]
+}
+},{
+"#text":["There may be any number of","segments; ifthe first subcode segment exists and the Subcode consists of two letters, then it must be a country code from",", \"Codes for the representation of names of countries.\"If the first subcode consists of more than two letters, it must bea subcode for the language in question registered with IANA,unless the","begins with the prefix \"","\" or\"","\"."],
+"nt":[{
+"@def":"NT-Subcode",
+"#text":"Subcode"
+},{
+"@def":"NT-Langcode",
+"#text":"Langcode"
+}],
+"bibref":{
+"@ref":"ISO3166"
+},
+"code":["x-","X-"]
+},"It is customary to give the language code in lower case, andthe country code (if any) in upper case.Note that these values, unlike other names in XML documents,are case insensitive.",{
+"#text":"For example:",
+"eg":"<p xml:lang=\"en\">The quick brown fox jumps over the lazy dog.</p><p xml:lang=\"en-GB\">What colour is it?</p><p xml:lang=\"en-US\">What color is it?</p><sp who=\"Faust\" desc='leise' xml:lang=\"de\">  <l>Habe nun, ach! Philosophie,</l>  <l>Juristerei, und Medizin</l>  <l>und leider auch Theologie</l>  <l>durchaus studiert mit heißem Bemüh'n.</l>  </sp>"
+},{
+"#text":["The intent declared with","is considered to apply toall attributes and content of the element where it is specified,unless overridden with an instance of","on another element within that content."],
+"kw":["xml:lang","xml:lang"]
+},{
+"#text":["A simple declaration for","might takethe form","but specific default values may also be given, if appropriate.  In acollection of French poems for English students, with glosses andnotes in English, the xml:lang attribute might be declared this way:"],
+"kw":"xml:lang",
+"eg":["xml:lang  NMTOKEN  #IMPLIED","<!ATTLIST poem   xml:lang NMTOKEN 'fr'>    <!ATTLIST gloss  xml:lang NMTOKEN 'en'>    <!ATTLIST note   xml:lang NMTOKEN 'en'>"]
+}]
+}]
+},{
+"@id":"sec-logical-struct",
+"head":"Logical Structures",
+"p":[{
+"termdef":{
+"@id":"dt-element",
+"@term":"Element",
+"#text":["Each","contains one or more",", the boundaries of which are either delimited by","and",", or, for","elements, by an",". Each element has a type,identified by name, sometimes called its \"genericidentifier\" (GI), and may have a set ofattribute specifications."],
+"termref":[{
+"@def":"dt-xml-doc",
+"#text":"XML document"
+},{
+"@def":"dt-stag",
+"#text":"start-tags"
+},{
+"@def":"dt-etag",
+"#text":"end-tags"
+},{
+"@def":"dt-empty",
+"#text":"empty"
+},{
+"@def":"dt-eetag",
+"#text":"empty-element tag"
+}],
+"term":"elements"
+},
+"#text":["Each attribute specification has a","and a","."],
+"termref":[{
+"@def":"dt-attrname",
+"#text":"name"
+},{
+"@def":"dt-attrval",
+"#text":"value"
+}]
+},{
+"#text":["This specification does not constrain the semantics, use, or (beyondsyntax) names of the element types and attributes, except that namesbeginning with a match to","are reserved for standardization in this or future versions of thisspecification."],
+"code":"(('X'|'x')('M'|'m')('L'|'l'))"
+}],
+"scrap":{
+"@lang":"ebnf",
+"head":"Element",
+"prod":{
+"@id":"NT-element",
+"lhs":"element",
+"rhs":[{
+"nt":{
+"@def":"NT-EmptyElemTag",
+"#text":"EmptyElemTag"
+}
+},{
+"#text":"|",
+"nt":[{
+"@def":"NT-STag",
+"#text":"STag"
+},{
+"@def":"NT-content",
+"#text":"content"
+},{
+"@def":"NT-ETag",
+"#text":"ETag"
+}]
+}],
+"wfc":{
+"@def":"GIMatch"
+},
+"vc":{
+"@def":"elementvalid"
+}
+}
+},
+"wfcnote":{
+"@id":"GIMatch",
+"head":"Element Type Match",
+"p":{
+"#text":["The","in an element's end-tag must match the element type inthe start-tag."],
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+}
+}
+},
+"vcnote":{
+"@id":"elementvalid",
+"head":"Element Valid",
+"p":{
+"#text":["An element isvalid ifthere is a declaration matching","where the","matches the element type, andone of the following holds:"],
+"nt":[{
+"@def":"NT-elementdecl",
+"#text":"elementdecl"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+}]
+},
+"olist":{
+"item":[{
+"p":{
+"#text":["The declaration matches","and the element has no","."],
+"kw":"EMPTY",
+"termref":{
+"@def":"dt-content",
+"#text":"content"
+}
+}
+},{
+"p":{
+"#text":["The declaration matches","andthe sequence of","belongs to the language generated by the regular expression inthe content model, with optional white space (characters matching the nonterminal",") between each pairof child elements."],
+"nt":[{
+"@def":"NT-children",
+"#text":"children"
+},{
+"@def":"NT-S",
+"#text":"S"
+}],
+"termref":{
+"@def":"dt-parentchild",
+"#text":"child elements"
+}
+}
+},{
+"p":{
+"#text":["The declaration matches","and the content consists of","and","whose types match names in the content model."],
+"nt":{
+"@def":"NT-Mixed",
+"#text":"Mixed"
+},
+"termref":[{
+"@def":"dt-chardata",
+"#text":"character data"
+},{
+"@def":"dt-parentchild",
+"#text":"child elements"
+}]
+}
+},{
+"p":{
+"#text":["The declaration matches",", and the typesof any","havebeen declared."],
+"kw":"ANY",
+"termref":{
+"@def":"dt-parentchild",
+"#text":"child elements"
+}
+}
+}]
+}
+},
+"div2":[{
+"@id":"sec-starttags",
+"head":"Start-Tags, End-Tags, and Empty-Element Tags",
+"p":[{
+"termdef":[{
+"@id":"dt-stag",
+"@term":"Start-Tag",
+"#text":["The beginning of everynon-empty XML element is marked by a",".","The","inthe start- and end-tags gives the element's","."],
+"term":["start-tag","type"],
+"scrap":{
+"@lang":"ebnf",
+"head":"Start-tag",
+"prodgroup":{
+"@pcw2":"6",
+"@pcw4":"15",
+"@pcw5":"11.5",
+"prod":[{
+"@id":"NT-STag",
+"lhs":"STag",
+"rhs":{
+"#text":["'<'","(",")*","? '>'"],
+"nt":[{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Attribute",
+"#text":"Attribute"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+},
+"wfc":{
+"@def":"uniqattspec"
+}
+},{
+"@id":"NT-Attribute",
+"lhs":"Attribute",
+"rhs":{
+"nt":[{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-Eq",
+"#text":"Eq"
+},{
+"@def":"NT-AttValue",
+"#text":"AttValue"
+}]
+},
+"vc":{
+"@def":"ValueType"
+},
+"wfc":[{
+"@def":"NoExternalRefs"
+},{
+"@def":"CleanAttrVals"
+}]
+}]
+}
+},
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+}
+},{
+"@id":"dt-attr",
+"@term":"Attribute",
+"#text":["The","-","pairs arereferred to as the","of the element"],
+"nt":[{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-AttValue",
+"#text":"AttValue"
+}],
+"term":"attribute specifications"
+},{
+"@id":"dt-attrname",
+"@term":"Attribute Name",
+"#text":["with the","in each pairreferred to as the"],
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+},
+"term":"attribute name"
+},{
+"@id":"dt-attrval",
+"@term":"Attribute Value",
+"#text":["the content of the","(the text between the","or","delimiters)as the","."],
+"nt":{
+"@def":"NT-AttValue",
+"#text":"AttValue"
+},
+"code":["'","\""],
+"term":"attribute value"
+}],
+"#text":[",","and"]
+},{
+"#text":"An example of a start-tag:",
+"eg":"<termdef id=\"dt-dog\" term=\"dog\">"
+},{
+"termdef":{
+"@id":"dt-etag",
+"@term":"End Tag",
+"#text":["The end of every element that begins with a start-tag mustbe marked by an","containing a name that echoes the element's type as given in thestart-tag:"],
+"term":"end-tag",
+"scrap":{
+"@lang":"ebnf",
+"head":"End-tag",
+"prodgroup":{
+"@pcw2":"6",
+"@pcw4":"15",
+"@pcw5":"11.5",
+"prod":{
+"@id":"NT-ETag",
+"lhs":"ETag",
+"rhs":{
+"#text":["'</'","? '>'"],
+"nt":[{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+}
+}
+}
+}
+}
+},{
+"#text":"An example of an end-tag:",
+"eg":"</termdef>"
+},{
+"termdef":{
+"@id":"dt-content",
+"@term":"Content",
+"#text":["The","between the start-tag andend-tag is called the element's",":"],
+"termref":{
+"@def":"dt-text",
+"#text":"text"
+},
+"term":"content",
+"scrap":{
+"@lang":"ebnf",
+"head":"Content of Elements",
+"prodgroup":{
+"@pcw2":"6",
+"@pcw4":"15",
+"@pcw5":"11.5",
+"prod":{
+"@id":"NT-content",
+"lhs":"content",
+"rhs":{
+"#text":["(","|","|","|","|","|",")*"],
+"nt":[{
+"@def":"NT-element",
+"#text":"element"
+},{
+"@def":"NT-CharData",
+"#text":"CharData"
+},{
+"@def":"NT-Reference",
+"#text":"Reference"
+},{
+"@def":"NT-CDSect",
+"#text":"CDSect"
+},{
+"@def":"NT-PI",
+"#text":"PI"
+},{
+"@def":"NT-Comment",
+"#text":"Comment"
+}]
+}
+}
+}
+}
+}
+},{
+"termdef":[{
+"@id":"dt-empty",
+"@term":"Empty",
+"#text":["If an element is",",it must be represented either by a start-tag immediately followedby an end-tag or by an empty-element tag."],
+"term":"empty"
+},{
+"@id":"dt-eetag",
+"@term":"empty-element tag",
+"#text":["An","takes a special form:"],
+"term":"empty-element tag",
+"scrap":{
+"@lang":"ebnf",
+"head":"Tags for Empty Elements",
+"prodgroup":{
+"@pcw2":"6",
+"@pcw4":"15",
+"@pcw5":"11.5",
+"prod":{
+"@id":"NT-EmptyElemTag",
+"lhs":"EmptyElemTag",
+"rhs":{
+"#text":["'<'","(",")*","? '/>'"],
+"nt":[{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Attribute",
+"#text":"Attribute"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+},
+"wfc":{
+"@def":"uniqattspec"
+}
+}
+}
+}
+}]
+},{
+"#text":["Empty-element tags may be used for any element which has nocontent, whether or not it is declared using the keyword",".",", the empty-elementtag must be used, and can only be used, for elements which are","."],
+"kw":["EMPTY","EMPTY"],
+"termref":[{
+"@def":"dt-interop",
+"#text":"For interoperability"
+},{
+"@def":"dt-eldecl",
+"#text":"declared"
+}]
+},{
+"#text":"Examples of empty elements:",
+"eg":"<IMG align=\"left\" src=\"http://www.w3.org/Icons/WWW/w3c_home\" /><br></br><br/>"
+}],
+"wfcnote":[{
+"@id":"uniqattspec",
+"head":"Unique Att Spec",
+"p":"No attribute name may appear more than once in the same start-tagor empty-element tag."
+},{
+"@id":"NoExternalRefs",
+"head":"No External Entity References",
+"p":"Attribute values cannot contain direct or indirect entity references to external entities."
+},{
+"@id":"CleanAttrVals",
+"head":{
+"#text":["No","in Attribute Values"],
+"code":"<"
+},
+"p":{
+"#text":["The","of any entityreferred to directly or indirectly in an attributevalue (other than \"","\") must not containa","."],
+"termref":{
+"@def":"dt-repltext",
+"#text":"replacement text"
+},
+"code":["&lt;","<"]
+}
+}],
+"vcnote":{
+"@id":"ValueType",
+"head":"Attribute Value Type",
+"p":{
+"#text":["The attribute must have been declared; the value must be of the type declared for it.(For attribute types, see",".)"],
+"specref":{
+"@ref":"attdecls"
+}
+}
+}
+},{
+"@id":"elemdecls",
+"head":"Element Type Declarations",
+"p":[{
+"#text":["The","structure of an","may, for","purposes, be constrainedusing element type and attribute-list declarations.An element type declaration constrains the element's","."],
+"termref":[{
+"@def":"dt-element",
+"#text":"element"
+},{
+"@def":"dt-xml-doc",
+"#text":"XML document"
+},{
+"@def":"dt-valid",
+"#text":"validation"
+},{
+"@def":"dt-content",
+"#text":"content"
+}]
+},{
+"#text":["Element type declarations often constrain which element types canappear as","of the element.At user option, an XML processor may issue a warningwhen a declaration mentions an element type for which no declarationis provided, but this is not an error."],
+"termref":{
+"@def":"dt-parentchild",
+"#text":"children"
+}
+},{
+"termdef":{
+"@id":"dt-eldecl",
+"@term":"Element Type declaration",
+"#text":["An","takes the form:","where the","gives the element type being declared."],
+"term":"elementtype declaration",
+"scrap":{
+"@lang":"ebnf",
+"head":"Element Type Declaration",
+"prodgroup":{
+"@pcw2":"5.5",
+"@pcw4":"18",
+"@pcw5":"9",
+"prod":[{
+"@id":"NT-elementdecl",
+"lhs":"elementdecl",
+"rhs":{
+"#text":["'<!ELEMENT'","? '>'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-contentspec",
+"#text":"contentspec"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+},
+"vc":{
+"@def":"EDUnique"
+}
+},{
+"@id":"NT-contentspec",
+"lhs":"contentspec",
+"rhs":{
+"#text":["'EMPTY' | 'ANY' |","|"],
+"nt":[{
+"@def":"NT-Mixed",
+"#text":"Mixed"
+},{
+"@def":"NT-children",
+"#text":"children"
+}]
+}
+}]
+}
+},
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+}
+}
+},{
+"#text":"Examples of element type declarations:",
+"eg":"<!ELEMENT br EMPTY><!ELEMENT p (#PCDATA|emph)* ><!ELEMENT %name.para; %content.para; ><!ELEMENT container ANY>"
+}],
+"vcnote":{
+"@id":"EDUnique",
+"head":"Unique Element Type Declaration",
+"p":"No element type may be declared more than once."
+},
+"div3":[{
+"@id":"sec-element-content",
+"head":"Element Content",
+"p":[{
+"termdef":{
+"@id":"dt-elemcontent",
+"@term":"Element content",
+"#text":["An element","has","when elements of thattype must contain only","elements (no character data), optionally separated by white space (characters matching the nonterminal",")."],
+"termref":[{
+"@def":"dt-stag",
+"#text":"type"
+},{
+"@def":"dt-parentchild",
+"#text":"child"
+}],
+"term":"element content",
+"nt":{
+"@def":"NT-S",
+"#text":"S"
+}
+},
+"#text":["In this case, theconstraint includes a content model, a simple grammar governingthe allowed types of the childelements and the order in which they are allowed to appear.  The grammar is built oncontent particles (","s), which consist of names, choice lists of content particles, orsequence lists of content particles:","where each","is the type of an element which mayappear as a",".  Any contentparticle in a choice list may appear in the","at the location wherethe choice list appears in the grammar;content particles occurring in a sequence list must eachappear in the","in theorder given in the list.  The optional character following a name or list governswhether the element or the content particles in the list may occur oneor more (","), zero or more (","), or zero or one times (",").  The absence of such an operator means that the element or content particlemust appear exactly once.This syntaxand meaning are identical to those used in the productions in thisspecification."],
+"nt":[{
+"@def":"NT-cp",
+"#text":"cp"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+}],
+"scrap":{
+"@lang":"ebnf",
+"head":"Element-content Models",
+"prodgroup":{
+"@pcw2":"5.5",
+"@pcw4":"16",
+"@pcw5":"11",
+"prod":[{
+"@id":"NT-children",
+"lhs":"children",
+"rhs":{
+"#text":["(","|",") ('?' | '*' | '+')?"],
+"nt":[{
+"@def":"NT-choice",
+"#text":"choice"
+},{
+"@def":"NT-seq",
+"#text":"seq"
+}]
+}
+},{
+"@id":"NT-cp",
+"lhs":"cp",
+"rhs":{
+"#text":["(","|","|",") ('?' | '*' | '+')?"],
+"nt":[{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-choice",
+"#text":"choice"
+},{
+"@def":"NT-seq",
+"#text":"seq"
+}]
+}
+},{
+"@id":"NT-choice",
+"lhs":"choice",
+"rhs":{
+"#text":["'('","? cp (","? '|'","?",")*","? ')'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-cp",
+"#text":"cp"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+},
+"vc":{
+"@def":"vc-PEinGroup"
+}
+},{
+"@id":"NT-seq",
+"lhs":"seq",
+"rhs":{
+"#text":["'('","? cp (","? ','","?",")*","? ')'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-cp",
+"#text":"cp"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+},
+"vc":{
+"@def":"vc-PEinGroup"
+}
+}]
+}
+},
+"termref":[{
+"@def":"dt-parentchild",
+"#text":"child"
+},{
+"@def":"dt-elemcontent",
+"#text":"element content"
+},{
+"@def":"dt-elemcontent",
+"#text":"element content"
+}],
+"code":["+","*","?"]
+},{
+"#text":["The content of an element matches a content model if and only if it ispossible to trace out a path through the content model, obeying thesequence, choice, and repetition operators and matching each element inthe content against an element type in the content model.",", it is an errorif an element in the document canmatch more than one occurrence of an element type in the content model.For more information, see","."],
+"termref":{
+"@def":"dt-compat",
+"#text":"For compatibility"
+},
+"specref":{
+"@ref":"determinism"
+}
+},{
+"#text":"Examples of element-content models:",
+"eg":"<!ELEMENT spec (front, body, back?)><!ELEMENT div1 (head, (p | list | note)*, div2*)><!ELEMENT dictionary-body (%div.mix; | %dict.mix;)*>"
+}],
+"vcnote":{
+"@id":"vc-PEinGroup",
+"head":"Proper Group/PE Nesting",
+"p":[{
+"#text":["Parameter-entity","must be properly nestedwith parenthetized groups.That is to say, if either of the opening or closing parenthesesin a",",",", or","construct is contained in the replacement text for a",",both must be contained in the same replacement text."],
+"termref":[{
+"@def":"dt-repltext",
+"#text":"replacement text"
+},{
+"@def":"dt-PERef",
+"#text":"parameter entity"
+}],
+"nt":[{
+"@def":"NT-choice",
+"#text":"choice"
+},{
+"@def":"NT-seq",
+"#text":"seq"
+},{
+"@def":"NT-Mixed",
+"#text":"Mixed"
+}]
+},{
+"termref":{
+"@def":"dt-interop",
+"#text":"For interoperability"
+},
+"#text":[", if a parameter-entity reference appears in a",",",", or","construct, its replacement textshould not be empty, and neither the first nor last non-blankcharacter of the replacement text should be a connector (","or",")."],
+"nt":[{
+"@def":"NT-choice",
+"#text":"choice"
+},{
+"@def":"NT-seq",
+"#text":"seq"
+},{
+"@def":"NT-Mixed",
+"#text":"Mixed"
+}],
+"code":["|",","]
+}]
+}
+},{
+"@id":"sec-mixed-content",
+"head":"Mixed Content",
+"p":[{
+"termdef":{
+"@id":"dt-mixed",
+"@term":"Mixed Content",
+"#text":["An element","has","when elements of that type may containcharacter data, optionally interspersed with","elements."],
+"termref":[{
+"@def":"dt-stag",
+"#text":"type"
+},{
+"@def":"dt-parentchild",
+"#text":"child"
+}],
+"term":"mixed content"
+},
+"#text":["In this case, the types of the child elementsmay be constrained, but not their order or their number of occurrences:","where the","s give the types of elementsthat may appear as children."],
+"scrap":{
+"@lang":"ebnf",
+"head":"Mixed-content Declaration",
+"prodgroup":{
+"@pcw2":"5.5",
+"@pcw4":"16",
+"@pcw5":"11",
+"prod":{
+"@id":"NT-Mixed",
+"lhs":"Mixed",
+"rhs":[{
+"#text":["'('","? '#PCDATA'(","? '|'","?",")*","? ')*'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+},{
+"#text":["| '('","? '#PCDATA'","? ')'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+}],
+"vc":[{
+"@def":"vc-PEinGroup"
+},{
+"@def":"vc-MixedChildrenUnique"
+}]
+}
+}
+},
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+}
+},{
+"#text":"Examples of mixed content declarations:",
+"eg":"<!ELEMENT p (#PCDATA|a|ul|b|i|em)*><!ELEMENT p (#PCDATA | %font; | %phrase; | %special; | %form;)* ><!ELEMENT b (#PCDATA)>"
+}],
+"vcnote":{
+"@id":"vc-MixedChildrenUnique",
+"head":"No Duplicate Types",
+"p":"The same name must not appear more than once in a single mixed-contentdeclaration."
+}
+}]
+},{
+"@id":"attdecls",
+"head":"Attribute-List Declarations",
+"p":[{
+"termref":[{
+"@def":"dt-attr",
+"#text":"Attributes"
+},{
+"@def":"dt-element",
+"#text":"elements"
+},{
+"@def":"dt-stag",
+"#text":"start-tags"
+},{
+"@def":"dt-eetag",
+"#text":"empty-element tags"
+}],
+"#text":["are used to associatename-value pairs with",".Attribute specifications may appear only within","and","; thus, the productions used torecognize them appear in",".  Attribute-listdeclarations may be used:"],
+"specref":{
+"@ref":"sec-starttags"
+},
+"ulist":{
+"item":[{
+"p":"To define the set of attributes pertaining to a givenelement type."
+},{
+"p":"To establish type constraints for theseattributes."
+},{
+"p":{
+"#text":["To provide","for attributes."],
+"termref":{
+"@def":"dt-default",
+"#text":"default values"
+}
+}
+}]
+}
+},{
+"termdef":{
+"@id":"dt-attdecl",
+"@term":"Attribute-List Declaration",
+"term":"Attribute-list declarations",
+"#text":["specify the name, data type, and defaultvalue (if any) of each attribute associated with a given element type:","The","in the","rule is the type of an element.  Atuser option, an XML processor may issue a warning if attributes aredeclared for an element type not itself declared, but this is not anerror.  The","in the","rule isthe name of the attribute."],
+"scrap":{
+"@lang":"ebnf",
+"head":"Attribute-list Declaration",
+"prod":[{
+"@id":"NT-AttlistDecl",
+"lhs":"AttlistDecl",
+"rhs":{
+"#text":["'<!ATTLIST'","*","? '>'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-AttDef",
+"#text":"AttDef"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+}
+},{
+"@id":"NT-AttDef",
+"lhs":"AttDef",
+"rhs":{
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-AttType",
+"#text":"AttType"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-DefaultDecl",
+"#text":"DefaultDecl"
+}]
+}
+}]
+},
+"nt":[{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-AttlistDecl",
+"#text":"AttlistDecl"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-AttDef",
+"#text":"AttDef"
+}]
+}
+},{
+"#text":["When more than one","is provided for agiven element type, the contents of all those provided are merged.  Whenmore than one definition is provided for the same attribute of agiven element type, the first declaration is binding and laterdeclarations are ignored.","writers of DTDsmay choose to provide at most one attribute-list declarationfor a given element type, at most one attribute definitionfor a given attribute name, and at least one attribute definitionin each attribute-list declaration.For interoperability, an XML processor may at user optionissue a warning when more than one attribute-list declaration isprovided for a given element type, or more than one attribute definitionis provided for a given attribute, but this is not an error."],
+"nt":{
+"@def":"NT-AttlistDecl",
+"#text":"AttlistDecl"
+},
+"termref":{
+"@def":"dt-interop",
+"#text":"For interoperability,"
+}
+}],
+"div3":[{
+"@id":"sec-attribute-types",
+"head":"Attribute Types",
+"p":[{
+"#text":"XML attribute types are of three kinds:  a string type, aset of tokenized types, and enumerated types.  The string type may takeany literal string as a value; the tokenized types have varying lexicaland semantic constraints, as noted:",
+"scrap":{
+"@lang":"ebnf",
+"head":"Attribute Types",
+"prodgroup":{
+"@pcw4":"14",
+"@pcw5":"11.5",
+"prod":[{
+"@id":"NT-AttType",
+"lhs":"AttType",
+"rhs":{
+"nt":[{
+"@def":"NT-StringType",
+"#text":"StringType"
+},{
+"@def":"NT-TokenizedType",
+"#text":"TokenizedType"
+},{
+"@def":"NT-EnumeratedType",
+"#text":"EnumeratedType"
+}],
+"#text":["|","|"]
+}
+},{
+"@id":"NT-StringType",
+"lhs":"StringType",
+"rhs":"'CDATA'"
+},{
+"@id":"NT-TokenizedType",
+"lhs":"TokenizedType",
+"rhs":["'ID'","| 'IDREF'","| 'IDREFS'","| 'ENTITY'","| 'ENTITIES'","| 'NMTOKEN'","| 'NMTOKENS'"],
+"vc":[{
+"@def":"id"
+},{
+"@def":"one-id-per-el"
+},{
+"@def":"id-default"
+},{
+"@def":"idref"
+},{
+"@def":"idref"
+},{
+"@def":"entname"
+},{
+"@def":"entname"
+},{
+"@def":"nmtok"
+},{
+"@def":"nmtok"
+}]
+}]
+}
+}
+},{
+"termdef":{
+"@id":"dt-enumerated",
+"@term":"Enumerated Attribute Values",
+"term":"Enumerated attributes",
+"#text":"can take one of a list of values provided in the declaration"
+},
+"#text":[". There are twokinds of enumerated types:","A","attribute identifies a",", declared in the DTD with associated system and/or public identifiers, tobe used in interpreting the element to which the attributeis attached."],
+"scrap":{
+"@lang":"ebnf",
+"head":"Enumerated Attribute Types",
+"prod":[{
+"@id":"NT-EnumeratedType",
+"lhs":"EnumeratedType",
+"rhs":{
+"nt":[{
+"@def":"NT-NotationType",
+"#text":"NotationType"
+},{
+"@def":"NT-Enumeration",
+"#text":"Enumeration"
+}],
+"#text":"|"
+}
+},{
+"@id":"NT-NotationType",
+"lhs":"NotationType",
+"rhs":{
+"#text":["'NOTATION'","'('","?","(","? '|'","?",")*","? ')'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+},
+"vc":{
+"@def":"notatn"
+}
+},{
+"@id":"NT-Enumeration",
+"lhs":"Enumeration",
+"rhs":{
+"#text":["'('","?","(","? '|'","?",")*","? ')'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Nmtoken",
+"#text":"Nmtoken"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Nmtoken",
+"#text":"Nmtoken"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+},
+"vc":{
+"@def":"enum"
+}
+}]
+},
+"kw":"NOTATION",
+"termref":{
+"@def":"dt-notation",
+"#text":"notation"
+}
+},{
+"termref":{
+"@def":"dt-interop",
+"#text":"For interoperability,"
+},
+"#text":["the same","should not occur more than once in theenumerated attribute types of a single element type."],
+"nt":{
+"@def":"NT-Nmtoken",
+"#text":"Nmtoken"
+}
+}],
+"vcnote":[{
+"@id":"id",
+"head":"ID",
+"p":{
+"#text":["Values of type","must match the","production.  A name must not appear more than once inan XML document as a value of this type; i.e., ID values must uniquelyidentify the elements which bear them."],
+"kw":"ID",
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+}
+}
+},{
+"@id":"one-id-per-el",
+"head":"One ID per Element Type",
+"p":"No element type may have more than one ID attribute specified."
+},{
+"@id":"id-default",
+"head":"ID Attribute Default",
+"p":{
+"#text":["An ID attribute must have a declared default of","or","."],
+"kw":["#IMPLIED","#REQUIRED"]
+}
+},{
+"@id":"idref",
+"head":"IDREF",
+"p":{
+"#text":["Values of type","must matchthe","production, andvalues of type","must match","; each","must match the value of an ID attribute on some element in the XML document; i.e.","values must match the value of some ID attribute."],
+"kw":["IDREF","IDREFS","IDREF"],
+"nt":[{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-Names",
+"#text":"Names"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+}]
+}
+},{
+"@id":"entname",
+"head":"Entity Name",
+"p":{
+"#text":["Values of type","must match the","production,values of type","must match",";each","must match thename of an","declared in the","."],
+"kw":["ENTITY","ENTITIES"],
+"nt":[{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-Names",
+"#text":"Names"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+}],
+"termref":[{
+"@def":"dt-unparsed",
+"#text":"unparsed entity"
+},{
+"@def":"dt-doctype",
+"#text":"DTD"
+}]
+}
+},{
+"@id":"nmtok",
+"head":"Name Token",
+"p":{
+"#text":["Values of type","must match the","production;values of type","must match","."],
+"kw":["NMTOKEN","NMTOKENS"],
+"nt":{
+"@def":"NT-Nmtoken",
+"#text":"Nmtoken"
+},
+"termref":{
+"@def":"NT-Nmtokens",
+"#text":"Nmtokens"
+}
+}
+},{
+"@id":"notatn",
+"head":"Notation Attributes",
+"p":{
+"#text":["Values of this type must matchone of the","names included inthe declaration; all notation names in the declaration mustbe declared."],
+"titleref":{
+"@href":"Notations",
+"#text":"notation"
+}
+}
+},{
+"@id":"enum",
+"head":"Enumeration",
+"p":{
+"#text":["Values of this typemust match one of the","tokens in thedeclaration."],
+"nt":{
+"@def":"NT-Nmtoken",
+"#text":"Nmtoken"
+}
+}
+}]
+},{
+"@id":"sec-attr-defaults",
+"head":"Attribute Defaults",
+"p":[{
+"#text":["An","providesinformation on whetherthe attribute's presence is required, and if not, how an XML processor shouldreact if a declared attribute is absent in a document."],
+"termref":{
+"@def":"dt-attdecl",
+"#text":"attribute declaration"
+},
+"scrap":{
+"@lang":"ebnf",
+"head":"Attribute Defaults",
+"prodgroup":{
+"@pcw4":"14",
+"@pcw5":"11.5",
+"prod":{
+"@id":"NT-DefaultDecl",
+"lhs":"DefaultDecl",
+"rhs":["'#REQUIRED' | '#IMPLIED'",{
+"#text":["| (('#FIXED' S)?",")"],
+"nt":{
+"@def":"NT-AttValue",
+"#text":"AttValue"
+}
+}],
+"vc":[{
+"@def":"RequiredAttr"
+},{
+"@def":"defattrvalid"
+},{
+"@def":"FixedAttr"
+}],
+"wfc":{
+"@def":"CleanAttrVals"
+}
+}
+}
+}
+},{
+"#text":["In an attribute declaration,","means that theattribute must always be provided,","that no default value is provided."],
+"kw":["#REQUIRED","#IMPLIED"],
+"termdef":{
+"@id":"dt-default",
+"@term":"Attribute Default",
+"#text":["If the declarationis neither","nor",", then the","value contains the declared","value; the","keyword states thatthe attribute must always have the default value.If a default valueis declared, when an XML processor encounters an omitted attribute, itis to behave as though the attribute were present with the declared default value."],
+"kw":["#REQUIRED","#IMPLIED","#FIXED"],
+"nt":{
+"@def":"NT-AttValue",
+"#text":"AttValue"
+},
+"term":"default"
+}
+},{
+"#text":"Examples of attribute-list declarations:",
+"eg":"<!ATTLIST termdef          id      ID      #REQUIRED          name    CDATA   #IMPLIED><!ATTLIST list          type    (bullets|ordered|glossary)  \"ordered\"><!ATTLIST form          method  CDATA   #FIXED \"POST\">"
+}],
+"vcnote":[{
+"@id":"RequiredAttr",
+"head":"Required Attribute",
+"p":{
+"#text":["If the default declaration is the keyword",", thenthe attribute must be specified forall elements of the type in the attribute-list declaration."],
+"kw":"#REQUIRED"
+}
+},{
+"@id":"defattrvalid",
+"head":"Attribute Default Legal",
+"p":"The declareddefault value must meet the lexical constraints of the declared attribute type."
+},{
+"@id":"FixedAttr",
+"head":"Fixed Attribute Default",
+"p":{
+"#text":["If an attribute has a default value declared with the","keyword, instances of that attribute mustmatch the default value."],
+"kw":"#FIXED"
+}
+}]
+},{
+"@id":"AVNormalize",
+"head":"Attribute-Value Normalization",
+"p":[{
+"#text":"Before the value of an attribute is passed to the applicationor checked for validity, theXML processor must normalize it as follows:",
+"ulist":{
+"item":[{
+"p":"a character reference is processed by appending the referenced    character to the attribute value"
+},{
+"p":"an entity reference is processed by recursively processing thereplacement text of the entity"
+},{
+"p":"a whitespace character (#x20, #xD, #xA, #x9) is processed byappending #x20 to the normalized value, except that only a single #x20is appended for a \"#xD#xA\" sequence that is part of an externalparsed entity or the literal entity value of an internal parsedentity"
+},{
+"p":"other characters are processed by appending them to the normalizedvalue"
+}]
+}
+},"If the declared value is not CDATA, then the XML processor mustfurther process the normalized attribute value by discarding anyleading and trailing space (#x20) characters, and by replacingsequences of space (#x20) characters by a single space (#x20)character.",{
+"#text":["All attributes for which no declaration has been read should be treatedby a non-validating parser as if declared","."],
+"kw":"CDATA"
+}]
+}]
+},{
+"@id":"sec-condition-sect",
+"head":"Conditional Sections",
+"p":[{
+"termdef":{
+"@id":"dt-cond-section",
+"@term":"conditional section",
+"term":"Conditional sections",
+"#text":["are portions of the","which are included in, or excluded from, the logical structure of the DTD based onthe keyword which governs them."],
+"termref":{
+"@def":"dt-doctype",
+"#text":"document type declaration external subset"
+}
+},
+"scrap":{
+"@lang":"ebnf",
+"head":"Conditional Section",
+"prodgroup":{
+"@pcw2":"9",
+"@pcw4":"14.5",
+"prod":[{
+"@id":"NT-conditionalSect",
+"lhs":"conditionalSect",
+"rhs":{
+"nt":[{
+"@def":"NT-includeSect",
+"#text":"includeSect"
+},{
+"@def":"NT-ignoreSect",
+"#text":"ignoreSect"
+}],
+"#text":"|"
+}
+},{
+"@id":"NT-includeSect",
+"lhs":"includeSect",
+"rhs":{
+"#text":["'<![' S? 'INCLUDE' S? '['","']]>'"],
+"nt":{
+"@def":"NT-extSubsetDecl",
+"#text":"extSubsetDecl"
+}
+}
+},{
+"@id":"NT-ignoreSect",
+"lhs":"ignoreSect",
+"rhs":{
+"#text":["'<![' S? 'IGNORE' S? '['","*']]>'"],
+"nt":{
+"@def":"NT-ignoreSectContents",
+"#text":"ignoreSectContents"
+}
+}
+},{
+"@id":"NT-ignoreSectContents",
+"lhs":"ignoreSectContents",
+"rhs":{
+"nt":[{
+"@def":"NT-Ignore",
+"#text":"Ignore"
+},{
+"@def":"NT-ignoreSectContents",
+"#text":"ignoreSectContents"
+},{
+"@def":"NT-Ignore",
+"#text":"Ignore"
+}],
+"#text":["('<!['","']]>'",")*"]
+}
+},{
+"@id":"NT-Ignore",
+"lhs":"Ignore",
+"rhs":{
+"nt":[{
+"@def":"NT-Char",
+"#text":"Char"
+},{
+"@def":"NT-Char",
+"#text":"Char"
+},{
+"@def":"NT-Char",
+"#text":"Char"
+}],
+"#text":["* - (","* ('<![' | ']]>')","*)"]
+}
+}]
+}
+}
+},"Like the internal and external DTD subsets, a conditional sectionmay contain one or more complete declarations,comments, processing instructions, or nested conditional sections, intermingled with white space.",{
+"#text":["If the keyword of theconditional section is",", then the contents of the conditionalsection are part of the DTD.If the keyword of the conditionalsection is",", then the contents of the conditional section arenot logically part of the DTD.Note that for reliable parsing, the contents of even ignoredconditional sections must be read in order todetect nested conditional sections and ensure that the end of theoutermost (ignored) conditional section is properly detected.If a conditional section with akeyword of","occurs within a larger conditionalsection with a keyword of",", both the outer and theinner conditional sections are ignored."],
+"kw":["INCLUDE","IGNORE","INCLUDE","IGNORE"]
+},"If the keyword of the conditional section is a parameter-entity reference, the parameter entity must be replaced by itscontent before the processor decides whether toinclude or ignore the conditional section.",{
+"#text":"An example:",
+"eg":"<!ENTITY % draft 'INCLUDE' ><!ENTITY % final 'IGNORE' > <![%draft;[<!ELEMENT book (comments*, title, body, supplements?)>]]><![%final;[<!ELEMENT book (title, body, supplements?)>]]>"
+}]
+}]
+},{
+"@id":"sec-physical-struct",
+"head":"Physical Structures",
+"p":[{
+"termdef":{
+"@id":"dt-entity",
+"@term":"Entity",
+"#text":["An XML document may consistof one or many storage units.   These are called","; they all have","and are all(except for the document entity, see below, and the",") identified by","."],
+"term":["entities","content","name"],
+"termref":{
+"@def":"dt-doctype",
+"#text":"external DTD subset"
+}
+},
+"#text":["Each XML document has one entitycalled the",", which servesas the starting point for the","and may contain the whole document."],
+"termref":[{
+"@def":"dt-docent",
+"#text":"document entity"
+},{
+"@def":"dt-xml-proc",
+"#text":"XMLprocessor"
+}]
+},{
+"#text":"Entities may be either parsed or unparsed.",
+"termdef":{
+"@id":"dt-parsedent",
+"@term":"Text Entity",
+"#text":["A","contents are referred to as its",";this","is considered anintegral part of the document."],
+"term":"parsed entity's",
+"termref":[{
+"@def":"dt-repltext",
+"#text":"replacement text"
+},{
+"@def":"dt-text",
+"#text":"text"
+}]
+}
+},{
+"termdef":{
+"@id":"dt-unparsed",
+"@term":"Unparsed Entity",
+"#text":["An","is a resource whose contents may or may not be",", and if text, may not be XML.Each unparsed entityhas an associated",", identified by name.Beyond a requirementthat an XML processor make the identifiers for the entity and notation available to the application,XML places no constraints on the contents of unparsed entities."],
+"term":"unparsed entity",
+"termref":[{
+"@def":"dt-text",
+"#text":"text"
+},{
+"@def":"dt-notation",
+"#text":"notation"
+}]
+}
+},{
+"#text":["Parsed entities are invoked by name using entity references;unparsed entities by name, given in the value of","or","attributes."],
+"kw":["ENTITY","ENTITIES"]
+},{
+"termdef":[{
+"@id":"gen-entity",
+"@term":"general entity",
+"term":"General entities",
+"#text":["are entities for use within the document content.In this specification, general entities are sometimes referred to with the unqualified term","when this leadsto no ambiguity."],
+"emph":"entity"
+},{
+"@id":"dt-PE",
+"@term":"Parameter entity",
+"#text":"Parameter entities are parsed entities for use within the DTD."
+}],
+"#text":"These two types of entities use different forms of reference andare recognized in different contexts.Furthermore, they occupy different namespaces; a parameter entity anda general entity with the same name are two distinct entities."
+}],
+"div2":[{
+"@id":"sec-references",
+"head":"Character and Entity References",
+"p":[{
+"termdef":{
+"@id":"dt-charref",
+"@term":"Character Reference",
+"#text":["A","refers to a specific character in theISO/IEC 10646 character set, for example one not directly accessible fromavailable input devices.","If the character reference begins with \"","\", the digits andletters up to the terminating","provide a hexadecimalrepresentation of the character's code point in ISO/IEC 10646.If it begins just with \"","\", the digits up to the terminating","provide a decimal representation of the character's code point."],
+"term":"character reference",
+"scrap":{
+"@lang":"ebnf",
+"head":"Character Reference",
+"prod":{
+"@id":"NT-CharRef",
+"lhs":"CharRef",
+"rhs":["'&#' [0-9]+ ';'","| '&#x' [0-9a-fA-F]+ ';'"],
+"wfc":{
+"@def":"wf-Legalchar"
+}
+}
+},
+"wfcnote":{
+"@id":"wf-Legalchar",
+"head":"Legal Character",
+"p":{
+"#text":["Characters referred to using character references mustmatch the production for","."],
+"termref":{
+"@def":"NT-Char",
+"#text":"Char"
+}
+}
+},
+"code":["&#x",";","&#",";"]
+}
+},{
+"termdef":[{
+"@id":"dt-entref",
+"@term":"Entity Reference",
+"#text":["An","refers to the content of a named entity."],
+"term":"entityreference"
+},{
+"@id":"dt-GERef",
+"@term":"General Entity Reference",
+"#text":["References to parsed general entitiesuse ampersand (",") and semicolon (",") asdelimiters."],
+"code":["&",";"]
+},{
+"@id":"dt-PERef",
+"@term":"Parameter-entity reference",
+"term":"Parameter-entity references",
+"#text":["use percent-sign (",") andsemicolon (",") as delimiters."],
+"code":["%",";"]
+}]
+},{
+"#text":"Examples of character and entity references:",
+"eg":"Type <key>less-than</key> (&#x3C;) to save options.This document was prepared on &docdate; andis classified &security-level;."
+},{
+"#text":"Example of a parameter-entity reference:",
+"eg":"<!-- declare the parameter entity \"ISOLat2\"... --><!ENTITY % ISOLat2         SYSTEM \"http://www.xml.com/iso/isolat2-xml.entities\" ><!-- ... now reference it. -->%ISOLat2;"
+}],
+"scrap":{
+"@lang":"ebnf",
+"head":"Entity Reference",
+"prod":[{
+"@id":"NT-Reference",
+"lhs":"Reference",
+"rhs":{
+"nt":[{
+"@def":"NT-EntityRef",
+"#text":"EntityRef"
+},{
+"@def":"NT-CharRef",
+"#text":"CharRef"
+}],
+"#text":"|"
+}
+},{
+"@id":"NT-EntityRef",
+"lhs":"EntityRef",
+"rhs":{
+"#text":["'&'","';'"],
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+}
+},
+"wfc":[{
+"@def":"wf-entdeclared"
+},{
+"@def":"textent"
+},{
+"@def":"norecursion"
+}],
+"vc":{
+"@def":"vc-entdeclared"
+}
+},{
+"@id":"NT-PEReference",
+"lhs":"PEReference",
+"rhs":{
+"#text":["'%'","';'"],
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+}
+},
+"vc":{
+"@def":"vc-entdeclared"
+},
+"wfc":[{
+"@def":"norecursion"
+},{
+"@def":"indtd"
+}]
+}]
+},
+"wfcnote":[{
+"@id":"wf-entdeclared",
+"head":"Entity Declared",
+"p":[{
+"#text":["In a document without any DTD, a document with only an internalDTD subset which contains no parameter entity references, or a document with\"","\", the","given in the entity reference must","that in an",", except thatwell-formed documents need not declare any of the following entities:",",",",",",",",",".  The declaration of a parameter entity must precede any reference to it.Similarly, the declaration of a general entity must precede anyreference to it which appears in a default value in an attribute-listdeclaration."],
+"code":["standalone='yes'","amp","lt","gt","apos","quot"],
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+},
+"termref":{
+"@def":"dt-match",
+"#text":"match"
+},
+"titleref":{
+"@href":"sec-entity-decl",
+"#text":"entity declaration"
+}
+},{
+"#text":["Note that if entities are declared in the external subset or in external parameter entities, a non-validating processor is","readand process their declarations; for such documents, the rule thatan entity must be declared is a well-formedness constraint onlyif","."],
+"titleref":[{
+"@href":"include-if-valid",
+"#text":"not obligated to"
+},{
+"@href":"sec-rmd",
+"#text":"standalone='yes'"
+}]
+}]
+},{
+"@id":"textent",
+"head":"Parsed Entity",
+"p":{
+"#text":["An entity reference must not contain the name of an",". Unparsed entities may be referredto only in","declared tobe of type","or","."],
+"termref":[{
+"@def":"dt-unparsed",
+"#text":"unparsed entity"
+},{
+"@def":"dt-attrval",
+"#text":"attribute values"
+}],
+"kw":["ENTITY","ENTITIES"]
+}
+},{
+"@id":"norecursion",
+"head":"No Recursion",
+"p":"A parsed entity must not contain a recursive reference to itself,either directly or indirectly."
+},{
+"@id":"indtd",
+"head":"In DTD",
+"p":{
+"#text":["Parameter-entity references may only appear in the","."],
+"termref":{
+"@def":"dt-doctype",
+"#text":"DTD"
+}
+}
+}],
+"vcnote":{
+"@id":"vc-entdeclared",
+"head":"Entity Declared",
+"p":{
+"#text":["In a document with an external subset or external parameterentities with \"","\",the","given in the entity reference must","that in an",".For interoperability, valid documents should declare the entities",",",",",",",",",", in the formspecified in",".The declaration of a parameter entity must precede any reference to it.Similarly, the declaration of a general entity must precede anyreference to it which appears in a default value in an attribute-listdeclaration."],
+"code":["standalone='no'","amp","lt","gt","apos","quot"],
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+},
+"termref":{
+"@def":"dt-match",
+"#text":"match"
+},
+"titleref":{
+"@href":"sec-entity-decl",
+"#text":"entity declaration"
+},
+"specref":{
+"@ref":"sec-predefined-ent"
+}
+}
+}
+},{
+"@id":"sec-entity-decl",
+"head":"Entity Declarations",
+"p":{
+"termdef":{
+"@id":"dt-entdecl",
+"@term":"entity declaration",
+"#text":["Entities are declared thus:","The","identifies the entity in an","or, in the case of anunparsed entity, in the value of an","or","attribute.If the same entity is declared more than once, the first declarationencountered is binding; at user option, an XML processor may issue awarning if entities are declared multiple times."],
+"scrap":{
+"@lang":"ebnf",
+"head":"Entity Declaration",
+"prodgroup":{
+"@pcw2":"5",
+"@pcw4":"18.5",
+"prod":[{
+"@id":"NT-EntityDecl",
+"lhs":"EntityDecl",
+"rhs":{
+"nt":[{
+"@def":"NT-GEDecl",
+"#text":"GEDecl"
+},{
+"@def":"NT-PEDecl",
+"#text":"PEDecl"
+}]
+}
+},{
+"@id":"NT-GEDecl",
+"lhs":"GEDecl",
+"rhs":{
+"#text":["'<!ENTITY'","? '>'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-EntityDef",
+"#text":"EntityDef"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+}
+},{
+"@id":"NT-PEDecl",
+"lhs":"PEDecl",
+"rhs":{
+"#text":["'<!ENTITY'","'%'","? '>'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-PEDef",
+"#text":"PEDef"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+}
+},{
+"@id":"NT-EntityDef",
+"lhs":"EntityDef",
+"rhs":{
+"nt":[{
+"@def":"NT-EntityValue",
+"#text":"EntityValue"
+},{
+"@def":"NT-ExternalID",
+"#text":"ExternalID"
+},{
+"@def":"NT-NDataDecl",
+"#text":"NDataDecl"
+}],
+"#text":"?)"
+}
+},{
+"@id":"NT-PEDef",
+"lhs":"PEDef",
+"rhs":{
+"nt":[{
+"@def":"NT-EntityValue",
+"#text":"EntityValue"
+},{
+"@def":"NT-ExternalID",
+"#text":"ExternalID"
+}],
+"#text":"|"
+}
+}]
+}
+},
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+},
+"termref":{
+"@def":"dt-entref",
+"#text":"entity reference"
+},
+"kw":["ENTITY","ENTITIES"]
+}
+},
+"div3":[{
+"@id":"sec-internal-ent",
+"head":"Internal Entities",
+"p":[{
+"termdef":{
+"@id":"dt-internent",
+"@term":"Internal Entity Replacement Text",
+"#text":["If the entity definition is an",",  the defined entity is called an",".  There is no separate physicalstorage object, and the content of the entity is given in thedeclaration."],
+"nt":{
+"@def":"NT-EntityValue",
+"#text":"EntityValue"
+},
+"term":"internal entity"
+},
+"#text":["Note that some processing of entity and character references in the","may be required toproduce the correct",": see","."],
+"termref":[{
+"@def":"dt-litentval",
+"#text":"literal entity value"
+},{
+"@def":"dt-repltext",
+"#text":"replacement text"
+}],
+"specref":{
+"@ref":"intern-replacement"
+}
+},{
+"#text":["An internal entity is a","."],
+"termref":{
+"@def":"dt-parsedent",
+"#text":"parsedentity"
+}
+},{
+"#text":"Example of an internal entity declaration:",
+"eg":"<!ENTITY Pub-Status \"This is a pre-release of the specification.\">"
+}]
+},{
+"@id":"sec-external-ent",
+"head":"External Entities",
+"p":[{
+"termdef":{
+"@id":"dt-extent",
+"@term":"External Entity",
+"#text":["If the entity is notinternal, it is an",", declared as follows:","If the","is present, this is ageneral","; otherwise it is a parsed entity."],
+"term":"externalentity",
+"scrap":{
+"@lang":"ebnf",
+"head":"External Entity Declaration",
+"prod":[{
+"@id":"NT-ExternalID",
+"lhs":"ExternalID",
+"rhs":[{
+"#text":"'SYSTEM'",
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-SystemLiteral",
+"#text":"SystemLiteral"
+}]
+},{
+"#text":"| 'PUBLIC'",
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-PubidLiteral",
+"#text":"PubidLiteral"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-SystemLiteral",
+"#text":"SystemLiteral"
+}]
+}]
+},{
+"@id":"NT-NDataDecl",
+"lhs":"NDataDecl",
+"rhs":{
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+}],
+"#text":"'NDATA'"
+},
+"vc":{
+"@def":"not-declared"
+}
+}]
+},
+"nt":{
+"@def":"NT-NDataDecl",
+"#text":"NDataDecl"
+},
+"termref":{
+"@def":"dt-unparsed",
+"#text":"unparsedentity"
+}
+}
+},{
+"termdef":{
+"@id":"dt-sysid",
+"@term":"System Identifier",
+"#text":["The","is called the entity's",". It is a URI,which may be used to retrieve the entity."],
+"nt":{
+"@def":"NT-SystemLiteral",
+"#text":"SystemLiteral"
+},
+"term":"system identifier"
+},
+"#text":["Note that the hash mark (",") and fragment identifier frequently used with URIs are not, formally, part of the URI itself; an XML processor may signal an error if a fragment identifier is given as part of a system identifier.Unless otherwise provided by information outside the scope of thisspecification (e.g. a special XML element type defined by a particularDTD, or a processing instruction defined by a particular applicationspecification), relative URIs are relative to the location of theresource within which the entity declaration occurs.A URI might thus be relative to the",", to the entitycontaining the",", or to some other","."],
+"code":"#",
+"termref":[{
+"@def":"dt-docent",
+"#text":"document entity"
+},{
+"@def":"dt-doctype",
+"#text":"external DTD subset"
+},{
+"@def":"dt-extent",
+"#text":"external parameter entity"
+}]
+},"An XML processor should handle a non-ASCII character in a URI byrepresenting the character in UTF-8 as one or more bytes, and then escaping these bytes with the URI escaping mechanism (i.e., byconverting each byte to %HH, where HH is the hexadecimal notation of thebyte value).",{
+"termdef":{
+"@id":"dt-pubid",
+"@term":"Public identifier",
+"#text":["In addition to a system identifier, an external identifier mayinclude a","."],
+"term":"public identifier"
+},
+"#text":"An XML processor attempting to retrieve the entity's content may use the publicidentifier to try to generate an alternative URI.  If the processoris unable to do so, it must use the URI specified in the systemliteral.  Before a match is attempted, all stringsof white space in the public identifier must be normalized to single space characters (#x20),and leading and trailing white space must be removed."
+},{
+"#text":"Examples of external entity declarations:",
+"eg":"<!ENTITY open-hatch         SYSTEM \"http://www.textuality.com/boilerplate/OpenHatch.xml\"><!ENTITY open-hatch         PUBLIC \"-//Textuality//TEXT Standard open-hatch boilerplate//EN\"         \"http://www.textuality.com/boilerplate/OpenHatch.xml\"><!ENTITY hatch-pic         SYSTEM \"../grafix/OpenHatch.gif\"         NDATA gif >"
+}],
+"vcnote":{
+"@id":"not-declared",
+"head":"Notation Declared",
+"p":{
+"#text":["The","must match the declared name of a","."],
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+},
+"termref":{
+"@def":"dt-notation",
+"#text":"notation"
+}
+}
+}
+}]
+},{
+"@id":"TextEntities",
+"head":"Parsed Entities",
+"div3":[{
+"@id":"sec-TextDecl",
+"head":"The Text Declaration",
+"p":[{
+"#text":["External parsed entities may each begin with a","."],
+"term":"textdeclaration",
+"scrap":{
+"@lang":"ebnf",
+"head":"Text Declaration",
+"prodgroup":{
+"@pcw4":"12.5",
+"@pcw5":"13",
+"prod":{
+"@id":"NT-TextDecl",
+"lhs":"TextDecl",
+"rhs":{
+"#text":["'<?xml'","?","? '?>'"],
+"nt":[{
+"@def":"NT-VersionInfo",
+"#text":"VersionInfo"
+},{
+"@def":"NT-EncodingDecl",
+"#text":"EncodingDecl"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+}
+}
+}
+}
+},"The text declaration must be provided literally, notby reference to a parsed entity.No text declaration may appear at any position other than the beginning ofan external parsed entity."]
+},{
+"@id":"wf-entities",
+"head":"Well-Formed Parsed Entities",
+"p":[{
+"#text":["The document entity is well-formed if it matches the production labeled",".An external general parsed entity is well-formed if it matches the production labeled",".An external parameterentity is well-formed if it matches the production labeled",".","An internal general parsed entity is well-formed if its replacement text matches the production labeled",".All internal parameter entities are well-formed by definition."],
+"nt":[{
+"@def":"NT-document",
+"#text":"document"
+},{
+"@def":"NT-extParsedEnt",
+"#text":"extParsedEnt"
+},{
+"@def":"NT-extPE",
+"#text":"extPE"
+},{
+"@def":"NT-content",
+"#text":"content"
+}],
+"scrap":{
+"@lang":"ebnf",
+"head":"Well-Formed External Parsed Entity",
+"prod":[{
+"@id":"NT-extParsedEnt",
+"lhs":"extParsedEnt",
+"rhs":{
+"nt":[{
+"@def":"NT-TextDecl",
+"#text":"TextDecl"
+},{
+"@def":"NT-content",
+"#text":"content"
+}],
+"#text":"?"
+}
+},{
+"@id":"NT-extPE",
+"lhs":"extPE",
+"rhs":{
+"nt":[{
+"@def":"NT-TextDecl",
+"#text":"TextDecl"
+},{
+"@def":"NT-extSubsetDecl",
+"#text":"extSubsetDecl"
+}],
+"#text":"?"
+}
+}]
+}
+},{
+"#text":["A consequence of well-formedness in entities is that the logical and physical structures in an XML document are properly nested; no",",",",",",",",",",",",",", or","can begin in one entity and end in another."],
+"termref":[{
+"@def":"dt-stag",
+"#text":"start-tag"
+},{
+"@def":"dt-etag",
+"#text":"end-tag"
+},{
+"@def":"dt-empty",
+"#text":"empty-element tag"
+},{
+"@def":"dt-element",
+"#text":"element"
+},{
+"@def":"dt-comment",
+"#text":"comment"
+},{
+"@def":"dt-pi",
+"#text":"processing instruction"
+},{
+"@def":"dt-charref",
+"#text":"characterreference"
+},{
+"@def":"dt-entref",
+"#text":"entity reference"
+}]
+}]
+},{
+"@id":"charencoding",
+"head":"Character Encoding in Entities",
+"p":["Each external parsed entity in an XML document may use a differentencoding for its characters. All XML processors must be able to readentities in either UTF-8 or UTF-16.","Entities encoded in UTF-16 mustbegin with the Byte Order Mark described by ISO/IEC 10646 Annex E andUnicode Appendix B (the ZERO WIDTH NO-BREAK SPACE character, #xFEFF).This is an encoding signature, not part of either the markup or thecharacter data of the XML document.XML processors must be able to use this character todifferentiate between UTF-8 and UTF-16 encoded documents.",{
+"#text":["Although an XML processor is required to read only entities inthe UTF-8 and UTF-16 encodings, it is recognized that other encodings areused around the world, and it may be desired for XML processorsto read entities that use them.Parsed entities which are stored in an encoding other thanUTF-8 or UTF-16 must begin with a","containing an encoding declaration:","In the",", the encodingdeclaration is part of the",".The","is the name of the encoding used."],
+"titleref":{
+"@href":"TextDecl",
+"#text":"textdeclaration"
+},
+"scrap":{
+"@lang":"ebnf",
+"head":"Encoding Declaration",
+"prod":[{
+"@id":"NT-EncodingDecl",
+"lhs":"EncodingDecl",
+"rhs":{
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Eq",
+"#text":"Eq"
+},{
+"@def":"NT-EncName",
+"#text":"EncName"
+},{
+"@def":"NT-EncName",
+"#text":"EncName"
+}],
+"#text":["'encoding'","('\"'","'\"' | \"'\"","\"'\" )"]
+}
+},{
+"@id":"NT-EncName",
+"lhs":"EncName",
+"rhs":"[A-Za-z] ([A-Za-z0-9._] | '-')*",
+"com":"Encoding name contains only Latin characters"
+}]
+},
+"termref":[{
+"@def":"dt-docent",
+"#text":"document entity"
+},{
+"@def":"dt-xmldecl",
+"#text":"XML declaration"
+}],
+"nt":{
+"@def":"NT-EncName",
+"#text":"EncName"
+}
+},{
+"#text":["In an encoding declaration, the values\"","\",\"","\",\"","\", and\"","\" should be used for the various encodings and transformations of Unicode /ISO/IEC 10646, the values\"","\",\"","\", ...\"","\" should be used for the parts of ISO 8859, andthe values\"","\",\"","\", and\"","\"should be used for the various encoded forms of JIS X-0208-1997.  XMLprocessors may recognize other encodings; it is recommended thatcharacter encodings registered (as","s) with the Internet Assigned NumbersAuthority",", other than those just listed, should bereferred tousing their registered names.Note that these registered names are defined to be case-insensitive, so processors wishing to match against them should do so in a case-insensitiveway."],
+"code":["UTF-8","UTF-16","ISO-10646-UCS-2","ISO-10646-UCS-4","ISO-8859-1","ISO-8859-2","ISO-8859-9","ISO-2022-JP","Shift_JIS","EUC-JP"],
+"emph":"charset",
+"bibref":{
+"@ref":"IANA"
+}
+},{
+"#text":["In the absence of information provided by an externaltransport protocol (e.g. HTTP or MIME), it is an","for an entity includingan encoding declaration to be presented to the XML processor in an encoding other than that named in the declaration, for an encoding declaration to occur other than at the beginning of an external entity, or foran entity which begins with neither a Byte Order Mark nor an encodingdeclaration to use an encoding other than UTF-8.Note that since ASCIIis a subset of UTF-8, ordinary ASCII entities do not strictly needan encoding declaration."],
+"termref":{
+"@def":"dt-error",
+"#text":"error"
+}
+},{
+"#text":["It is a","when an XML processorencounters an entity with an encoding that it is unable to process."],
+"termref":{
+"@def":"dt-fatal",
+"#text":"fatal error"
+}
+},{
+"#text":"Examples of encoding declarations:",
+"eg":"<?xml encoding='UTF-8'?><?xml encoding='EUC-JP'?>"
+}]
+}]
+},{
+"@id":"entproc",
+"head":"XML Processor Treatment of Entities and References",
+"p":{
+"#text":["The table below summarizes the contexts in which character references,entity references, and invocations of unparsed entities might appear and therequired behavior of an","ineach case.  The labels in the leftmost column describe the recognition context:"],
+"termref":{
+"@def":"dt-xml-proc",
+"#text":"XML processor"
+},
+"glist":{
+"gitem":[{
+"label":"Reference in Content",
+"def":{
+"p":{
+"#text":["as a referenceanywhere after the","andbefore the","of an element; correspondsto the nonterminal","."],
+"termref":[{
+"@def":"dt-stag",
+"#text":"start-tag"
+},{
+"@def":"dt-etag",
+"#text":"end-tag"
+}],
+"nt":{
+"@def":"NT-content",
+"#text":"content"
+}
+}
+}
+},{
+"label":"Reference in Attribute Value",
+"def":{
+"p":{
+"#text":["as a reference within either the value of an attribute in a",", or a defaultvalue in an",";corresponds to the nonterminal","."],
+"termref":[{
+"@def":"dt-stag",
+"#text":"start-tag"
+},{
+"@def":"dt-attdecl",
+"#text":"attribute declaration"
+}],
+"nt":{
+"@def":"NT-AttValue",
+"#text":"AttValue"
+}
+}
+}
+},{
+"label":"Occurs as Attribute Value",
+"def":{
+"p":{
+"#text":["as a",", not a reference, appearing either asthe value of an attribute which has been declared as type",", or as one ofthe space-separated tokens in the value of an attribute which has beendeclared as type","."],
+"nt":{
+"@def":"NT-Name",
+"#text":"Name"
+},
+"kw":["ENTITY","ENTITIES"]
+}
+}
+},{
+"label":"Reference in Entity Value",
+"def":{
+"p":{
+"#text":["as a referencewithin a parameter or internal entity's","inthe entity's declaration; corresponds to the nonterminal","."],
+"termref":{
+"@def":"dt-litentval",
+"#text":"literal entity value"
+},
+"nt":{
+"@def":"NT-EntityValue",
+"#text":"EntityValue"
+}
+}
+}
+},{
+"label":"Reference in DTD",
+"def":{
+"p":{
+"#text":["as a reference within either the internal or external subsets of the",", but outsideof an","or","."],
+"termref":{
+"@def":"dt-doctype",
+"#text":"DTD"
+},
+"nt":[{
+"@def":"NT-EntityValue",
+"#text":"EntityValue"
+},{
+"@def":"NT-AttValue",
+"#text":"AttValue"
+}]
+}
+}
+}]
+}
+},
+"htable":{
+"@border":"1",
+"@cellpadding":"7",
+"@align":"center",
+"htbody":{
+"tr":[{
+"td":[{
+"@bgcolor":"#c0d9c0",
+"@rowspan":"2",
+"@colspan":"1"
+},{
+"@bgcolor":"#c0d9c0",
+"@align":"center",
+"@valign":"bottom",
+"@colspan":"4",
+"#text":"Entity Type"
+},{
+"@bgcolor":"#c0d9c0",
+"@rowspan":"2",
+"@align":"center",
+"#text":"Character"
+}]
+},{
+"@align":"center",
+"@valign":"bottom",
+"td":[{
+"@bgcolor":"#c0d9c0",
+"#text":"Parameter"
+},{
+"@bgcolor":"#c0d9c0",
+"#text":"InternalGeneral"
+},{
+"@bgcolor":"#c0d9c0",
+"#text":"External ParsedGeneral"
+},{
+"@bgcolor":"#c0d9c0",
+"#text":"Unparsed"
+}]
+},{
+"@align":"center",
+"@valign":"middle",
+"td":[{
+"@bgcolor":"#c0d9c0",
+"@align":"right",
+"#text":"Referencein Content"
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"not-recognized",
+"#text":"Not recognized"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"included",
+"#text":"Included"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"include-if-valid",
+"#text":"Included if validating"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"forbidden",
+"#text":"Forbidden"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"included",
+"#text":"Included"
+}
+}]
+},{
+"@align":"center",
+"@valign":"middle",
+"td":[{
+"@bgcolor":"#c0d9c0",
+"@align":"right",
+"#text":"Referencein Attribute Value"
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"not-recognized",
+"#text":"Not recognized"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"inliteral",
+"#text":"Included in literal"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"forbidden",
+"#text":"Forbidden"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"forbidden",
+"#text":"Forbidden"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"included",
+"#text":"Included"
+}
+}]
+},{
+"@align":"center",
+"@valign":"middle",
+"td":[{
+"@bgcolor":"#c0d9c0",
+"@align":"right",
+"#text":"Occurs asAttribute Value"
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"not-recognized",
+"#text":"Not recognized"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"not-recognized",
+"#text":"Forbidden"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"not-recognized",
+"#text":"Forbidden"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"notify",
+"#text":"Notify"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"not recognized",
+"#text":"Not recognized"
+}
+}]
+},{
+"@align":"center",
+"@valign":"middle",
+"td":[{
+"@bgcolor":"#c0d9c0",
+"@align":"right",
+"#text":"Referencein EntityValue"
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"inliteral",
+"#text":"Included in literal"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"bypass",
+"#text":"Bypassed"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"bypass",
+"#text":"Bypassed"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"forbidden",
+"#text":"Forbidden"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"included",
+"#text":"Included"
+}
+}]
+},{
+"@align":"center",
+"@valign":"middle",
+"td":[{
+"@bgcolor":"#c0d9c0",
+"@align":"right",
+"#text":"Referencein DTD"
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"as-PE",
+"#text":"Included as PE"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"forbidden",
+"#text":"Forbidden"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"forbidden",
+"#text":"Forbidden"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"forbidden",
+"#text":"Forbidden"
+}
+},{
+"@bgcolor":"#c0d9c0",
+"titleref":{
+"@href":"forbidden",
+"#text":"Forbidden"
+}
+}]
+}]
+}
+},
+"div3":[{
+"@id":"not-recognized",
+"head":"Not Recognized",
+"p":{
+"#text":["Outside the DTD, the","character has nospecial significance; thus, what would be parameter entity references in theDTD are not recognized as markup in",".Similarly, the names of unparsed entities are not recognized exceptwhen they appear in the value of an appropriately declared attribute."],
+"code":"%",
+"nt":{
+"@def":"NT-content",
+"#text":"content"
+}
+}
+},{
+"@id":"included",
+"head":"Included",
+"p":{
+"termdef":{
+"@id":"dt-include",
+"@term":"Include",
+"#text":["An entity is","when its","is retrieved and processed, in place of the reference itself,as though it were part of the document at the location thereference was recognized.The replacement text may contain both","and (except for parameter entities)",",which must be recognized inthe usual way, except that the replacement text of entities used to escapemarkup delimiters (the entities",",",",",",",",",") is always treated asdata.  (The string \"","\" expands to\"","\" and the remaining ampersand is not recognizedas an entity-reference delimiter.) A character reference is","when the indicatedcharacter is processed in place of the reference itself."],
+"term":["included","included"],
+"termref":[{
+"@def":"dt-repltext",
+"#text":"replacement text"
+},{
+"@def":"dt-chardata",
+"#text":"character data"
+},{
+"@def":"dt-markup",
+"#text":"markup"
+}],
+"code":["amp","lt","gt","apos","quot","AT&amp;T;","AT&T;"]
+}
+}
+},{
+"@id":"include-if-valid",
+"head":"Included If Validating",
+"p":[{
+"#text":["When an XML processor recognizes a reference to a parsed entity, in orderto","the document, the processor must","itsreplacement text.If the entity is external, and the processor is notattempting to validate the XML document, theprocessor",", but need not, include the entity's replacement text.If a non-validating parser does not include the replacement text,it must inform the application that it recognized, but did notread, the entity."],
+"termref":[{
+"@def":"dt-valid",
+"#text":"validate"
+},{
+"@def":"dt-include",
+"#text":"include"
+},{
+"@def":"dt-may",
+"#text":"may"
+}]
+},"This rule is based on the recognition that the automatic inclusionprovided by the SGML and XML entity mechanism, primarily designedto support modularity in authoring, is not necessarily appropriate for other applications, in particular document browsing.Browsers, for example, when encountering an external parsed entity reference,might choose to provide a visual indication of the entity'spresence and retrieve it for display only on demand."]
+},{
+"@id":"forbidden",
+"head":"Forbidden",
+"p":{
+"#text":["The following are forbidden, and constitute","errors:"],
+"termref":{
+"@def":"dt-fatal",
+"#text":"fatal"
+},
+"ulist":{
+"item":[{
+"p":{
+"#text":["the appearance of a reference to an","."],
+"termref":{
+"@def":"dt-unparsed",
+"#text":"unparsed entity"
+}
+}
+},{
+"p":{
+"#text":["the appearance of any character or general-entity reference in theDTD except within an","or","."],
+"nt":[{
+"@def":"NT-EntityValue",
+"#text":"EntityValue"
+},{
+"@def":"NT-AttValue",
+"#text":"AttValue"
+}]
+}
+},{
+"p":"a reference to an external entity in an attribute value."
+}]
+}
+}
+},{
+"@id":"inliteral",
+"head":"Included in Literal",
+"p":{
+"#text":["When an","appears in anattribute value, or a parameter entity reference appears in a literal entityvalue, its","isprocessed in place of the reference itself as though itwere part of the document at the location the reference was recognized,except that a single or double quote character in the replacement textis always treated as a normal data character and will not terminate theliteral. For example, this is well-formed:","while this is not:"],
+"termref":[{
+"@def":"dt-entref",
+"#text":"entity reference"
+},{
+"@def":"dt-repltext",
+"#text":"replacement text"
+}],
+"eg":["<!ENTITY % YN '\"Yes\"' ><!ENTITY WhatHeSaid \"He said &YN;\" >","<!ENTITY EndAttr \"27'\" ><element attribute='a-&EndAttr;>"]
+}
+},{
+"@id":"notify",
+"head":"Notify",
+"p":{
+"#text":["When the name of an","appears as a token in thevalue of an attribute of declared type","or",",a validating processor must inform theapplication of the","and","(if any)identifiers for both the entity and its associated","."],
+"termref":[{
+"@def":"dt-unparsed",
+"#text":"unparsedentity"
+},{
+"@def":"dt-sysid",
+"#text":"system"
+},{
+"@def":"dt-pubid",
+"#text":"public"
+},{
+"@def":"dt-notation",
+"#text":"notation"
+}],
+"kw":["ENTITY","ENTITIES"]
+}
+},{
+"@id":"bypass",
+"head":"Bypassed",
+"p":{
+"#text":["When a general entity reference appears in the","in an entity declaration,it is bypassed and left as is."],
+"nt":{
+"@def":"NT-EntityValue",
+"#text":"EntityValue"
+}
+}
+},{
+"@id":"as-PE",
+"head":"Included as PE",
+"p":{
+"#text":["Just as with external parsed entities, parameter entitiesneed only be",". When a parameter-entity reference is recognized in the DTDand included, its","is enlarged by the attachment of one leading and one followingspace (#x20) character; the intent is to constrain the replacementtext of parameter entities to contain an integral number of grammatical tokens in the DTD."],
+"titleref":{
+"@href":"include-if-valid",
+"#text":"included ifvalidating"
+},
+"termref":{
+"@def":"dt-repltext",
+"#text":"replacementtext"
+}
+}
+}]
+},{
+"@id":"intern-replacement",
+"head":"Construction of Internal Entity Replacement Text",
+"p":[{
+"#text":"In discussing the treatmentof internal entities, it is  useful to distinguish two forms of the entity's value.",
+"termdef":[{
+"@id":"dt-litentval",
+"@term":"Literal Entity Value",
+"#text":["The","is the quoted string actuallypresent in the entity declaration, corresponding to thenon-terminal","."],
+"term":"literalentity value",
+"nt":{
+"@def":"NT-EntityValue",
+"#text":"EntityValue"
+}
+},{
+"@id":"dt-repltext",
+"@term":"Replacement Text",
+"#text":["The","is the content of the entity, afterreplacement of character references and parameter-entityreferences."],
+"term":"replacementtext"
+}]
+},{
+"#text":["The literal entity value as given in an internal entity declaration(",") may contain character,parameter-entity, and general-entity references.Such references must be contained entirely within theliteral entity value.The actual replacement text that is","as described abovemust contain the","of any parameter entities referred to, and must contain the characterreferred to, in place of any character references in theliteral entity value; however,general-entity references must be left as-is, unexpanded.For example, given the following declarations:","then the replacement text for the entity \"","\" is:","The general-entity reference \"","\" would be expandedshould the reference \"","\" appear in the document'scontent or an attribute value."],
+"nt":{
+"@def":"NT-EntityValue",
+"#text":"EntityValue"
+},
+"termref":{
+"@def":"dt-include",
+"#text":"included"
+},
+"emph":"replacement text",
+"eg":["<!ENTITY % pub    \"&#xc9;ditions Gallimard\" ><!ENTITY   rights \"All rights reserved\" ><!ENTITY   book   \"La Peste: Albert Camus, &#xA9; 1947 %pub;. &rights;\" >","La Peste: Albert Camus, © 1947 Éditions Gallimard. &rights;"],
+"code":["book","&rights;","&book;"]
+},{
+"#text":["These simple rules may have complex interactions; for a detaileddiscussion of a difficult example, see","."],
+"specref":{
+"@ref":"sec-entexpand"
+}
+}]
+},{
+"@id":"sec-predefined-ent",
+"head":"Predefined Entities",
+"p":[{
+"termdef":{
+"@id":"dt-escape",
+"@term":"escape",
+"#text":["Entity and characterreferences can both be used to","the left angle bracket,ampersand, and other delimiters.   A set of general entities(",",",",",",",",",") is specified for this purpose.Numeric character references may also be used; they areexpanded immediately when recognized and must be treated ascharacter data, so the numeric character references\"","\" and \"","\" may be used to escape","and","when they occurin character data."],
+"term":"escape",
+"code":["amp","lt","gt","apos","quot","&#60;","&#38;","<","&"]
+}
+},{
+"#text":["All XML processors must recognize these entities whether theyare declared or not.",",valid XML documents should declare theseentities, like any others, before using them.If the entities in question are declared, they must be declaredas internal entities whose replacement text is the singlecharacter being escaped or a character reference tothat character, as shown below.","Note that the","and","charactersin the declarations of \"","\" and \"","\"are doubly escaped to meet the requirement that entity replacementbe well-formed."],
+"termref":{
+"@def":"dt-interop",
+"#text":"For interoperability"
+},
+"eg":"<!ENTITY lt     \"&#38;#60;\"> <!ENTITY gt     \"&#62;\"> <!ENTITY amp    \"&#38;#38;\"> <!ENTITY apos   \"&#39;\"> <!ENTITY quot   \"&#34;\">",
+"code":["<","&","lt","amp"]
+}]
+},{
+"@id":"Notations",
+"head":"Notation Declarations",
+"p":[{
+"termdef":{
+"@id":"dt-notation",
+"@term":"Notation",
+"term":"Notations",
+"#text":["identify byname the format of",", theformat of elements which bear a notation attribute, or the application to which  a","isaddressed."],
+"termref":[{
+"@def":"dt-extent",
+"#text":"unparsedentities"
+},{
+"@def":"dt-pi",
+"#text":"processing instruction"
+}]
+}
+},{
+"termdef":{
+"@id":"dt-notdecl",
+"@term":"Notation Declaration",
+"term":"Notation declarations",
+"#text":"provide a name for the notation, for use inentity and attribute-list declarations and in attribute specifications,and an external identifier for the notation which may allow an XMLprocessor or its client application to locate a helper applicationcapable of processing data in the given notation.",
+"scrap":{
+"@lang":"ebnf",
+"head":"Notation Declarations",
+"prod":[{
+"@id":"NT-NotationDecl",
+"lhs":"NotationDecl",
+"rhs":{
+"#text":["'<!NOTATION'","(","|",")","? '>'"],
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-Name",
+"#text":"Name"
+},{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-ExternalID",
+"#text":"ExternalID"
+},{
+"@def":"NT-PublicID",
+"#text":"PublicID"
+},{
+"@def":"NT-S",
+"#text":"S"
+}]
+}
+},{
+"@id":"NT-PublicID",
+"lhs":"PublicID",
+"rhs":{
+"#text":"'PUBLIC'",
+"nt":[{
+"@def":"NT-S",
+"#text":"S"
+},{
+"@def":"NT-PubidLiteral",
+"#text":"PubidLiteral"
+}]
+}
+}]
+}
+}
+},{
+"#text":["XML processors must provide applications with the name and externalidentifier(s) of any notation declared and referred to in an attributevalue, attribute definition, or entity declaration.  They mayadditionally resolve the external identifier into the",",file name, or other information needed to allow theapplication to call a processor for data in the notation described.  (Itis not an error, however, for XML documents to declare and refer tonotations for which notation-specific applications are not available onthe system where the XML processor or application is running.)"],
+"termref":{
+"@def":"dt-sysid",
+"#text":"system identifier"
+}
+}]
+},{
+"@id":"sec-doc-entity",
+"head":"Document Entity",
+"p":{
+"termdef":{
+"@id":"dt-docent",
+"@term":"Document Entity",
+"#text":["The","serves as the root of the entitytree and a starting-point for an","."],
+"term":"documententity",
+"termref":{
+"@def":"dt-xml-proc",
+"#text":"XMLprocessor"
+}
+},
+"#text":"This specification doesnot specify how the document entity is to be located by an XMLprocessor; unlike other entities, the document entity has no name and mightwell appear on a processor input stream without any identification at all."
+}
+}]
+},{
+"@id":"sec-conformance",
+"head":"Conformance",
+"div2":[{
+"@id":"proc-types",
+"head":"Validating and Non-Validating Processors",
+"p":[{
+"#text":["Conforming","fall into twoclasses: validating and non-validating."],
+"termref":{
+"@def":"dt-xml-proc",
+"#text":"XML processors"
+}
+},{
+"#text":["Validating and non-validating processors alike must reportviolations of this specification's well-formedness constraintsin the content of the","and any other","that they read."],
+"termref":[{
+"@def":"dt-docent",
+"#text":"document entity"
+},{
+"@def":"dt-parsedent",
+"#text":"parsed entities"
+}]
+},{
+"termdef":{
+"@id":"dt-validating",
+"@term":"Validating Processor",
+"term":"Validating processors",
+"#text":["must reportviolations of the constraints expressed by the declarations in the",", andfailures to fulfill the validity constraints givenin this specification."],
+"termref":{
+"@def":"dt-doctype",
+"#text":"DTD"
+}
+},
+"#text":"To accomplish this, validating XML processors must read and process the entireDTD and all external parsed entities referenced in the document."
+},{
+"#text":["Non-validating processors are required to check only the",", includingthe entire internal DTD subset, for well-formedness.","They must not","or","encountered after a reference to a parameter entity that is notread, since the entity may have contained overriding declarations."],
+"termref":[{
+"@def":"dt-docent",
+"#text":"document entity"
+},{
+"@def":"dt-use-mdecl",
+"#text":"process"
+},{
+"@def":"dt-entdecl",
+"#text":"entity declarations"
+},{
+"@def":"dt-attdecl",
+"#text":"attribute-list declarations"
+}],
+"termdef":{
+"@id":"dt-use-mdecl",
+"@term":"Process Declarations",
+"#text":["While they are not required to check the document for validity,they are required to","all the declarations they read in theinternal DTD subset and in any parameter entity that theyread, up to the first referenceto a parameter entity that they do","read; that is to say, they mustuse the information in those declarations to","attribute values,","the replacement text of internal entities, and supply","."],
+"term":"process",
+"emph":"not",
+"titleref":[{
+"@href":"AVNormalize",
+"#text":"normalize"
+},{
+"@href":"included",
+"#text":"include"
+},{
+"@href":"sec-attr-defaults",
+"#text":"default attribute values"
+}]
+}
+}]
+},{
+"@id":"safe-behavior",
+"head":"Using XML Processors",
+"p":[{
+"#text":"The behavior of a validating XML processor is highly predictable; itmust read every piece of a document and report all well-formedness andvalidity violations.Less is required of a non-validating processor; it need not read anypart of the document other than the document entity.This has two effects that may be important to users of XML processors:",
+"ulist":{
+"item":[{
+"p":{
+"#text":["Certain well-formedness errors, specifically those that requirereading external entities, may not be detected by a non-validating processor.Examples include the constraints entitled",",",", and",", as wellas some of the cases described as","in","."],
+"titleref":[{
+"@href":"wf-entdeclared",
+"#text":"Entity Declared"
+},{
+"@href":"wf-textent",
+"#text":"Parsed Entity"
+},{
+"@href":"wf-norecursion",
+"#text":"No Recursion"
+},{
+"@href":"forbidden",
+"#text":"forbidden"
+}],
+"specref":{
+"@ref":"entproc"
+}
+}
+},{
+"p":{
+"#text":["The information passed from the processor to the application mayvary, depending on whether the processor readsparameter and external entities.For example, a non-validating processor may not","attribute values,","the replacement text of internal entities, or supply",",where doing so depends on having read declarations in external or parameter entities."],
+"titleref":[{
+"@href":"AVNormalize",
+"#text":"normalize"
+},{
+"@href":"included",
+"#text":"include"
+},{
+"@href":"sec-attr-defaults",
+"#text":"default attribute values"
+}]
+}
+}]
+}
+},"For maximum reliability in interoperating between different XMLprocessors, applications which use non-validating processors should not rely on any behaviors not required of such processors.Applications which require facilities such as the use of defaultattributes or internal entities which are declared in externalentities should use validating XML processors."]
+}]
+},{
+"@id":"sec-notation",
+"head":"Notation",
+"p":[{
+"#text":"The formal grammar of XML is given in this specification using a simpleExtended Backus-Naur Form (EBNF) notation.  Each rule in the grammar definesone symbol, in the form",
+"eg":"symbol ::= expression"
+},"Symbols are written with an initial capital letter if they aredefined by a regular expression, or with an initial lower case letter otherwise.Literal strings are quoted.",{
+"#text":["Within the expression on the right-hand side of a rule, the followingexpressions are used to match strings of one or more characters:","These symbols may be combined to match more complex patterns as follows,where","and","represent simple expressions:","Other notations used in the productions are:"],
+"glist":[{
+"gitem":[{
+"label":{
+"code":"#xN"
+},
+"def":{
+"p":{
+"#text":["where","is a hexadecimal integer, theexpression matches the character in ISO/IEC 10646 whose canonical(UCS-4) code value, when interpreted as an unsigned binary number, hasthe value indicated.  The number of leading zeros in the","form is insignificant; the number of leadingzeros in the corresponding code value is governed by the characterencoding in use and is not significant for XML."],
+"code":["N","#xN"]
+}
+}
+},{
+"label":{
+"code":["[a-zA-Z]","[#xN-#xN]"],
+"#text":","
+},
+"def":{
+"p":{
+"#text":["matches any","with a value in the range(s) indicated (inclusive)."],
+"termref":{
+"@def":"dt-character",
+"#text":"character"
+}
+}
+}
+},{
+"label":{
+"code":["[^a-z]","[^#xN-#xN]"],
+"#text":","
+},
+"def":{
+"p":{
+"#text":["matches any","with a value","therange indicated."],
+"termref":{
+"@def":"dt-character",
+"#text":"character"
+},
+"emph":"outside"
+}
+}
+},{
+"label":{
+"code":["[^abc]","[^#xN#xN#xN]"],
+"#text":","
+},
+"def":{
+"p":{
+"#text":["matches any","with a value not among the characters given."],
+"termref":{
+"@def":"dt-character",
+"#text":"character"
+}
+}
+}
+},{
+"label":{
+"code":"\"string\""
+},
+"def":{
+"p":{
+"#text":["matches a literal string","that given inside the double quotes."],
+"termref":{
+"@def":"dt-match",
+"#text":"matching"
+}
+}
+}
+},{
+"label":{
+"code":"'string'"
+},
+"def":{
+"p":{
+"#text":["matches a literal string","that given inside the single quotes."],
+"termref":{
+"@def":"dt-match",
+"#text":"matching"
+}
+}
+}
+}]
+},{
+"gitem":[{
+"label":{
+"#text":["(",")"],
+"code":"expression"
+},
+"def":{
+"p":{
+"code":"expression",
+"#text":"is treated as a unit and may be combined as described in this list."
+}
+}
+},{
+"label":{
+"code":"A?"
+},
+"def":{
+"p":{
+"#text":["matches","or nothing; optional","."],
+"code":["A","A"]
+}
+}
+},{
+"label":{
+"code":"A B"
+},
+"def":{
+"p":{
+"#text":["matches","followed by","."],
+"code":["A","B"]
+}
+}
+},{
+"label":{
+"code":"A | B"
+},
+"def":{
+"p":{
+"#text":["matches","or","but not both."],
+"code":["A","B"]
+}
+}
+},{
+"label":{
+"code":"A - B"
+},
+"def":{
+"p":{
+"#text":["matches any string that matches","but does not match","."],
+"code":["A","B"]
+}
+}
+},{
+"label":{
+"code":"A+"
+},
+"def":{
+"p":{
+"#text":["matches one or more occurrences of","."],
+"code":"A"
+}
+}
+},{
+"label":{
+"code":"A*"
+},
+"def":{
+"p":{
+"#text":["matches zero or more occurrences of","."],
+"code":"A"
+}
+}
+}]
+},{
+"gitem":[{
+"label":{
+"code":"/* ... */"
+},
+"def":{
+"p":"comment."
+}
+},{
+"label":{
+"code":"[ wfc: ... ]"
+},
+"def":{
+"p":{
+"#text":["well-formedness constraint; this identifies by name a constraint on","documentsassociated with a production."],
+"termref":{
+"@def":"dt-wellformed",
+"#text":"well-formed"
+}
+}
+}
+},{
+"label":{
+"code":"[ vc: ... ]"
+},
+"def":{
+"p":{
+"#text":["validity constraint; this identifies by name a constraint on","documents associated witha production."],
+"termref":{
+"@def":"dt-valid",
+"#text":"valid"
+}
+}
+}
+}]
+}],
+"code":["A","B"]
+}]
+}]
+},
+"back":{
+"div1":[{
+"@id":"sec-bibliography",
+"head":"References",
+"div2":[{
+"@id":"sec-existing-stds",
+"head":"Normative References",
+"blist":{
+"bibl":[{
+"@id":"IANA",
+"@key":"IANA",
+"#text":["(Internet Assigned Numbers Authority)",",ed. Keld Simonsen et al.See","."],
+"emph":"Official Names for Character Sets",
+"loc":{
+"@href":"ftp://ftp.isi.edu/in-notes/iana/assignments/character-sets",
+"#text":"ftp://ftp.isi.edu/in-notes/iana/assignments/character-sets"
+}
+},{
+"@id":"RFC1766",
+"@key":"IETF RFC 1766",
+"#text":["IETF (Internet Engineering Task Force).",",ed. H. Alvestrand.1995."],
+"emph":"RFC 1766:  Tags for the Identification of Languages"
+},{
+"@id":"ISO639",
+"@key":"ISO 639",
+"#text":["(International Organization for Standardization).","[Geneva]:  International Organization forStandardization, 1988."],
+"emph":"ISO 639:1988 (E).Code for the representation of names of languages."
+},{
+"@id":"ISO3166",
+"@key":"ISO 3166",
+"#text":["(International Organization for Standardization).","[Geneva]:  International Organization forStandardization, 1997."],
+"emph":"ISO 3166-1:1997 (E).Codes for the representation of names of countries and their subdivisions -- Part 1: Country codes"
+},{
+"@id":"ISO10646",
+"@key":"ISO/IEC 10646",
+"#text":["ISO(International Organization for Standardization).","[Geneva]:  International Organization forStandardization, 1993 (plus amendments AM 1 through AM 7)."],
+"emph":"ISO/IEC 10646-1993 (E).  Information technology -- UniversalMultiple-Octet Coded Character Set (UCS) -- Part 1:Architecture and Basic Multilingual Plane."
+},{
+"@id":"Unicode",
+"@key":"Unicode",
+"#text":["The Unicode Consortium.","Reading, Mass.:  Addison-Wesley Developers Press, 1996."],
+"emph":"The Unicode Standard, Version 2.0."
+}]
+}
+},{
+"head":"Other References",
+"blist":{
+"bibl":[{
+"@id":"Aho",
+"@key":"Aho/Ullman",
+"#text":["Aho, Alfred V., Ravi Sethi, and Jeffrey D. Ullman.",".Reading:  Addison-Wesley, 1986, rpt. corr. 1988."],
+"emph":"Compilers:  Principles, Techniques, and Tools"
+},{
+"@id":"Berners-Lee",
+"@xml-link":"simple",
+"@key":"Berners-Lee et al.",
+"#text":["Berners-Lee, T., R. Fielding, and L. Masinter.",".1997.(Work in progress; see updates to RFC1738.)"],
+"emph":"Uniform Resource Identifiers (URI):  Generic Syntax andSemantics"
+},{
+"@id":"ABK",
+"@key":"Brüggemann-Klein",
+"#text":["Brüggemann-Klein, Anne.",".Extended abstract in I. Simon, Hrsg., LATIN 1992, S. 97-98. Springer-Verlag, Berlin 1992. Full Version in Theoretical Computer Science 120: 197-213, 1993."],
+"emph":"Regular Expressions into Finite Automata"
+},{
+"@id":"ABKDW",
+"@key":"Brüggemann-Klein and Wood",
+"#text":["Brüggemann-Klein, Anne,and Derick Wood.",".Universität Freiburg, Institut für Informatik,Bericht 38, Oktober 1991."],
+"emph":"Deterministic Regular Languages"
+},{
+"@id":"Clark",
+"@key":"Clark",
+"#text":["James Clark.Comparison of SGML and XML. See","."],
+"loc":{
+"@href":"http://www.w3.org/TR/NOTE-sgml-xml-971215",
+"#text":"http://www.w3.org/TR/NOTE-sgml-xml-971215"
+}
+},{
+"@id":"RFC1738",
+"@xml-link":"simple",
+"@key":"IETF RFC1738",
+"#text":["IETF (Internet Engineering Task Force).",", ed. T. Berners-Lee, L. Masinter, M. McCahill.1994."],
+"emph":"RFC 1738:  Uniform Resource Locators (URL)"
+},{
+"@id":"RFC1808",
+"@xml-link":"simple",
+"@key":"IETF RFC1808",
+"#text":["IETF (Internet Engineering Task Force).",", ed. R. Fielding.1995."],
+"emph":"RFC 1808:  Relative Uniform Resource Locators"
+},{
+"@id":"RFC2141",
+"@xml-link":"simple",
+"@key":"IETF RFC2141",
+"#text":["IETF (Internet Engineering Task Force).",", ed. R. Moats.1997."],
+"emph":"RFC 2141:  URN Syntax"
+},{
+"@id":"ISO8879",
+"@key":"ISO 8879",
+"#text":["ISO(International Organization for Standardization).","Firstedition -- 1986-10-15.  [Geneva]:  International Organization forStandardization, 1986."],
+"emph":"ISO 8879:1986(E).  Information processing -- Text and OfficeSystems -- Standard Generalized Markup Language (SGML)."
+},{
+"@id":"ISO10744",
+"@key":"ISO/IEC 10744",
+"#text":["ISO(International Organization for Standardization).","[Geneva]:  International Organization forStandardization, 1992.","[Geneva]:  International Organization forStandardization, 1996."],
+"emph":["ISO/IEC 10744-1992 (E).  Information technology --Hypermedia/Time-based Structuring Language (HyTime).","Extended Facilities Annexe."]
+}]
+}
+}]
+},{
+"@id":"CharClasses",
+"head":"Character Classes",
+"p":[{
+"#text":"Following the characteristics defined in the Unicode standard,characters are classed as base characters (among others, thesecontain the alphabetic characters of the Latin alphabet, withoutdiacritics), ideographic characters, and combining characters (amongothers, this class contains most diacritics); these classes combineto form the class of letters.  Digits and extenders arealso distinguished.",
+"scrap":{
+"@lang":"ebnf",
+"@id":"CHARACTERS",
+"head":"Characters",
+"prodgroup":{
+"@pcw3":"3",
+"@pcw4":"15",
+"prod":[{
+"@id":"NT-Letter",
+"lhs":"Letter",
+"rhs":{
+"nt":[{
+"@def":"NT-BaseChar",
+"#text":"BaseChar"
+},{
+"@def":"NT-Ideographic",
+"#text":"Ideographic"
+}],
+"#text":"|"
+}
+},{
+"@id":"NT-BaseChar",
+"lhs":"BaseChar",
+"rhs":"[#x0041-#x005A]| [#x0061-#x007A]| [#x00C0-#x00D6]| [#x00D8-#x00F6]| [#x00F8-#x00FF]| [#x0100-#x0131]| [#x0134-#x013E]| [#x0141-#x0148]| [#x014A-#x017E]| [#x0180-#x01C3]| [#x01CD-#x01F0]| [#x01F4-#x01F5]| [#x01FA-#x0217]| [#x0250-#x02A8]| [#x02BB-#x02C1]| #x0386| [#x0388-#x038A]| #x038C| [#x038E-#x03A1]| [#x03A3-#x03CE]| [#x03D0-#x03D6]| #x03DA| #x03DC| #x03DE| #x03E0| [#x03E2-#x03F3]| [#x0401-#x040C]| [#x040E-#x044F]| [#x0451-#x045C]| [#x045E-#x0481]| [#x0490-#x04C4]| [#x04C7-#x04C8]| [#x04CB-#x04CC]| [#x04D0-#x04EB]| [#x04EE-#x04F5]| [#x04F8-#x04F9]| [#x0531-#x0556]| #x0559| [#x0561-#x0586]| [#x05D0-#x05EA]| [#x05F0-#x05F2]| [#x0621-#x063A]| [#x0641-#x064A]| [#x0671-#x06B7]| [#x06BA-#x06BE]| [#x06C0-#x06CE]| [#x06D0-#x06D3]| #x06D5| [#x06E5-#x06E6]| [#x0905-#x0939]| #x093D| [#x0958-#x0961]| [#x0985-#x098C]| [#x098F-#x0990]| [#x0993-#x09A8]| [#x09AA-#x09B0]| #x09B2| [#x09B6-#x09B9]| [#x09DC-#x09DD]| [#x09DF-#x09E1]| [#x09F0-#x09F1]| [#x0A05-#x0A0A]| [#x0A0F-#x0A10]| [#x0A13-#x0A28]| [#x0A2A-#x0A30]| [#x0A32-#x0A33]| [#x0A35-#x0A36]| [#x0A38-#x0A39]| [#x0A59-#x0A5C]| #x0A5E| [#x0A72-#x0A74]| [#x0A85-#x0A8B]| #x0A8D| [#x0A8F-#x0A91]| [#x0A93-#x0AA8]| [#x0AAA-#x0AB0]| [#x0AB2-#x0AB3]| [#x0AB5-#x0AB9]| #x0ABD| #x0AE0| [#x0B05-#x0B0C]| [#x0B0F-#x0B10]| [#x0B13-#x0B28]| [#x0B2A-#x0B30]| [#x0B32-#x0B33]| [#x0B36-#x0B39]| #x0B3D| [#x0B5C-#x0B5D]| [#x0B5F-#x0B61]| [#x0B85-#x0B8A]| [#x0B8E-#x0B90]| [#x0B92-#x0B95]| [#x0B99-#x0B9A]| #x0B9C| [#x0B9E-#x0B9F]| [#x0BA3-#x0BA4]| [#x0BA8-#x0BAA]| [#x0BAE-#x0BB5]| [#x0BB7-#x0BB9]| [#x0C05-#x0C0C]| [#x0C0E-#x0C10]| [#x0C12-#x0C28]| [#x0C2A-#x0C33]| [#x0C35-#x0C39]| [#x0C60-#x0C61]| [#x0C85-#x0C8C]| [#x0C8E-#x0C90]| [#x0C92-#x0CA8]| [#x0CAA-#x0CB3]| [#x0CB5-#x0CB9]| #x0CDE| [#x0CE0-#x0CE1]| [#x0D05-#x0D0C]| [#x0D0E-#x0D10]| [#x0D12-#x0D28]| [#x0D2A-#x0D39]| [#x0D60-#x0D61]| [#x0E01-#x0E2E]| #x0E30| [#x0E32-#x0E33]| [#x0E40-#x0E45]| [#x0E81-#x0E82]| #x0E84| [#x0E87-#x0E88]| #x0E8A| #x0E8D| [#x0E94-#x0E97]| [#x0E99-#x0E9F]| [#x0EA1-#x0EA3]| #x0EA5| #x0EA7| [#x0EAA-#x0EAB]| [#x0EAD-#x0EAE]| #x0EB0| [#x0EB2-#x0EB3]| #x0EBD| [#x0EC0-#x0EC4]| [#x0F40-#x0F47]| [#x0F49-#x0F69]| [#x10A0-#x10C5]| [#x10D0-#x10F6]| #x1100| [#x1102-#x1103]| [#x1105-#x1107]| #x1109| [#x110B-#x110C]| [#x110E-#x1112]| #x113C| #x113E| #x1140| #x114C| #x114E| #x1150| [#x1154-#x1155]| #x1159| [#x115F-#x1161]| #x1163| #x1165| #x1167| #x1169| [#x116D-#x116E]| [#x1172-#x1173]| #x1175| #x119E| #x11A8| #x11AB| [#x11AE-#x11AF]| [#x11B7-#x11B8]| #x11BA| [#x11BC-#x11C2]| #x11EB| #x11F0| #x11F9| [#x1E00-#x1E9B]| [#x1EA0-#x1EF9]| [#x1F00-#x1F15]| [#x1F18-#x1F1D]| [#x1F20-#x1F45]| [#x1F48-#x1F4D]| [#x1F50-#x1F57]| #x1F59| #x1F5B| #x1F5D| [#x1F5F-#x1F7D]| [#x1F80-#x1FB4]| [#x1FB6-#x1FBC]| #x1FBE| [#x1FC2-#x1FC4]| [#x1FC6-#x1FCC]| [#x1FD0-#x1FD3]| [#x1FD6-#x1FDB]| [#x1FE0-#x1FEC]| [#x1FF2-#x1FF4]| [#x1FF6-#x1FFC]| #x2126| [#x212A-#x212B]| #x212E| [#x2180-#x2182]| [#x3041-#x3094]| [#x30A1-#x30FA]| [#x3105-#x312C]| [#xAC00-#xD7A3]"
+},{
+"@id":"NT-Ideographic",
+"lhs":"Ideographic",
+"rhs":"[#x4E00-#x9FA5]| #x3007| [#x3021-#x3029]"
+},{
+"@id":"NT-CombiningChar",
+"lhs":"CombiningChar",
+"rhs":"[#x0300-#x0345]| [#x0360-#x0361]| [#x0483-#x0486]| [#x0591-#x05A1]| [#x05A3-#x05B9]| [#x05BB-#x05BD]| #x05BF| [#x05C1-#x05C2]| #x05C4| [#x064B-#x0652]| #x0670| [#x06D6-#x06DC]| [#x06DD-#x06DF]| [#x06E0-#x06E4]| [#x06E7-#x06E8]| [#x06EA-#x06ED]| [#x0901-#x0903]| #x093C| [#x093E-#x094C]| #x094D| [#x0951-#x0954]| [#x0962-#x0963]| [#x0981-#x0983]| #x09BC| #x09BE| #x09BF| [#x09C0-#x09C4]| [#x09C7-#x09C8]| [#x09CB-#x09CD]| #x09D7| [#x09E2-#x09E3]| #x0A02| #x0A3C| #x0A3E| #x0A3F| [#x0A40-#x0A42]| [#x0A47-#x0A48]| [#x0A4B-#x0A4D]| [#x0A70-#x0A71]| [#x0A81-#x0A83]| #x0ABC| [#x0ABE-#x0AC5]| [#x0AC7-#x0AC9]| [#x0ACB-#x0ACD]| [#x0B01-#x0B03]| #x0B3C| [#x0B3E-#x0B43]| [#x0B47-#x0B48]| [#x0B4B-#x0B4D]| [#x0B56-#x0B57]| [#x0B82-#x0B83]| [#x0BBE-#x0BC2]| [#x0BC6-#x0BC8]| [#x0BCA-#x0BCD]| #x0BD7| [#x0C01-#x0C03]| [#x0C3E-#x0C44]| [#x0C46-#x0C48]| [#x0C4A-#x0C4D]| [#x0C55-#x0C56]| [#x0C82-#x0C83]| [#x0CBE-#x0CC4]| [#x0CC6-#x0CC8]| [#x0CCA-#x0CCD]| [#x0CD5-#x0CD6]| [#x0D02-#x0D03]| [#x0D3E-#x0D43]| [#x0D46-#x0D48]| [#x0D4A-#x0D4D]| #x0D57| #x0E31| [#x0E34-#x0E3A]| [#x0E47-#x0E4E]| #x0EB1| [#x0EB4-#x0EB9]| [#x0EBB-#x0EBC]| [#x0EC8-#x0ECD]| [#x0F18-#x0F19]| #x0F35| #x0F37| #x0F39| #x0F3E| #x0F3F| [#x0F71-#x0F84]| [#x0F86-#x0F8B]| [#x0F90-#x0F95]| #x0F97| [#x0F99-#x0FAD]| [#x0FB1-#x0FB7]| #x0FB9| [#x20D0-#x20DC]| #x20E1| [#x302A-#x302F]| #x3099| #x309A"
+},{
+"@id":"NT-Digit",
+"lhs":"Digit",
+"rhs":"[#x0030-#x0039]| [#x0660-#x0669]| [#x06F0-#x06F9]| [#x0966-#x096F]| [#x09E6-#x09EF]| [#x0A66-#x0A6F]| [#x0AE6-#x0AEF]| [#x0B66-#x0B6F]| [#x0BE7-#x0BEF]| [#x0C66-#x0C6F]| [#x0CE6-#x0CEF]| [#x0D66-#x0D6F]| [#x0E50-#x0E59]| [#x0ED0-#x0ED9]| [#x0F20-#x0F29]"
+},{
+"@id":"NT-Extender",
+"lhs":"Extender",
+"rhs":"#x00B7| #x02D0| #x02D1| #x0387| #x0640| #x0E46| #x0EC6| #x3005| [#x3031-#x3035]| [#x309D-#x309E]| [#x30FC-#x30FE]"
+}]
+}
+}
+},{
+"#text":"The character classes defined here can be derived from theUnicode character database as follows:",
+"ulist":{
+"item":[{
+"p":"Name start characters must have one of the categories Ll, Lu,Lo, Lt, Nl."
+},{
+"p":"Name characters other than Name-start characters must have one of the categories Mc, Me, Mn, Lm, or Nd."
+},{
+"p":"Characters in the compatibility area (i.e. with character codegreater than #xF900 and less than #xFFFE) are not allowed in XMLnames."
+},{
+"p":"Characters which have a font or compatibility decomposition (i.e. thosewith a \"compatibility formatting tag\" in field 5 of the database --marked by field 5 beginning with a \"<\") are not allowed."
+},{
+"p":"The following characters are treated as name-start charactersrather than name characters, because the property file classifiesthem as Alphabetic:  [#x02BB-#x02C1], #x0559, #x06E5, #x06E6."
+},{
+"p":"Characters #x20DD-#x20E0 are excluded (in accordance with Unicode, section 5.14)."
+},{
+"p":"Character #x00B7 is classified as an extender, because theproperty list so identifies it."
+},{
+"p":"Character #x0387 is added as a name character, because #x00B7is its canonical equivalent."
+},{
+"p":"Characters ':' and '_' are allowed as name-start characters."
+},{
+"p":"Characters '-' and '.' are allowed as name characters."
+}]
+}
+}]
+}],
+"inform-div1":[{
+"@id":"sec-xml-and-sgml",
+"head":"XML and SGML",
+"p":{
+"#text":["XML is designed to be a subset of SGML, in that every","XML document should also be aconformant SGML document.For a detailed comparison of the additional restrictions that XML places ondocuments beyond those of SGML, see","."],
+"termref":{
+"@def":"dt-valid",
+"#text":"valid"
+},
+"bibref":{
+"@ref":"Clark"
+}
+}
+},{
+"@id":"sec-entexpand",
+"head":"Expansion of Entity and Character References",
+"p":[{
+"#text":["This appendix contains some examples illustrating thesequence of entity- and character-reference recognition andexpansion, as specified in","."],
+"specref":{
+"@ref":"entproc"
+}
+},{
+"#text":["If the DTD contains the declaration","then the XML processor will recognize the character references when it parses the entity declaration, and resolve them before storing the following string as thevalue of the entity \"","\":","A reference in the document to \"","\" will cause the text to be reparsed, at which time the start- and end-tags of the \"","\" element will be recognized and the three references will be recognized and expanded, resulting in a \"","\" element with the following content(all data, no delimiters or markup):"],
+"eg":["<!ENTITY example \"<p>An ampersand (&#38;#38;) may be escapednumerically (&#38;#38;#38;) or with a general entity(&amp;amp;).</p>\" >","<p>An ampersand (&#38;) may be escapednumerically (&#38;#38;) or with a general entity(&amp;amp;).</p>","An ampersand (&) may be escapednumerically (&#38;) or with a general entity(&amp;)."],
+"code":["example","&example;","p","p"]
+},{
+"#text":["A more complex example will illustrate the rules and theireffects fully.  In the following example, the line numbers aresolely for reference.","This produces the following:"],
+"eg":"1 <?xml version='1.0'?>2 <!DOCTYPE test [3 <!ELEMENT test (#PCDATA) >4 <!ENTITY % xx '&#37;zz;'>5 <!ENTITY % zz '&#60;!ENTITY tricky \"error-prone\" >' >6 %xx;7 ]>8 <test>This sample shows a &tricky; method.</test>",
+"ulist":{
+"@spacing":"compact",
+"item":[{
+"p":{
+"#text":["in line 4, the reference to character 37 is expanded immediately,and the parameter entity \"","\" is stored in the symboltable with the value \"","\".  Since the replacement textis not rescanned, the reference to parameter entity \"","\"is not recognized.  (And it would be an error if it were, since\"","\" is not yet declared.)"],
+"code":["xx","%zz;","zz","zz"]
+}
+},{
+"p":{
+"#text":["in line 5, the character reference \"","\" isexpanded immediately and the parameter entity \"","\" isstored with the replacement text \"","\",which is a well-formed entity declaration."],
+"code":["&#60;","zz","<!ENTITY tricky \"error-prone\" >"]
+}
+},{
+"p":{
+"#text":["in line 6, the reference to \"","\" is recognized,and the replacement text of \"","\" (namely \"","\") is parsed.  The reference to \"","\"is recognized in its turn, and its replacement text (\"","\") is parsed.The general entity \"","\" has now beendeclared, with the replacement text \"","\"."],
+"code":["xx","xx","%zz;","zz","<!ENTITY tricky \"error-prone\" >","tricky","error-prone"]
+}
+},{
+"p":{
+"#text":["in line 8, the reference to the general entity \"","\" isrecognized, and it is expanded, so the full content of the\"","\" element is the self-describing (and ungrammatical) string"],
+"code":["tricky","test"],
+"emph":"This sample shows a error-prone method."
+}
+}]
+}
+}]
+},{
+"@id":"determinism",
+"head":"Deterministic Content Models",
+"p":[{
+"termref":{
+"@def":"dt-compat",
+"#text":"For compatibility"
+},
+"#text":", it isrequiredthat content models in element type declarations be deterministic."
+},"SGMLrequires deterministic content models (it calls them\"unambiguous\"); XML processors built using SGML systems mayflag non-deterministic content models as errors.",{
+"#text":["For example, the content model","isnon-deterministic, because given an initial","the parsercannot know which","in the model is being matched withoutlooking ahead to see which element follows the",".In this case, the two references to","can be collapsed into a single reference, making the model read",".  An initial","now clearlymatches only a single name in the content model.  The parser doesn'tneed to look ahead to see what follows; either","or","would be accepted."],
+"code":["((b, c) | (b, d))","b","b","b","b","(b, (c | d))","b","c","d"]
+},{
+"#text":["More formally:  a finite state automaton may be constructed from thecontent model using the standard algorithms, e.g. algorithm 3.5 in section 3.9of Aho, Sethi, and Ullman",".In many such algorithms, a follow set is constructed for each position in the regular expression (i.e., each leaf node in the syntax tree for the regular expression);if any position has a follow set in which more than one following position is labeled with the same element type name, then the content model is in errorand may be reported as an error."],
+"bibref":{
+"@ref":"Aho"
+}
+},{
+"#text":["Algorithms exist which allow many but not all non-deterministiccontent models to be reduced automatically to equivalent deterministicmodels; see Brüggemann-Klein 1991","."],
+"bibref":{
+"@ref":"ABK"
+}
+}]
+},{
+"@id":"sec-guessing",
+"head":"Autodetection of Character Encodings",
+"p":["The XML encoding declaration functions as an internal label on eachentity, indicating which character encoding is in use.  Before an XMLprocessor can read the internal label, however, it apparently has toknow what character encoding is in use--which is what the internal labelis trying to indicate.  In the general case, this is a hopelesssituation. It is not entirely hopeless in XML, however, because XMLlimits the general case in two ways:  each implementation is assumedto support only a  finite set of character encodings, and the XMLencoding declaration is restricted in position and content in order tomake it feasible to autodetect the character encoding in use in eachentity in normal cases.  Also, in many cases other sources of informationare available in addition to the XML data stream itself.  Two cases may be distinguished, depending on whether the XML entity is presented to theprocessor without, or with, any accompanying(external) information.  We consider the first case first.",{
+"#text":["Because each XML entity not in UTF-8 or UTF-16 format","begin with an XML encoding declaration, in which the first  charactersmust be '","', any conforming processor can detect,after two to four octets of input, which of the following cases apply. In reading this list, it may help to know that in UCS-4, '<' is\"","\" and '?' is \"","\", and the ByteOrder Mark required of UTF-16 data streams is \"","\"."],
+"emph":"must",
+"code":["<?xml","#x0000003C","#x0000003F","#xFEFF"]
+},{
+"ulist":{
+"item":[{
+"p":{
+"code":"00 00 00 3C",
+"#text":": UCS-4, big-endian machine (1234 order)"
+}
+},{
+"p":{
+"code":"3C 00 00 00",
+"#text":": UCS-4, little-endian machine (4321 order)"
+}
+},{
+"p":{
+"code":"00 00 3C 00",
+"#text":": UCS-4, unusual octet order (2143)"
+}
+},{
+"p":{
+"code":"00 3C 00 00",
+"#text":": UCS-4, unusual octet order (3412)"
+}
+},{
+"p":{
+"code":"FE FF",
+"#text":": UTF-16, big-endian"
+}
+},{
+"p":{
+"code":"FF FE",
+"#text":": UTF-16, little-endian"
+}
+},{
+"p":{
+"code":"00 3C 00 3F",
+"#text":": UTF-16, big-endian, no Byte Order Mark(and thus, strictly speaking, in error)"
+}
+},{
+"p":{
+"code":"3C 00 3F 00",
+"#text":": UTF-16, little-endian, no Byte Order Mark(and thus, strictly speaking, in error)"
+}
+},{
+"p":{
+"code":"3C 3F 78 6D",
+"#text":": UTF-8, ISO 646, ASCII, some part of ISO 8859, Shift-JIS, EUC, or any other 7-bit, 8-bit, or mixed-width encodingwhich ensures that the characters of ASCII have their normal positions,width,and values; the actual encoding declaration must be read to detect which of these applies, but since all of these encodingsuse the same bit patterns for the ASCII characters, the encoding declaration itself may be read reliably"
+}
+},{
+"p":{
+"code":"4C 6F A7 94",
+"#text":": EBCDIC (in some flavor; the fullencoding declaration must be read to tell which code page is in use)"
+}
+},{
+"p":"other: UTF-8 without an encoding declaration, or else the data stream is corrupt, fragmentary, or enclosed ina wrapper of some kind"
+}]
+}
+},"This level of autodetection is enough to read the XML encodingdeclaration and parse the character-encoding identifier, which isstill necessary to distinguish the individual members of each familyof encodings (e.g. to tell  UTF-8 from 8859, and the parts of 8859from each other, or to distinguish the specific EBCDIC code page inuse, and so on).","Because the contents of the encoding declaration are restricted toASCII characters, a processor can reliably read the entire encodingdeclaration as soon as it has detected which family of encodings is inuse.  Since in practice, all widely used character encodings fall intoone of the categories above, the XML encoding declaration allowsreasonably reliable in-band labeling of character encodings, even whenexternal sources of information at the operating-system ortransport-protocol level are unreliable.","Once the processor has detected the character encoding in use, it canact appropriately, whether by invoking a separate input routine foreach case, or by calling the proper conversion function on eachcharacter of input.","Like any self-labeling system, the XML encoding declaration will notwork if any software changes the entity's character set or encodingwithout updating the encoding declaration.  Implementors ofcharacter-encoding routines should be careful to ensure the accuracyof the internal and external information used to label the entity.",{
+"#text":["The second possible case occurs when the XML entity is accompaniedby encoding information, as in some file systems and some networkprotocols.When multiple sources of information are available,their relativepriority and the preferred method of handling conflict should bespecified as part of the higher-level protocol used to deliver XML.Rules for the relative priority of the internal label and theMIME-type label in an external header, for example, should be part of theRFC document defining the text/xml and application/xml MIME types. Inthe interests of interoperability, however, the following rulesare recommended.","These rules apply only in the absence of protocol-level documentation;in particular, when the MIME types text/xml and application/xml aredefined, the recommendations of the relevant RFC will supersedethese rules."],
+"ulist":{
+"item":[{
+"p":"If an XML entity is in a file, the Byte-Order Markand encoding-declaration PI are used (if present) to determine thecharacter encoding.  All other heuristics and sources of informationare solely for error recovery."
+},{
+"p":{
+"#text":["If an XML entity is delivered with aMIME type of text/xml, then the","parameteron the MIME type determines thecharacter encoding method; all other heuristics and sources ofinformation are solely for error recovery."],
+"code":"charset"
+}
+},{
+"p":"If an XML entity is delivered with aMIME type of application/xml, then the Byte-Order Mark andencoding-declaration PI are used (if present) to determine thecharacter encoding.  All other heuristics and sources ofinformation are solely for error recovery."
+}]
+}
+}]
+},{
+"@id":"sec-xml-wg",
+"head":"W3C XML Working Group",
+"p":"This specification was prepared and approved for publication by theW3C XML Working Group (WG).  WG approval of this specification doesnot necessarily imply that all WG members voted for its approval.  The current and former members of the XML WG are:",
+"orglist":{
+"member":[{
+"name":"Jon Bosak, Sun",
+"role":"Chair"
+},{
+"name":"James Clark",
+"role":"Technical Lead"
+},{
+"name":"Tim Bray, Textuality and Netscape",
+"role":"XML Co-editor"
+},{
+"name":"Jean Paoli, Microsoft",
+"role":"XML Co-editor"
+},{
+"name":"C. M. Sperberg-McQueen, U. of Ill.",
+"role":"XMLCo-editor"
+},{
+"name":"Dan Connolly, W3C",
+"role":"W3C Liaison"
+},{
+"name":"Paula Angerstein, Texcel"
+},{
+"name":"Steve DeRose, INSO"
+},{
+"name":"Dave Hollander, HP"
+},{
+"name":"Eliot Kimber, ISOGEN"
+},{
+"name":"Eve Maler, ArborText"
+},{
+"name":"Tom Magliery, NCSA"
+},{
+"name":"Murray Maloney, Muzmo and Grif"
+},{
+"name":"Makoto Murata, Fuji Xerox Information Systems"
+},{
+"name":"Joel Nava, Adobe"
+},{
+"name":"Conleth O'Connell, Vignette"
+},{
+"name":"Peter Sharpe, SoftQuad"
+},{
+"name":"John Tigue, DataChannel"
+}]
+}
+}]
+}
+}}

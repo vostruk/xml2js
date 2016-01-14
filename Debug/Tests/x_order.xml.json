@@ -1,0 +1,40 @@
+{"Order":{
+"@xmlns":"http://www.example.com/myschema.xml",
+"Customer":{
+"Name":"Bill Buckram",
+"Cardnum":"234 234 234 234"
+},
+"Manifest":{
+"Item":[{
+"ID":"209",
+"Title":"Duke: A Biography of the Java Evangelist",
+"Quantity":"1",
+"UnitPrice":"$10.75"
+},{
+"ID":"208",
+"Title":"100% Pure: Making Cross Platform Deployment a Reality",
+"Quantity":"1",
+"UnitPrice":"$10.75"
+},{
+"ID":"204",
+"Title":"Making the Transition from C++ to the Java(tm) Language",
+"Quantity":"1",
+"UnitPrice":"$10.75"
+},{
+"ID":"202",
+"Title":"Web Servers for Fun and Profit",
+"Quantity":"1",
+"UnitPrice":"$10.75"
+},{
+"ID":"210",
+"Title":"I Think Not: Dukes Likeness to the Federation Insignia",
+"Quantity":"1",
+"UnitPrice":"$10.75"
+}]
+},
+"Receipt":{
+"Subtotal":"$53.75",
+"Tax":"$4.43",
+"Total":"$58.18"
+}
+}}

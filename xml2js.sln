@@ -5,6 +5,76 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xml2js", "xml2js\xml2js.vcxproj", "{1D971020-32CE-4E40-82DA-018F0F17440D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToRun", "ToRun", "{566920A2-238B-4782-9D64-02BB11BE48D9}"
+	ProjectSection(SolutionItems) = preProject
+		Debug\runTests.bat = Debug\runTests.bat
+		Debug\runTests.py = Debug\runTests.py
+		Debug\runTests.sh = Debug\runTests.sh
+		Debug\xml2js.exe = Debug\xml2js.exe
+		Debug\xml2js.ilk = Debug\xml2js.ilk
+		Debug\xml2js.pdb = Debug\xml2js.pdb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4A9F6C40-C444-4A00-905C-0AE7B4D46EB2}"
+	ProjectSection(SolutionItems) = preProject
+		Debug\Tests\s_1.xml = Debug\Tests\s_1.xml
+		Debug\Tests\s_1.xml.json = Debug\Tests\s_1.xml.json
+		Debug\Tests\s_2.xml = Debug\Tests\s_2.xml
+		Debug\Tests\s_2.xml.json = Debug\Tests\s_2.xml.json
+		Debug\Tests\s_3.xml = Debug\Tests\s_3.xml
+		Debug\Tests\s_3.xml.json = Debug\Tests\s_3.xml.json
+		Debug\Tests\s_4.xml = Debug\Tests\s_4.xml
+		Debug\Tests\s_4.xml.json = Debug\Tests\s_4.xml.json
+		Debug\Tests\s_5.xml = Debug\Tests\s_5.xml
+		Debug\Tests\s_5.xml.json = Debug\Tests\s_5.xml.json
+		Debug\Tests\s_6.xml = Debug\Tests\s_6.xml
+		Debug\Tests\s_6.xml.json = Debug\Tests\s_6.xml.json
+		Debug\Tests\s_7.xml = Debug\Tests\s_7.xml
+		Debug\Tests\s_7.xml.json = Debug\Tests\s_7.xml.json
+		Debug\Tests\s_8.xml = Debug\Tests\s_8.xml
+		Debug\Tests\s_8.xml.json = Debug\Tests\s_8.xml.json
+		Debug\Tests\t1.xml = Debug\Tests\t1.xml
+		Debug\Tests\t1.xml.json = Debug\Tests\t1.xml.json
+		Debug\Tests\u_0basic.xml = Debug\Tests\u_0basic.xml
+		Debug\Tests\u_0basic.xml.json = Debug\Tests\u_0basic.xml.json
+		Debug\Tests\u_1.xml = Debug\Tests\u_1.xml
+		Debug\Tests\u_1.xml.json = Debug\Tests\u_1.xml.json
+		Debug\Tests\u_2.xml = Debug\Tests\u_2.xml
+		Debug\Tests\u_2.xml.json = Debug\Tests\u_2.xml.json
+		Debug\Tests\u_3.xml = Debug\Tests\u_3.xml
+		Debug\Tests\u_3.xml.json = Debug\Tests\u_3.xml.json
+		Debug\Tests\u_4.xml = Debug\Tests\u_4.xml
+		Debug\Tests\u_4.xml.json = Debug\Tests\u_4.xml.json
+		Debug\Tests\u_5.xml = Debug\Tests\u_5.xml
+		Debug\Tests\u_5.xml.json = Debug\Tests\u_5.xml.json
+		Debug\Tests\u_6namespace.xml = Debug\Tests\u_6namespace.xml
+		Debug\Tests\u_6namespace.xml.json = Debug\Tests\u_6namespace.xml.json
+		Debug\Tests\u_7input.xml = Debug\Tests\u_7input.xml
+		Debug\Tests\u_7input.xml.json = Debug\Tests\u_7input.xml.json
+		Debug\Tests\u_8combi.xml = Debug\Tests\u_8combi.xml
+		Debug\Tests\u_8combi.xml.json = Debug\Tests\u_8combi.xml.json
+		Debug\Tests\u_9text.xml = Debug\Tests\u_9text.xml
+		Debug\Tests\u_9text.xml.json = Debug\Tests\u_9text.xml.json
+		Debug\Tests\x_ funding.xml = Debug\Tests\x_ funding.xml
+		Debug\Tests\x_ funding.xml.json = Debug\Tests\x_ funding.xml.json
+		Debug\Tests\x_1.xml = Debug\Tests\x_1.xml
+		Debug\Tests\x_1.xml.json = Debug\Tests\x_1.xml.json
+		Debug\Tests\x_2.xml = Debug\Tests\x_2.xml
+		Debug\Tests\x_2.xml.json = Debug\Tests\x_2.xml.json
+		Debug\Tests\x_3sitemapUntrasted.xml = Debug\Tests\x_3sitemapUntrasted.xml
+		Debug\Tests\x_3sitemapUntrasted.xml.json = Debug\Tests\x_3sitemapUntrasted.xml.json
+		Debug\Tests\x_4.xml = Debug\Tests\x_4.xml
+		Debug\Tests\x_4.xml.json = Debug\Tests\x_4.xml.json
+		Debug\Tests\x_food.xml = Debug\Tests\x_food.xml
+		Debug\Tests\x_food.xml.json = Debug\Tests\x_food.xml.json
+		Debug\Tests\x_order.xml = Debug\Tests\x_order.xml
+		Debug\Tests\x_order.xml.json = Debug\Tests\x_order.xml.json
+		Debug\Tests\x_REC.xml = Debug\Tests\x_REC.xml
+		Debug\Tests\x_REC.xml.json = Debug\Tests\x_REC.xml.json
+		Debug\Tests\x_rss_news.xml = Debug\Tests\x_rss_news.xml
+		Debug\Tests\x_rss_news.xml.json = Debug\Tests\x_rss_news.xml.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -18,5 +88,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A9F6C40-C444-4A00-905C-0AE7B4D46EB2} = {566920A2-238B-4782-9D64-02BB11BE48D9}
 	EndGlobalSection
 EndGlobal
