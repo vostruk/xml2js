@@ -7,16 +7,16 @@ class Parser
 {
 	Lexer* lexer;
 	forward_list<Token> controlStack;
-	XMLnode treeRoot;
+	XMLnode* treeRoot;
 	ErrorHandler eh;
 	 
+	XMLnode* parseElement();
+	list<pair<string, string>> parseAttributes();
 public:
 	Parser(Lexer*);
 	~Parser();
+
 	void parse();
 	XMLnode& getTreeRoot();
-	void parseElement(XMLnode&);
-	void writeTree();
-	void write2JSON();
 };
 

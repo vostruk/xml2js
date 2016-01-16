@@ -1,5 +1,7 @@
 #include "Lexer.h"
-
+#include <functional> 
+#include <cctype>
+#include <locale>
 Lexer::Lexer(XMLsourse* input)
 {
 	sourse = input;
@@ -11,85 +13,58 @@ Lexer::~Lexer()
 
 }
 
-//possible predefs:
-// &lt; is "<"
-// &gt; is ">"
-// &amp; is "&"
-// &apos; is '
-// &quot; is "
-// allowed only in atribute values and texts
-char Lexer::processPredef()
+// trim from start
+static inline std::string &ltrim(std::string &s) {
+	s.erase(s.begin(), std::find_if(s.begin(), s.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
+	return s;
+}
+
+// trim from end
+static inline std::string &rtrim(std::string &s) {
+	s.erase(std::find_if(s.rbegin(), s.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
+	return s;
+}
+
+// trim from both ends
+static inline std::string &trim(std::string &s) {
+	s.erase(std::remove(s.begin(), s.end(), '\n'), s.end());
+	s.erase(std::remove(s.begin(), s.end(), '\t'), s.end());
+	return ltrim(rtrim(s));
+}
+
+Token Lexer::seeToken()
 {
-	char c = ' ';
-	switch (sourse->getChar())
-	{
-	case 'g':
-		eh.errif("Predefined expression warning: 't' is expected after '&g' and '&l'\n", sourse->getChar() != 't', 0);
-		c = '>';
-		break;
-	case 'l':
-		eh.errif("Predefined expression warning: 't' is expected after '&g' and '&l'\n", sourse->getChar() != 't', 0);
-		c = '<';
-		break;
-	case 'q':
-		eh.errif("Predefined expression warning: 'u' is expected after '&q'\n", sourse->getChar() != 'u', 0);
-		eh.errif("Predefined expression warning: 'o' is expected after '&qu'\n", sourse->getChar() != 'o', 0);
-		eh.errif("Predefined expression warning: 't' is expected after '&quo'\n", sourse->getChar() != 't', 0);
-		c = '"';
-		break;
-	case 'a':
-		switch (sourse->getChar())
-		{
-		case 'm':
-			eh.errif("Predefined expression warning: 'p' is expected after '&am'\n", sourse->getChar() != 'p', 0);
-			c = '&';
-			break;
-		case 'p':
-			eh.errif("Predefined expression warning: 'o' is expected after '&ap'\n", sourse->getChar() != 'o', 0);
-			eh.errif("Predefined expression warning: 's' is expected after '&apo'\n", sourse->getChar() != 's', 0);
-			c = '\'';
-			break;
-		default: eh.errif("Predefined expression warning: unexpected symbol after '&a'", true, 0);
-			return c;
-		}break;
-		
-	default: //eh.errif("Predefined expression warning: unknown entity\n", true, 0);
-		return c;
-	}
-	eh.errif("Predefined expression error: must end with ';'\n", sourse->getChar() != ';', 0);
+	if (fifoTokens.empty()) fifoTokens.push_back(nextToken());
+	return fifoTokens.front();
+}
+
+Token Lexer::getToken()
+{
+	if (fifoTokens.empty()) return nextToken();
+	Token c = fifoTokens.front();
+	fifoTokens.pop_front();
 	return c;
 }
-/*
-@returns tokens:
-	Token("ENDofFILE") // nazwy - na enum
-	Token("simpleTEXT", value)
-	Token("closeTag", ">")
-	Token("closeEmptyTag", "/>")
-	Token("startCloseTag", "</")
-	Token("startTag", "<")
-	Token("proInsTag", value)
-	Token("comment", value)
-	Token("CDATA", value)
-	Token("DOCTYPE", value)
-	Token("atributeValue", value)
-	Token("equalTag", "=")
-	Token("nameTag", value)
-*/
 
-Token Lexer::nextToken(bool is_text)
+Token Lexer::getText()
 {
 	char c;
 	string value = "";
-	if (is_text){ //it's simple text - get everything including white symbols and special characters
-		while ((c=sourse->nextChar()) != '<') if (c == EOF) return Token(ENDofFILE);
-		else{
-			c = sourse->getChar();
-			if (c == '&') c = processPredef();
-			if (c == '"') value += '\\';
-			value += c;
-		}
-		return Token(simpleTEXT, value);
+
+	while ((c = sourse->nextChar()) != '<'){
+		if (c == EOF) return Token(ENDofFILE);
+		c = sourse->getChar();
+		if (c == '&') c = processPredef();
+		if (c == '"') value += '\\';
+		value += c;
 	}
+	return Token(simpleTEXT, trim(value));
+}
+
+Token Lexer::nextToken()
+{
+	char c;
+	string value = "";
 	c = sourse->getChar();
 	while (iswspace(c) && c != EOF) c = sourse->getChar();
 	if (c == EOF) return Token(ENDofFILE);
@@ -135,7 +110,7 @@ Token Lexer::nextToken(bool is_text)
 						eh.errif("Unexpected end of file!", c == EOF, 4);
 						sourse->getChar(); sourse->getChar();
 						value.pop_back();
-						return Token(CDATA, value);
+						return Token(CDATA, trim(value));
 					}break;
 					default: //otherwise it's DOCTYPE tag untill >
 						int o = 1;
@@ -183,7 +158,7 @@ Token Lexer::nextToken(bool is_text)
 			}
 			eh.errif("Unexpected end of file!", c == EOF, 4);
 			sourse->getChar(); //zjadamy pozostaly quote
-			return Token(atributeValue, value);
+			return Token(atributeValue, trim(value));
 		break;
 		case 39: //apostroph -the same
 			while (c != EOF && sourse->nextChar() != 39)
@@ -195,7 +170,7 @@ Token Lexer::nextToken(bool is_text)
 			}
 				eh.errif("Unexpected end of file!", c == EOF, 4);
 				sourse->getChar(); //zjadamy pozostaly quote
-				return Token(atributeValue, value);
+				return Token(atributeValue, trim(value));
 		break;
 		case '=': return Token(equalTag, "=");
 		break;
@@ -205,7 +180,56 @@ Token Lexer::nextToken(bool is_text)
 					&&sourse->nextChar() != '<'&&  sourse->nextChar() != '/'&& !iswspace(sourse->nextChar()))
 					value += (c = sourse->getChar());
 				eh.errif("Unexpected end of file!", c == EOF, 4);
-				return Token(nameTag, value);	
+				return Token(nameTag, trim(value));	
 		break;
 	}
+}
+
+//possible predefs:
+// &lt; is "<"
+// &gt; is ">"
+// &amp; is "&"
+// &apos; is '
+// &quot; is "
+// allowed only in atribute values and texts
+char Lexer::processPredef()
+{
+	char c = ' ';
+	switch (sourse->getChar())
+	{
+	case 'g':
+		eh.errif("Predefined expression warning: 't' is expected after '&g' and '&l'\n", sourse->getChar() != 't', 0);
+		c = '>';
+		break;
+	case 'l':
+		eh.errif("Predefined expression warning: 't' is expected after '&g' and '&l'\n", sourse->getChar() != 't', 0);
+		c = '<';
+		break;
+	case 'q':
+		eh.errif("Predefined expression warning: 'u' is expected after '&q'\n", sourse->getChar() != 'u', 0);
+		eh.errif("Predefined expression warning: 'o' is expected after '&qu'\n", sourse->getChar() != 'o', 0);
+		eh.errif("Predefined expression warning: 't' is expected after '&quo'\n", sourse->getChar() != 't', 0);
+		c = '"';
+		break;
+	case 'a':
+		switch (sourse->getChar())
+		{
+		case 'm':
+			eh.errif("Predefined expression warning: 'p' is expected after '&am'\n", sourse->getChar() != 'p', 0);
+			c = '&';
+			break;
+		case 'p':
+			eh.errif("Predefined expression warning: 'o' is expected after '&ap'\n", sourse->getChar() != 'o', 0);
+			eh.errif("Predefined expression warning: 's' is expected after '&apo'\n", sourse->getChar() != 's', 0);
+			c = '\'';
+			break;
+		default: eh.errif("Predefined expression warning: unexpected symbol after '&a'", true, 0);
+			return c;
+		}break;
+
+	default: //eh.errif("Predefined expression warning: unknown entity\n", true, 0);
+		return c;
+	}
+	eh.errif("Predefined expression error: must end with ';'\n", sourse->getChar() != ';', 0);
+	return c;
 }

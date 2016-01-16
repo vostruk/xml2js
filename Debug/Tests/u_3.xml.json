@@ -1,77 +1,77 @@
 {"menu":{
-"header":"Adobe SVG Viewer",
 "item":[{
-"@action":"Open",
-"@id":"Open",
-"#text":"Open"
-},{
-"@action":"OpenNew",
-"@id":"OpenNew",
-"#text":"Open New"
-},{
-"@action":"ZoomIn",
-"@id":"ZoomIn",
-"#text":"Zoom In"
-},{
-"@action":"ZoomOut",
-"@id":"ZoomOut",
-"#text":"Zoom Out"
-},{
-"@action":"OriginalView",
-"@id":"OriginalView",
-"#text":"Original View"
-},{
-"@action":"Quality",
-"@id":"Quality",
-"#text":"Quality"
-},{
-"@action":"Pause",
-"@id":"Pause",
-"#text":"Pause"
-},{
-"@action":"Mute",
-"@id":"Mute",
-"#text":"Mute"
-},{
-"@action":"Find",
-"@id":"Find",
-"#text":"Find..."
-},{
-"@action":"FindAgain",
-"@id":"FindAgain",
-"#text":"Find Again"
-},{
-"@action":"Copy",
-"@id":"Copy",
-"#text":"Copy"
-},{
-"@action":"CopyAgain",
-"@id":"CopyAgain",
-"#text":"Copy Again"
-},{
-"@action":"CopySVG",
-"@id":"CopySVG",
-"#text":"Copy SVG"
-},{
-"@action":"ViewSVG",
-"@id":"ViewSVG",
-"#text":"View SVG"
-},{
-"@action":"ViewSource",
-"@id":"ViewSource",
-"#text":"View Source"
-},{
-"@action":"SaveAs",
-"@id":"SaveAs",
-"#text":"Save As"
+"@action":"About",
+"@id":"About",
+"#text":"About Adobe CVG Viewer..."
 },{
 "@action":"Help",
 "@id":"Help",
 "#text":"Help"
 },{
-"@action":"About",
-"@id":"About",
-"#text":"About Adobe CVG Viewer..."
+"@action":"SaveAs",
+"@id":"SaveAs",
+"#text":"Save As"
+},{
+"@action":"ViewSource",
+"@id":"ViewSource",
+"#text":"View Source"
+},{
+"@action":"ViewSVG",
+"@id":"ViewSVG",
+"#text":"View SVG"
+},{
+"@action":"CopySVG",
+"@id":"CopySVG",
+"#text":"Copy SVG"
+},{
+"@action":"CopyAgain",
+"@id":"CopyAgain",
+"#text":"Copy Again"
+},{
+"@action":"Copy",
+"@id":"Copy",
+"#text":"Copy"
+},{
+"@action":"FindAgain",
+"@id":"FindAgain",
+"#text":"Find Again"
+},{
+"@action":"Find",
+"@id":"Find",
+"#text":"Find..."
+},{
+"@action":"Mute",
+"@id":"Mute",
+"#text":"Mute"
+},{
+"@action":"Pause",
+"@id":"Pause",
+"#text":"Pause"
+},{
+"@action":"Quality",
+"@id":"Quality",
+"#text":"Quality"
+},{
+"@action":"OriginalView",
+"@id":"OriginalView",
+"#text":"Original View"
+},{
+"@action":"ZoomOut",
+"@id":"ZoomOut",
+"#text":"Zoom Out"
+},{
+"@action":"ZoomIn",
+"@id":"ZoomIn",
+"#text":"Zoom In"
+},{
+"@action":"OpenNew",
+"@id":"OpenNew",
+"#text":"Open New"
+},{
+"@action":"Open",
+"@id":"Open",
+"#text":"Open"
 }],
-"separator":[null,null,null,null]
+"separator":[null,null,null,null],
+"header":"Adobe SVG Viewer"
 }}

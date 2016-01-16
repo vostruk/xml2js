@@ -1,4 +1,4 @@
 {"root":{
-"atr":["text1","text2"],
-"else":"text3"
+"else":"text3",
+"atr":["text2","text1"]
 }}

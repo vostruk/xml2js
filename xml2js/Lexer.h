@@ -7,11 +7,15 @@ class Lexer
 {
 	XMLsourse* sourse;
 	ErrorHandler eh;
+	deque<Token> fifoTokens;
 public:
 	Lexer(XMLsourse*);
 	~Lexer();
 	
-	Token nextToken(bool = false);
+	Token nextToken();
+	Token getText();
+	Token seeToken();
+	Token getToken();
 	char processPredef();
 };
 

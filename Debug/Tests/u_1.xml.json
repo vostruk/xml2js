@@ -3,14 +3,14 @@
 "@value":"\"File\"",
 "popup":{
 "menuitem":[{
-"@value":"New&Old",
-"@onclick":"CreateNewDoc()"
+"@value":"Close",
+"@onclick":"CloseDoc()"
 },{
 "@value":"Open",
 "@onclick":"OpenDoc()"
 },{
-"@value":"Close",
-"@onclick":"CloseDoc()"
+"@value":"New&Old",
+"@onclick":"CreateNewDoc()"
 }],
 "#text":"Some text with < element&'sign' >"
 }

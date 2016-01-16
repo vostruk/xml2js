@@ -37,22 +37,25 @@ void UI::startUI() //indegrates all methods below
 			XMLsourse sourse(filename);
 			Lexer lexer(&sourse);
 			Token t = lexer.nextToken();
+			std::cout << "Press 'q' and Enter to quit. Press Enter to see next token\n";
 			while (t.type != ENDofFILE)
 			{
 				if (t.type == simpleTEXT&&!all_of(t.value.begin(), t.value.end(), iswspace))
 				{
-					std::cout << t.type << t.value << endl;
+					std::cout << t.type <<"     "<< t.value << endl;
 					t = lexer.nextToken();
 				}
 				else if (t.type == closeTag || t.type == closeEmptyTag)
 				{
-					std::cout << t.type << t.value << endl;
-					t = lexer.nextToken(true);
+					std::cout << t.type << "     " << t.value << endl;
+					t = lexer.getText();
 				}else if(t.type!=simpleTEXT){
-					std::cout << t.type << t.value << endl;
+					std::cout << t.type << "     " << t.value << endl;
 					t = lexer.nextToken();
 				}
 				else t = lexer.nextToken();
+				char c = getchar();
+				if (c == 'q') break;
 			}
 		}break;
 		case '3':
