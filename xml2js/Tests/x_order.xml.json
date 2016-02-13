@@ -1,0 +1,40 @@
+{"Order":{
+"@xmlns":"http://www.example.com/myschema.xml",
+"Receipt":{
+"Total":"$58.18",
+"Tax":"$4.43",
+"Subtotal":"$53.75"
+},
+"Manifest":{
+"Item":[{
+"UnitPrice":"$10.75",
+"Quantity":"1",
+"Title":"I Think Not: Dukes Likeness to the Federation Insignia",
+"ID":"210"
+},{
+"UnitPrice":"$10.75",
+"Quantity":"1",
+"Title":"Web Servers for Fun and Profit",
+"ID":"202"
+},{
+"UnitPrice":"$10.75",
+"Quantity":"1",
+"Title":"Making the Transition from C++ to the Java(tm) Language",
+"ID":"204"
+},{
+"UnitPrice":"$10.75",
+"Quantity":"1",
+"Title":"100% Pure: Making Cross Platform Deployment a Reality",
+"ID":"208"
+},{
+"UnitPrice":"$10.75",
+"Quantity":"1",
+"Title":"Duke: A Biography of the Java Evangelist",
+"ID":"209"
+}]
+},
+"Customer":{
+"Cardnum":"234 234 234 234",
+"Name":"Bill Buckram"
+}
+}}

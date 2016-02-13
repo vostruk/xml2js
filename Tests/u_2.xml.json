@@ -1,0 +1,26 @@
+{"widget":{
+"text":{
+"@data":"Click Here",
+"@size":"36",
+"@style":"bold",
+"onMouseUp":"sun1.opacity = (sun1.opacity / 100) * 90;",
+"alignment":"center",
+"vOffset":"100",
+"hOffset":"250",
+"name":"text1"
+},
+"image":{
+"@src":"Images/Sun.png",
+"@name":"sun1",
+"alignment":"center",
+"vOffset":"250",
+"hOffset":"250"
+},
+"window":{
+"@title":"Sample Konfabulator Widget",
+"height":"500",
+"width":"500",
+"name":"main_window"
+},
+"debug":"on"
+}}

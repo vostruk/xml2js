@@ -1,0 +1,3 @@
+<el arg=' quote " is allowed in xml, but not in JSON'> 
+<p>putting "  "   " signs in text need special formating before converting to JSON!</p> 
+<p>What about predefine &quot; sign? One more &quot; </p></el>

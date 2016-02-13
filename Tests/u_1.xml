@@ -1,0 +1,8 @@
+<menu id="file" value="&quot;File&quot;">
+  <popup>
+    <menuitem value="New&amp;Old" onclick="CreateNewDoc()" />
+    <menuitem value="Open" onclick="OpenDoc()" />
+    <menuitem value="Close" onclick="CloseDoc()" />
+	Some text with &lt; element&amp;&apos;sign&apos; &gt;
+  </popup>
+</menu>

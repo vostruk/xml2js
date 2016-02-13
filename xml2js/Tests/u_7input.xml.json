@@ -1,0 +1,15 @@
+{"ol":{
+"@class":"xoxo",
+"li":[{
+"ol":{
+"@compact":"compact",
+"li":["subpoint d","subpoint c"]
+},
+"span":"Subject 2"
+},{
+"ol":{
+"li":["subpoint b","subpoint a"]
+},
+"#text":"Subject 1"
+}]
+}}
