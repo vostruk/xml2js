@@ -13,8 +13,6 @@ UI::~UI()
 void UI::startUI() //indegrates all methods below
 {
 	cout << "Welcome to XML to JSON translator"<<endl;
-	//petla dzialan tutaj
-	//cout << "Print 'help' to display the help. Print 'exit' to exit the program" << endl;
 	showHelp();
 	char task;
 
