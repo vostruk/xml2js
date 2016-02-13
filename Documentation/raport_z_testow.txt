@@ -1,0 +1,16 @@
+﻿W celu sprawdzenia poprawności działania aplikacji było przeprowadzono:
+- 8 testów jednostkowych
+- 9 testów funkcjonalnych
+- 11 testów ogólnych
+
+Wszystkie testy zakończono pomyślnie. Otrzymany wynik zgodny z oczekiwaniami.
+
+Testy znajdują się w podkatalogu "xml2js\Debug\Tests\".
+
+Dla automatycznego testowania aplikacji użyto skryptu runTests.py.
+Testowanie przeprowadzono dla dwóch systemów operacyjnych: Windows oraz Linux.
+Dla uruchomienia sktyptu na swoim komputerze proszę uruchomić plik:
+- runTests.bat dla Windowsa
+- runTests.sh dla Linuxa
+Powyższe pliki znajdują się w podkatalogu "xml2js\Debug\".
+
